@@ -1,0 +1,23 @@
+#!/usr/bin/python
+
+# get_matches_singles.py
+# Authors: C. Clayton Violand & Jessica E. Grasso
+
+def get_stats_singles(dcons, tuples):
+	# tuples is a list of tuples (tweet, discourse_connector)
+	dcons_dict = dict()
+	for dc in dcons:
+		if dc.type == "single":
+			dcons_dict[dc] = 0
+	
+	for t,d in tuples:
+		# increment count in dictionary for each discourse connective
+		dcons_dict[d] += 1
+	
+	# total number of dc's is the sum of all values in dictionary
+	total = sum(dcons_dict.values())
+	
+	for key in sorted(dcons_dict, key=dcons_dict.get, reverse=True):
+		print key.name, "occurs ", dcons_dict[key], " times, which is ", float(dcons_dict[key])/float(total)*100, " percent."
+	
+	return dcons_dict

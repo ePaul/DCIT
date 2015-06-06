@@ -6,3 +6,4 @@ tweets-threads-withusers-txt
 tweets-txt
 get_dcons.pyc
 get_tweets.pyc
+*.pyc

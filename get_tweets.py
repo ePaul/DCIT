@@ -21,6 +21,7 @@ class Tweet():
 		self.words = tweet["text"].split()
 		self.ats = [ i for i in tweet["text"].split() if i.startswith("@") ]
 		self.hashes = [ i for i in tweet["text"].split() if i.startswith("#") ]
+		self.has_dc = False
 
 #	def __str__(self):
 #		print tweet.id

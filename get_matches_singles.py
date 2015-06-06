@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 
-# get_matches_singles.py
+# get_stats_singles.py
 # Authors: C. Clayton Violand & Jessica E. Grasso
 
-def get_matches_singles():
+def get_matches_singles(tweets, dcons):
 	matches_singles = []
-	word_hit_count = 0
+	word_hit_count = 0	# number of discourse connectives
 	tweet_hit_count = 0
 	tweet_trigger = False
 	for t in tweets:
 		if tweet_trigger == True:
 			tweet_hit_count += 1
+			t.has_dc = True
 		tweet_trigger = False
 		for d in dcons:
 			if d.type == "single":
@@ -32,4 +33,4 @@ def get_matches_singles():
 	print "--------------------------------------------------------------------"
 	print
 
-	return matches_singles
+	return matches_singles, word_hit_count
