@@ -3,7 +3,7 @@
 # get_matches_singles.py
 # Authors: C. Clayton Violand & Jessica E. Grasso
 
-def get_matches_singles():
+def get_matches_singles(tweets, dcons):
 	matches_singles = []
 	word_hit_count = 0
 	tweet_hit_count = 0
@@ -22,7 +22,9 @@ def get_matches_singles():
 	ratio = tweet_hit_count / float(len(tweets))
 
 	print
-	print "--SUMMARY--" 
+	print "--SUMMARY--"
+	print "-----------------------------------"
+	print "Pre-disambiguation"
 	print "-----------------------------------"
 	print "Discourse Connective Type: \"single\""
 	print "--------------------------------------------------------------------"
@@ -30,6 +32,5 @@ def get_matches_singles():
 	print "Found a Discourse Connective in %d out of %d Tweets." % (tweet_hit_count, len(tweets))
 	print "Tweet Saturation is %f." % ratio
 	print "--------------------------------------------------------------------"
-	print
 
 	return matches_singles

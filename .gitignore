@@ -6,3 +6,5 @@ tweets-threads-withusers-txt
 tweets-txt
 get_dcons.pyc
 get_tweets.pyc
+get_matches_phrasals.pyc
+get_matches_singles.pyc

@@ -3,7 +3,7 @@
 # get_matches_phrasals.py
 # Authors: C. Clayton Violand & Jessica E. Grasso
 
-def get_matches_phrasals():
+def get_matches_phrasals(tweets, dcons):
 	matches_phrasals = []
 	word_hit_count = 0
 	tweet_hit_count = 0
@@ -13,8 +13,8 @@ def get_matches_phrasals():
 			tweet_hit_count += 1
 		tweet_trigger = False
 		for d in dcons:
-			if d.type == "single":
-				if d.name in t.words:
+			if d.type == "phrasal":
+				if d.name in t.raw:
 					tweet_trigger = True
 					word_hit_count += 1
 					matches_phrasals.append((t,d))
@@ -22,7 +22,9 @@ def get_matches_phrasals():
 	ratio = tweet_hit_count / float(len(tweets))
 
 	print
-	print "--SUMMARY--" 
+	print "--SUMMARY--"
+	print "-----------------------------------"
+	print "Pre-disambiguation"
 	print "-----------------------------------"
 	print "Discourse Connective Type: \"phrasal\""
 	print "--------------------------------------------------------------------"
@@ -30,6 +32,5 @@ def get_matches_phrasals():
 	print "Found a Discourse Connective in %d out of %d Tweets." % (tweet_hit_count, len(tweets))
 	print "Tweet Saturation is %f." % ratio
 	print "--------------------------------------------------------------------"
-	print
 
 	return matches_phrasals
