@@ -12,9 +12,11 @@ from get_stats_phrasals import get_stats_phrasals
 
 
 def main():
-
 	# Get list of Tweet objects.
 	tweets = tweet_scrape()
+
+	# Get list of Conversations amongst Tweets.
+#	convos = convo_compile(tweets)
 
 	# Get list of Discourse Connective objects.
 	dcons = dcon_scrape()
@@ -23,7 +25,7 @@ def main():
 	matches_singles, num_dc = get_matches_singles(tweets, dcons)
 
 	# Check for occurances of Discourse Connectives (type=="phrasal") in Tweets.
-	#matches_phrasals = get_matches_phrasals(tweets)
+	matches_phrasals = get_matches_phrasals(tweets, dcons)
 
 	# Get some statistics / info about the connectives
 	get_stats_singles(dcons, matches_singles)

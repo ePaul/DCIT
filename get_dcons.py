@@ -10,10 +10,10 @@ import os
 class DiscourseConnective():
 
 	def __init__(self, entry):
-		self.name = entry.find("part").text
-		self.type = entry.part["type"]
-		self.ambi = entry.find("conn_d").text
-		self.relation = entry.find("relation").text
+		self.name = entry.find("part").text.lower()
+		self.type = entry.part["type"].lower()
+		self.ambi = entry.find("conn_d").text.lower()
+		self.relation = entry.find("relation").text.lower()
 
 		if entry.find("integr"):
 			self.position = [ i for i in entry.find("integr").text ]
@@ -32,14 +32,10 @@ class DiscourseConnective():
 #		print type(dcon.relation)
 #		print type(dcon.position)
 #		print type(dcon.ordering)
-#		print
 
 def dcon_scrape():
-
 	file_path = raw_input("Enter the path of XML (connectives) file: ")
-
 	assert os.path.exists(file_path), "File not found: "+str(file_path)
-	f = open(file_path,'r+')
 	print "Using file: " + str(file_path)
 
 	soup = BeautifulSoup(open(file_path), "xml")
@@ -49,7 +45,6 @@ def dcon_scrape():
 	for i in soup.find_all('entry'):
 		dcon = DiscourseConnective(i)
 		dcons.append(dcon)
-
-	f.close()	
-	return dcons
+		
+	return set(dcons)
 	
