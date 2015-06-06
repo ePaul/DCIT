@@ -4,6 +4,8 @@
 # Authors: Jessica E. Grasso & C. Clayton Violand
 
 from bs4 import BeautifulSoup
+import sys
+import os
 
 #class Conversation(object):
 
@@ -29,7 +31,14 @@ class Tweet():
 #		print tweet.hashes
 #		print
 
-def tweet_scrape(file_path = "/Users/clayton/DCIT/tweets-html/conversations-2013-04-01.html"):
+def tweet_scrape():
+
+	file_path = raw_input("Enter the path of HTML (tweets) file: ")
+
+	assert os.path.exists(file_path), "File not found: "+str(file_path)
+	f = open(file_path,'r+')
+	print "Using file: " + str(file_path)
+
 	soup = BeautifulSoup(open(file_path), "html")
 
 	# Creates a list of Tweet objects.
@@ -38,4 +47,5 @@ def tweet_scrape(file_path = "/Users/clayton/DCIT/tweets-html/conversations-2013
 		tweet = Tweet(i)
 		tweets.append(tweet)
 
+	f.close()
 	return tweets
