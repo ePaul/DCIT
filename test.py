@@ -6,7 +6,9 @@ from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
 
 def main():
+
 	# Enter custom html and xml file_paths as function arguments below:
+	# Now they ask for the path. 
 	tweets = tweet_scrape()
 	dcons = dcon_scrape()
 
