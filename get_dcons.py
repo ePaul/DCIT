@@ -35,9 +35,18 @@ class DiscourseConnective():
 
 def dcon_scrape():
 	file_path = raw_input("Enter the path of XML (connectives) file: ")
-	assert os.path.exists(file_path), "File not found: "+str(file_path)
-	print "Using file: " + str(file_path)
 
+	# For testing, so we don't have to type/paste each time
+	# of course, later we will automate this to use all 30 files, but for testing just 1
+	if file_path == 'j':
+		file_path = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
+	#else if file_path == 'c':
+	#	file_path = CLAY, add yours here to save some time when running it!
+	else:
+		assert os.path.exists(file_path), "File not found: "+str(file_path)	
+	
+	print "Using file: " + str(file_path)	
+	
 	soup = BeautifulSoup(open(file_path), "xml")
 
 	# Creates a list of DiscourseConnective objects.

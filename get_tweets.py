@@ -34,8 +34,16 @@ class Tweet():
 #	def __init__(self, sister_tweets)
 
 def tweet_scrape():
-	file_path = raw_input("Enter the path of HTML (tweets) file: ")
-	assert os.path.exists(file_path), "File not found: "+str(file_path)
+	file_path = raw_input("Enter the path of XML (tweets) file: ")
+
+	# For testing, so we don't have to type/paste each time
+	if file_path == 'j':
+		file_path = "/Volumes/TWITTER/DCIT/tweets-xml/conversations-2013-04-01.html"
+	#else if file_path == 'c':
+	#	file_path = CLAY, add yours here to save some time when running it!
+	else:
+		assert os.path.exists(file_path), "File not found: "+str(file_path)
+
 	print "Using file: " + str(file_path)
 
 	soup = BeautifulSoup(open(file_path), "html")
@@ -48,7 +56,7 @@ def tweet_scrape():
 			for i in t.find_all('tweet'):
 				tweet = Tweet(i, thread_tick)
 				tweets.append(tweet)
-				print tweet.convo_id
+				#print tweet.convo_id
 
 	return tweets
 
