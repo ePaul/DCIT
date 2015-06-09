@@ -38,10 +38,11 @@ def dcon_scrape():
 
 	# For testing, so we don't have to type/paste each time
 	# of course, later we will automate this to use all 30 files, but for testing just 1
+	# Nice, Jessica!!!
 	if file_path == 'j':
 		file_path = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
-	#else if file_path == 'c':
-	#	file_path = CLAY, add yours here to save some time when running it!
+	else if file_path == 'c':
+		file_path = "/Users/clayton/DCIT/connectives-xml/dimlex.xml"
 	else:
 		assert os.path.exists(file_path), "File not found: "+str(file_path)	
 	
