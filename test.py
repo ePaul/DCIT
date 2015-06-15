@@ -5,6 +5,7 @@
 
 from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
+#from get_convos import convo_scrape
 from get_matches import get_matches
 from get_stats_singles import get_stats_singles
 from get_stats_phrasals import get_stats_phrasals
@@ -14,7 +15,7 @@ def main():
 	tweets = tweet_scrape()
 
 	# Get list of Conversations amongst Tweets.
-#	convos = convo_compile(tweets)
+#	convos = convo_scrape(tweets)
 
 	# Get list of Discourse Connective objects.
 	dcons = dcon_scrape()

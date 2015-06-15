@@ -25,9 +25,16 @@ def get_matches(tweets, dcons, verbose = False):
 				tweet_trigger = True
 				hit_count_phrasals += 1
 				matches_phrasals.append((t,p))
-				t.words = t.raw.replace(p.name, ' ').split()
+
+				# Remove Phrasals before looking for Singles.
+				########
+				t.raw = t.raw.replace(p.name, '')
+				########
+
 		for s in singles:
-			if s.name in t.words:
+			if s.name in t.raw:
+				print len(t.raw)
+				print
 				tweet_trigger = True
 				hit_count_singles += 1
 				matches_singles.append((t,s))
