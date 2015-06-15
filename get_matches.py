@@ -46,8 +46,8 @@ def get_matches(tweets, dcons, verbose = False):
 		print "Found a Discourse Connective in %d out of %d Tweets." % (tweet_hit_count, len(tweets))
 		print "Tweet Saturation is %f." % ratio
 		print "--------------------------------------------------------------------"
-		print "Discourse Connectives of type = 'single': %d " % matches_singles
-		print "Discourse Connectives of type = 'phrasal: %d" % matches_phrasals
+		print "Discourse Connectives of type = 'single': %d " % len(matches_singles)
+		print "Discourse Connectives of type = 'phrasal: %d" % len(matches_phrasals)
 		print "--------------------------------------------------------------------"
 		print
 
