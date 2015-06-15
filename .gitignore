@@ -6,9 +6,4 @@ tweets-threads-txt
 tweets-threads-withusers-txt
 tweets-txt
 
-get_matches_phrasals.py 
-get_matches_singles.py 
-get_stats_phrasals.py 
-get_stats_singles.py
-
 *.pyc
