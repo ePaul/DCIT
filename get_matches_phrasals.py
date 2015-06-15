@@ -5,19 +5,20 @@
 
 def get_matches_phrasals(tweets, dcons):
 	matches_phrasals = []
-	word_hit_count = 0
+	word_hit_count = 0	# number of discourse connectives
 	tweet_hit_count = 0
 	tweet_trigger = False
 	for t in tweets:
 		if tweet_trigger == True:
 			tweet_hit_count += 1
+			t.has_dc = True
 		tweet_trigger = False
 		for d in dcons:
 			if d.type == "phrasal":
 				if d.name in t.raw:
 					tweet_trigger = True
 					word_hit_count += 1
-					matches_phrasals.append((t,d))
+					matches.append((t,d))
 
 	ratio = tweet_hit_count / float(len(tweets))
 

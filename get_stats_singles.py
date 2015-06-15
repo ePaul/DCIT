@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# get_matches_singles.py
+# get_stats_singles.py
 # Authors: C. Clayton Violand & Jessica E. Grasso
 
 def get_stats_singles(dcons, tuples):

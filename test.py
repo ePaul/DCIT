@@ -5,9 +5,8 @@
 
 from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
-from get_matches_singles import get_matches_singles
-from get_matches_phrasals import get_matches_phrasals
 from get_stats import get_stats
+from get_matches import get_matches
 
 
 def main():
@@ -20,15 +19,11 @@ def main():
 	# Get list of Discourse Connective objects.
 	dcons = dcon_scrape()
 
-	# Check for occurances of Discourse Connectives (type=="single") in Tweets.
-	matches_singles, num_dc = get_matches_singles(tweets, dcons)
-
-	# Check for occurances of Discourse Connectives (type=="phrasal") in Tweets.
-	matches_phrasals = get_matches_phrasals(tweets, dcons)
+	# Get list of matches (tuples) between Discoure Connectives and Tweets.
+	matches = get_matches(tweets, dcons, True)
 
 	# Get some statistics / info about the connectives
 	get_stats(dcons, matches_singles, 10, 'a')
-
 
 if __name__ == "__main__":
 	main()
