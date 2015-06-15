@@ -38,8 +38,8 @@ def tweet_scrape():
 
 	# For testing, so we don't have to type/paste each time
 	if file_path == 'j':
-		file_path = "/Volumes/TWITTER/DCIT/tweets-xml/toy.html"
-	else if file_path == 'c':
+		file_path = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"
+	elif file_path == 'c':
 		file_path = "/Users/clayton/DCIT/tweets-xml/toy.xml"
 	else:
 		assert os.path.exists(file_path), "File not found: "+str(file_path)

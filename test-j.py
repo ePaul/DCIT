@@ -8,8 +8,13 @@ from get_tweets import tweet_scrape
 from get_matches_singles import get_matches_singles
 from get_matches_phrasals import get_matches_phrasals
 from get_stats import get_stats
+from get_convos import convo_scrape
 
+def main():
 
+	convos = convo_scrape()
+
+"""
 def main():
 	# Get list of Tweet objects.
 	tweets = tweet_scrape()
@@ -28,7 +33,7 @@ def main():
 
 	# Get some statistics / info about the connectives
 	get_stats(dcons, matches_singles, 10, 'a')
-
+"""
 
 if __name__ == "__main__":
 	main()

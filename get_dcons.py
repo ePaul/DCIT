@@ -41,7 +41,7 @@ def dcon_scrape():
 	# Nice, Jessica!!!
 	if file_path == 'j':
 		file_path = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
-	else if file_path == 'c':
+	elif file_path == 'c':
 		file_path = "/Users/clayton/DCIT/connectives-xml/dimlex.xml"
 	else:
 		assert os.path.exists(file_path), "File not found: "+str(file_path)	
