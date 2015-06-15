@@ -11,14 +11,13 @@ class Tweet():
 
 	def __init__(self, tweet, thread_tick):
 		self.id = tweet["id"].lower()
+		self.convo_id = thread_tick
 		self.user = tweet["user"].lower()
 		self.depth = tweet["depth"]
 		self.raw = tweet["text"].lower()
 		self.words = [ i.lower() for i in tweet["text"].split() ]
 		self.ats = [ i.lower() for i in tweet["text"].split() if i.startswith("@") ]
 		self.hashes = [ i.lower() for i in tweet["text"].split() if i.startswith("#") ]
-		self.has_dc = False
-		self.convo_id = thread_tick
 
 #	def __str__(self):
 #		print tweet.id
@@ -34,21 +33,22 @@ class Tweet():
 #	def __init__(self, sister_tweets)
 
 def tweet_scrape():
-	file_path = raw_input("Enter the path of XML (tweets) file: ")
+	file_path = raw_input("Enter path of XML (tweets) file: ")
 
+	#################
 	# For testing, so we don't have to type/paste each time
 	if file_path == 'j':
-		file_path = "/Volumes/TWITTER/DCIT/tweets-xml/toy.html"
-	else if file_path == 'c':
+		file_path = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"
+	elif file_path == 'c':
 		file_path = "/Users/clayton/DCIT/tweets-xml/toy.xml"
 	else:
 		assert os.path.exists(file_path), "File not found: "+str(file_path)
-
 	print "Using file: " + str(file_path)
+	#################
 
 	soup = BeautifulSoup(open(file_path), "html")
 
-	# Creates a list of Tweet objects.
+	# Creates list of Tweet objects.
 	tweets = []
 	thread_tick = 0
 	for t in soup.find_all('thread'):
@@ -56,7 +56,6 @@ def tweet_scrape():
 			for i in t.find_all('tweet'):
 				tweet = Tweet(i, thread_tick)
 				tweets.append(tweet)
-				#print tweet.convo_id
 
 	return tweets
 
