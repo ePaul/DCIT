@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
-# test.py
+# test-j.py
 # Authors: C. Clayton Violand & Jessica E. Grasso
 
 from get_dcons import dcon_scrape
@@ -9,10 +9,21 @@ from get_matches_singles import get_matches_singles
 from get_matches_phrasals import get_matches_phrasals
 from get_stats import get_stats
 from get_convos import convo_scrape
-
+ 
 def main():
+	# Get list of Tweet objects.
+	#tweets = tweet_scrape()
 
+	# Get list of conversation pairs
 	convos = convo_scrape()
+	
+	# print convos to file
+	f = open('testing.txt','w')
+	for c in convos:
+		f.write(c.encode('utf8'))
+		f.write('\n')
+	f.close()
+
 
 """
 def main():

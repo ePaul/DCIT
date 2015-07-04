@@ -7,14 +7,8 @@ from bs4 import BeautifulSoup
 import sys
 import os
 
-class Conversation():
-
-	def __init__(self):
-		self.complete = False
-		self.depth = 1
-		
-
 def convo_scrape():
+
 	file_path = raw_input("Enter the path of XML (tweets) file to get convos: ")
 
 	# For testing, so we don't have to type/paste each time
@@ -27,18 +21,31 @@ def convo_scrape():
 
 	print "Using file: " + str(file_path)
 
+	# get pairs
 	soup = BeautifulSoup(open(file_path), "html")
 
-	# Creates a list of Conversation objects.
-	convos = []
-
+	tweetlist = []
 	for thread in soup.find_all('thread'):
-		tlist = []
 		for tweet in thread.find_all('tweet'):
-			tlist.append(tweet)
-			
-	print tlist
-				
+			tweetlist.append(tweet)
 
+	convoPairsList = []
 
-	return convos
+	for t in tweetlist:
+		if t["depth"] != "0":
+			newpair = t.parent["text"] + '\t' + t["text"]
+			convoPairsList.append(newpair)
+
+	# make new soup object and write pairs to xml file
+
+	newsoup = BeautifulSoup(features='xml')
+
+	for p in convoPairsList:
+		newsoup.append(newsoup.new_tag("pair", text=p))
+	
+	# write to file (this will need to be changed)
+	f = open('convoPairs.xml','w')
+	f.write(newsoup.prettify().encode('utf8'))
+	f.close()
+
+	return convoPairsList

@@ -14,10 +14,13 @@ def main():
 	tweets = tweet_scrape()
 
 	# Get list of Conversations amongst Tweets.
-	#convos = convo_compile(tweets)
+	#convos = convo_scrape(tweets)
 
 	# Get list of Discourse Connective objects.
 	dcons = dcon_scrape()
+	
+	for d in dcons:
+		print d.name
 
 	# Get list of matches (tuples) between Discoure Connectives and Tweets.
 	matches = get_matches(tweets, dcons, True)

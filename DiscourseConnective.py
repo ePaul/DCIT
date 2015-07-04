@@ -8,6 +8,8 @@ class DiscourseConnective(object):
 
 	def __init__(self, entry):
 		self.name = entry.find("part").text
+
+		self.part_1 = entry.find_next("part").text
 		self.type = entry.part["type"]
 		self.ambi = entry.find("conn_d").text
 		self.relation = entry.find("relation").text
