@@ -6,16 +6,19 @@
 from bs4 import BeautifulSoup
 import sys
 import os
+import re
 
 class Tweet():
 
 	def __init__(self, tweet, thread_tick):
+		self.original = tweet["text"]
+		self.raw = tweet["text"].lower()
+		self.words = [ i.lower() for i in tweet["text"].split() ]
 		self.id = tweet["id"].lower()
 		self.convo_id = thread_tick
 		self.user = tweet["user"].lower()
 		self.depth = tweet["depth"]
-		self.raw = tweet["text"].lower()
-		self.words = [ i.lower() for i in tweet["text"].split() ]
+		self.has_dc = False
 		self.ats = [ i.lower() for i in tweet["text"].split() if i.startswith("@") ]
 		self.hashes = [ i.lower() for i in tweet["text"].split() if i.startswith("#") ]
 
@@ -27,10 +30,6 @@ class Tweet():
 #		print tweet.words
 #		print tweet.ats
 #		print tweet.hashes
-
-#class Conversation():
-
-#	def __init__(self, sister_tweets)
 
 def tweet_scrape():
 	file_path = raw_input("Enter path of XML (tweets) file: ")
@@ -58,8 +57,3 @@ def tweet_scrape():
 				tweets.append(tweet)
 
 	return tweets
-
-#def convo_compile(tweets):
-	
-#	return convos
-
