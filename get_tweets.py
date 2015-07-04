@@ -6,16 +6,18 @@
 from bs4 import BeautifulSoup
 import sys
 import os
+import re
 
 class Tweet():
 
 	def __init__(self, tweet, thread_tick):
+		self.original = tweet["text"]
+		self.raw = tweet["text"].lower()
+		self.words = [ i.lower() for i in tweet["text"].split() ]
 		self.id = tweet["id"].lower()
 		self.convo_id = thread_tick
 		self.user = tweet["user"].lower()
 		self.depth = tweet["depth"]
-		self.raw = tweet["text"].lower()
-		self.words = [ i.lower() for i in tweet["text"].split() ]
 		self.has_dc = False
 		self.ats = [ i.lower() for i in tweet["text"].split() if i.startswith("@") ]
 		self.hashes = [ i.lower() for i in tweet["text"].split() if i.startswith("#") ]

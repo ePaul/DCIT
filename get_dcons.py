@@ -10,8 +10,13 @@ import os
 class DiscourseConnective():
 
 	def __init__(self, entry):
-		self.name = entry.find("part").text.lower()
+		self.part_one = entry.find("part").text.lower()
+		try: 
+			self.part_two = entry.find("orth").findAll("part")[1].text.lower()
+		except:
+			self.part_two = None
 		self.type = entry.part["type"].lower()
+		self.sep = entry.orth["type"].lower()
 		self.ambi = entry.find("conn_d").text.lower()
 		self.relation = entry.find("relation").text.lower()
 
