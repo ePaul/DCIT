@@ -30,6 +30,9 @@ class DiscourseConnective():
 		else:
 			self.ordering = None
 
+		if self.ambi = "1":
+			self.schneiderpos = None
+
 #	def __str__(self):
 #		print type(dcon.name)
 #		print type(dcon.type)
