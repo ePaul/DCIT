@@ -10,36 +10,30 @@ import os
 class DiscourseConnective():
 
 	def __init__(self, entry):
-		self.part_one = entry.find("part").text.lower()
-		try: 
-			self.part_two = entry.find("orth").findAll("part")[1].text.lower()
-		except:
-			self.part_two = None
 		self.type = entry.part["type"].lower()
 		self.sep = entry.orth["type"].lower()
 		self.ambi = entry.find("conn_d").text.lower()
 		self.relation = entry.find("relation").text.lower()
 
-		if entry.find("integr"):
-			self.position = [ i for i in entry.find("integr").text ]
+		# TODO: Expand to include all orthographies from dimlex file (right now only standard (first) ortho entry.
+		# IDEA : self.part_one and self.part_two will be lists of strings, not strings.
+
+		self.part_one = entry.findAll("orth")[0].text.lower()
+
+		if self.sep == 'discont':
+			self.part_two = entry.find("orth").findAll("part")[1].text.lower()
 		else:
+			self.part_two = None
+
+		try:
+			self.position = [ i.text.lower() for i in entry.findChildren("integr") ]
+		except:
 			self.position = None
 
-		if entry.find("ordering"):
-			self.ordering = [ i for i in entry.find("ordering").text ]
-		else:
+		try:
+			self.ordering = [ i.text.lower() for i in entry.findChildren("ordering") ]
+		except:
 			self.ordering = None
-
-		if self.ambi = "1":
-			self.schneiderpos = None
-
-#	def __str__(self):
-#		print type(dcon.name)
-#		print type(dcon.type)
-#		print type(dcon.ambi)
-#		print type(dcon.relation)
-#		print type(dcon.position)
-#		print type(dcon.ordering)
 
 def dcon_scrape():
 	file_path = raw_input("Enter path of XML (connectives) file: ")
@@ -50,7 +44,7 @@ def dcon_scrape():
 	if file_path == 'j':
 		file_path = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
 	elif file_path == 'c':
-		file_path = "/Users/clayton/DCIT/connectives-xml/dimlex.xml"
+		file_path = "/home/clayton/bin/DCIT/connectives-xml/dimlex.xml"
 	else:
 		assert os.path.exists(file_path), "File not found: "+str(file_path)	
 	print "Using file: " + str(file_path)	

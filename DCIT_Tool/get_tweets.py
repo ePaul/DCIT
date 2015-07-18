@@ -22,15 +22,6 @@ class Tweet():
 		self.ats = [ i.lower() for i in tweet["text"].split() if i.startswith("@") ]
 		self.hashes = [ i.lower() for i in tweet["text"].split() if i.startswith("#") ]
 
-#	def __str__(self):
-#		print tweet.id
-#		print tweet.user
-#		print tweet.depth
-#		print tweet.raw
-#		print tweet.words
-#		print tweet.ats
-#		print tweet.hashes
-
 def tweet_scrape():
 	file_path = raw_input("Enter path of XML (tweets) file: ")
 
@@ -39,7 +30,7 @@ def tweet_scrape():
 	if file_path == 'j':
 		file_path = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"
 	elif file_path == 'c':
-		file_path = "/Users/clayton/DCIT/tweets-xml/toy.xml"
+		file_path = "/home/clayton/bin/DCIT/tweets-xml/toy.xml"
 	else:
 		assert os.path.exists(file_path), "File not found: "+str(file_path)
 	print "Using file: " + str(file_path)
