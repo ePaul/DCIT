@@ -5,22 +5,25 @@
 
 from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
-from get_convos import convo_scrape
+from get_convoPairs import convoPair_scrape
 from get_matches import get_matches
 from get_stats import get_stats
 
 def main ():
-	# Get list of Discourse Connective objects.
+	# Get list of Discourse Connective objects. (extract from dimlex.xml)
 	dcons = dcon_scrape()
 
-	# Get list of Tweet objects.
+	# Get list of Tweet objects. (extract from file)
 	tweets = tweet_scrape()
 
 	# Get list of Conversations amongst Tweets.
-#	convos = convo_scrape()
+	convoPairs = convoPair_scrape()
 	
 	# Get list of matches (tuples) between Discoure Connectives and Tweets.
-	matches = get_matches(tweets, dcons, True)
+	matches_tweets = get_matches(tweets, dcons, True)
+	
+	# Matches should work with conversation pairs, too, since that class now has a self.raw
+	matches_convoPairs = get_matches(convoPairs, dcons, True)
 
 	# Get some statistics / info about the connectives
 	# Add funcitonality to display ambiguous tweets and their surroudnding contexts (ambiguous analysis).
