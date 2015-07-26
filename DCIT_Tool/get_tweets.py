@@ -38,25 +38,27 @@ def tweet_scrape(file_path_argument=0):
 		file_path = raw_input("Enter the path of XML (tweets) file to get convo pairs: ")
 	
 		# For testing, so we don't have to type/paste each time
+		if file_path == 'r': # 'r' for "relative" path
+			file_path_list = [ "../tweets-xml/toy.xml" ]
 		if file_path == 'j':
-			file_path = ["/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"]
+			file_path_list = ["/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"]
 		elif file_path == 'c':
-			file_path = ["/home/clayton/bin/DCIT/tweets-xml/toy.xml"]
+			file_path_list = ["/home/clayton/bin/DCIT/tweets-xml/toy.xml"]
 		else:
 			file_path_list = [file_path]
 
-	# if argument was string, make into list
-	elif not isinstance(file_path_argument, list):
-		file_path_list = [file_path_argument]
-	
 	# list passed to function as argument, just rename	
-	else: 
+	elif isinstance(file_path_argument, list):
 		file_path_list = file_path_argument
+	
+	# if argument was string (or anything else), make it into list
+	else: 
+		file_path_list = [file_path_argument]
 		
 	# check if all files in list exist
 	for f in file_path_list:
-		assert os.path.exists(f), "File not found: "+str(f)	
-	print "Using files: " + str(file_path_list)		
+		assert os.path.exists(f), "File not found: "+str(f)
+	print "Using files: " + str(file_path_list)
 
 
 	for f in file_path_list:

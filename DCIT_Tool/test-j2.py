@@ -10,9 +10,10 @@ from get_matches import get_matches
 from get_stats import get_stats
 
 def main ():
-	filepath_dimlex_j = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
+	filepath_dimlex_j = "../connectives-xml/dimlex.xml"
 #	filepath_toytweets_j = "/media/jeg/TWITTER/DCIT/tweets-xml/toy.xml"
-	filepath_toytweets_j = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"	
+#	filepath_toytweets_j = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"
+	filepath_toytweets_j = "../tweets-xml/toy.xml"	
 	
 	# Get list of Discourse Connective objects. (extract from dimlex.xml)	
 	dcons = dcon_scrape(filepath_dimlex_j)
