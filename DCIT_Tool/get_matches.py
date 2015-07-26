@@ -21,8 +21,10 @@ def get_matches(tweets, dcons, verbose = False, write_xml = False):
 
 	tweet_hit_count = 0		# number of Tweets containing a Discourse Connective.
 	tweet_trigger = False
+	tweet_count = 0
 
 	for t in tweets:
+		tweet_count += 1
 		tweet_trigger = False
 		for k in separables:
 			if (" " + k.part_one + " ") in t.raw and (" " + k.part_two + " ") in t.raw and t.raw.find(k.part_one) < t.raw.find(k.part_two):
@@ -59,7 +61,7 @@ def get_matches(tweets, dcons, verbose = False, write_xml = False):
 	
 	matches = matches_singles + matches_phrasals + matches_separables
 	hit_count = hit_count_singles + hit_count_phrasals + hit_count_separables
-	ratio = tweet_hit_count / float(len(tweets))
+	ratio = tweet_hit_count / float(tweet_count)
 
 	ambiguous_cases = []
 	ambiguous_singles = []
@@ -82,7 +84,7 @@ def get_matches(tweets, dcons, verbose = False, write_xml = False):
 	facts_phrasals = Counter(ambiguous_phrasals)
 	facts_separables = Counter(ambiguous_separables)
 
-# testing disambiguation
+# testing disambiguation ??
 
 	if verbose:
 		print
@@ -92,8 +94,8 @@ def get_matches(tweets, dcons, verbose = False, write_xml = False):
 		print		
 		print "I. Pre-disambiguation: all matches."
 		print "--------------------------------------------------------------------"
-		print "Found %d potential Discourse Connective matches amongst %d Tweets." % (hit_count, len(tweets))
-		print "Found a potential Discourse Connective in %d out of %d Tweets." % (tweet_hit_count, len(tweets))
+		print "Found %d potential Discourse Connective matches amongst %d Tweets." % (hit_count, tweet_count)
+		print "Found a potential Discourse Connective in %d out of %d Tweets." % (tweet_hit_count, tweet_count)
 		print "Potential Discourse Connective Saturation is %f." % ratio
 		print "--------------------------------------------------------------------"
 		print "of type = 'continuous single': %d " % len(matches_singles)
