@@ -17,12 +17,13 @@ def main ():
 
 	# Get list of Tweet objects. (extract from files)
 	tweets = tweet_scrape(filepath_toytweets_j)
-
-	# Get list of Conversations amongst Tweets.
-	convoPairs = convoPair_scrape(filepath_toytweets_j)
 	
 	# Get list of matches (tuples) between Discoure Connectives and Tweets.
 	matches_tweets = get_matches(all_tweets, dcons, True)
+
+
+	# Get list of Conversations amongst Tweets.
+	convoPairs = convoPair_scrape(filepath_toytweets_j)
 	
 	# Matches should work with conversation pairs, too, since that class now has a self.raw
 	matches_convoPairs = get_matches(all_convoPairs, dcons, True)

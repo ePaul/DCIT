@@ -6,36 +6,33 @@
 from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
 from get_convoPairs import convoPair_scrape
-from get_matches import get_matches
+from get_matches_new import get_matches_new
 from get_stats import get_stats
+from get_info import Info
 
 def main ():
 	filepath_dimlex_j = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
 	filepath_tweetdirectory_j = "/Volumes/TWITTER/DCIT/tweets-xml/"
-	#filepath_dimlex_j =
-	#filepath_tweetdirectory_j =
+	filepath_toydirectory_j = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"
 	
 	# Get list of Discourse Connective objects. (extract from dimlex.xml)	
 	dcons = dcon_scrape(filepath_dimlex_j)
 
-	# json-tweets-2013-04-01.xml
-
+	days = []
 	for i in range(1, 31): # 1 to 30
 		if i < 10:
 			day = "json-tweets-2013-04-0" + str(i) + ".xml"
 		else:
 			day = "json-tweets-2013-04-" + str(i) + ".xml"
+		days.append(day)
 
-		# Get list of Tweet objects. (extract from file)
-		daytweets = tweet_scrape(filepath_tweetdirectory_j + day)
-		matches_tweets = get_matches(daytweets, dcons, info, True)
+	tweetinfo = Info()
+
+	# Get list of Tweet objects. (extract from file)
+	tweets = tweet_scrape(filepath_toydirectory_j)
+	matches = get_matches_new(tweets, dcons, tweetinfo)
 		
-		
-
-	# Get list of Conversations amongst Tweets.
-	# convoPairs = convoPair_scrape(filepath_toytweets_j)
-
+	tweetinfo.summary()
 
 if __name__ == "__main__":
 	main()
-	
