@@ -29,14 +29,17 @@ def main (use_list=False):
 	    print "converting tweets iterator into a list!"
 	    tweets = list(tweets)
 
+	# Get list of matches (tuples) between Discoure Connectives and Tweets.
+	matches_tweets = get_matches(tweets, dcons, True)
+
+
+
 	# Get list of Conversations amongst Tweets.
 	convoPairs = convoPair_scrape(filepath_toytweets_j)
 	
-	# Get list of matches (tuples) between Discoure Connectives and Tweets.
-	matches_tweets = get_matches(tweets, dcons, True)
-	
 	# Matches should work with conversation pairs, too, since that class now has a self.raw
 	matches_convoPairs = get_matches(convoPairs, dcons, True)
+
 
 	# Get some statistics / info about the connectives
 	# Add funcitonality to display ambiguous tweets and their surroudnding contexts (ambiguous analysis).
