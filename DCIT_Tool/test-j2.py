@@ -3,13 +3,14 @@
 # test.py
 # Authors: C. Clayton Violand & Jessica E. Grasso
 
+import sys
 from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
 from get_convoPairs import convoPair_scrape
 from get_matches import get_matches
 from get_stats import get_stats
 
-def main ():
+def main (use_list=False):
 	filepath_dimlex_j = "../connectives-xml/dimlex.xml"
 #	filepath_toytweets_j = "/media/jeg/TWITTER/DCIT/tweets-xml/toy.xml"
 #	filepath_toytweets_j = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"
@@ -20,9 +21,13 @@ def main ():
 
 	# Get iterator of Tweet objects. (extract from files)
 	
+	tweets = tweet_scrape(filepath_toytweets_j)
+	
 	# now turning it back into a list, because something was going wrong with the iterator -- this 
 	# works as before but does not solve the memory problem
-	tweets = list(tweet_scrape(filepath_toytweets_j))
+	if use_list:
+	    print "converting tweets iterator into a list!"
+	    tweets = list(tweets)
 
 	# Get list of Conversations amongst Tweets.
 	convoPairs = convoPair_scrape(filepath_toytweets_j)
@@ -42,7 +47,9 @@ def main ():
 	#get_stats(dcons, matches_tweets, 10, 'a')
 
 if __name__ == "__main__":
-	main()
+	#print sys.argv
+	use_list = ("--list" in sys.argv)
+	main(use_list)
 	
 '''
 
