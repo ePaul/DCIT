@@ -1,0 +1,158 @@
+with list(...):
+
+--SUMMARY--
+NOTE: analysis done over one day of tweets (toy.xml).
+--------------------------------------------------------------------
+
+I. Pre-disambiguation: all matches.
+--------------------------------------------------------------------
+Found 416 potential Discourse Connective matches amongst 109 Tweets.
+Found a potential Discourse Connective in 100 out of 109 Tweets.
+Potential Discourse Connective Saturation is 0.917431.
+--------------------------------------------------------------------
+of type = 'continuous single': 412 
+of type = 'continuous phrasal: 3
+of type = 'discontinuous': 1 
+--------------------------------------------------------------------
+
+II. Pre-disambiguation: ambiguous matches.
+--------------------------------------------------------------------
+Found 363 ambiguous cases amongst 416 matches.
+--------------------------------------------------------------------
+of type = 'continuous single': 360 
+of type = 'continuous phrasal: 2
+of type = 'discontinuous': 1 
+--------------------------------------------------------------------
+
+
+without list(...):
+
+--SUMMARY--
+NOTE: analysis done over one day of tweets (toy.xml).
+--------------------------------------------------------------------
+
+I. Pre-disambiguation: all matches.
+--------------------------------------------------------------------
+Found 697 potential Discourse Connective matches amongst 105 Tweets.
+Found a potential Discourse Connective in 104 out of 105 Tweets.
+Potential Discourse Connective Saturation is 0.990476.
+--------------------------------------------------------------------
+of type = 'continuous single': 687 
+of type = 'continuous phrasal: 8
+of type = 'discontinuous': 2 
+--------------------------------------------------------------------
+
+II. Pre-disambiguation: ambiguous matches.
+--------------------------------------------------------------------
+Found 604 ambiguous cases amongst 697 matches.
+--------------------------------------------------------------------
+of type = 'continuous single': 596 
+of type = 'continuous phrasal: 6
+of type = 'discontinuous': 2 
+--------------------------------------------------------------------
+
+
+##########################################################################
+
+without list:
+
+--SUMMARY--
+NOTE: analysis done over one day of tweets (toy.xml).
+--------------------------------------------------------------------
+
+I. Pre-disambiguation: all matches.
+--------------------------------------------------------------------
+Found 416 potential Discourse Connective matches amongst 109 Tweets.
+Found a potential Discourse Connective in 100 out of 109 Tweets.
+Potential Discourse Connective Saturation is 0.917431.
+--------------------------------------------------------------------
+of type = 'continuous single': 412 
+of type = 'continuous phrasal: 3
+of type = 'discontinuous': 1 
+--------------------------------------------------------------------
+
+II. Pre-disambiguation: ambiguous matches.
+--------------------------------------------------------------------
+Found 363 ambiguous cases amongst 416 matches.
+--------------------------------------------------------------------
+of type = 'continuous single': 360 
+of type = 'continuous phrasal: 2
+of type = 'discontinuous': 1 
+--------------------------------------------------------------------
+
+
+--SUMMARY--
+NOTE: analysis done over one day of tweets (toy.xml).
+--------------------------------------------------------------------
+
+I. Pre-disambiguation: all matches.
+--------------------------------------------------------------------
+Found 697 potential Discourse Connective matches amongst 105 Tweets.
+Found a potential Discourse Connective in 104 out of 105 Tweets.
+Potential Discourse Connective Saturation is 0.990476.
+--------------------------------------------------------------------
+of type = 'continuous single': 687 
+of type = 'continuous phrasal: 8
+of type = 'discontinuous': 2 
+--------------------------------------------------------------------
+
+II. Pre-disambiguation: ambiguous matches.
+--------------------------------------------------------------------
+Found 604 ambiguous cases amongst 697 matches.
+--------------------------------------------------------------------
+of type = 'continuous single': 596 
+of type = 'continuous phrasal: 6
+of type = 'discontinuous': 2 
+--------------------------------------------------------------------
+
+
+with list:
+
+--SUMMARY--
+NOTE: analysis done over one day of tweets (toy.xml).
+--------------------------------------------------------------------
+
+I. Pre-disambiguation: all matches.
+--------------------------------------------------------------------
+Found 416 potential Discourse Connective matches amongst 109 Tweets.
+Found a potential Discourse Connective in 100 out of 109 Tweets.
+Potential Discourse Connective Saturation is 0.917431.
+--------------------------------------------------------------------
+of type = 'continuous single': 412 
+of type = 'continuous phrasal: 3
+of type = 'discontinuous': 1 
+--------------------------------------------------------------------
+
+II. Pre-disambiguation: ambiguous matches.
+--------------------------------------------------------------------
+Found 363 ambiguous cases amongst 416 matches.
+--------------------------------------------------------------------
+of type = 'continuous single': 360 
+of type = 'continuous phrasal: 2
+of type = 'discontinuous': 1 
+--------------------------------------------------------------------
+
+
+--SUMMARY--
+NOTE: analysis done over one day of tweets (toy.xml).
+--------------------------------------------------------------------
+
+I. Pre-disambiguation: all matches.
+--------------------------------------------------------------------
+Found 697 potential Discourse Connective matches amongst 105 Tweets.
+Found a potential Discourse Connective in 104 out of 105 Tweets.
+Potential Discourse Connective Saturation is 0.990476.
+--------------------------------------------------------------------
+of type = 'continuous single': 687 
+of type = 'continuous phrasal: 8
+of type = 'discontinuous': 2 
+--------------------------------------------------------------------
+
+II. Pre-disambiguation: ambiguous matches.
+--------------------------------------------------------------------
+Found 604 ambiguous cases amongst 697 matches.
+--------------------------------------------------------------------
+of type = 'continuous single': 596 
+of type = 'continuous phrasal: 6
+of type = 'discontinuous': 2 
+--------------------------------------------------------------------
