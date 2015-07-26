@@ -10,8 +10,8 @@ from get_matches import get_matches
 from get_stats import get_stats
 
 def main ():
-	filepath_dimlex_j = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
-	filepath_tweetdirectory_j = "/Volumes/TWITTER/DCIT/tweets-xml/"
+	filepath_dimlex_j = "../connectives-xml/dimlex.xml"
+	filepath_tweetdirectory_j = "../tweets-xml/"
 	#filepath_dimlex_j =
 	#filepath_tweetdirectory_j =
 	

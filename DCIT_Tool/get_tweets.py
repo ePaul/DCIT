@@ -36,6 +36,8 @@ def tweet_scrape(file_path_argument=0):
 		file_path = raw_input("Enter the path of XML (tweets) file to get convo pairs: ")
 	
 		# For testing, so we don't have to type/paste each time
+		if file_path == 'r': # 'r' for "relative" path
+			file_path =  "../tweets-xml/toy.xml"
 		if file_path == 'j':
 			file_path = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"
 		elif file_path == 'c':

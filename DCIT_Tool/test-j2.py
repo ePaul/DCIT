@@ -10,7 +10,7 @@ from get_matches import get_matches
 from get_stats import get_stats
 
 def main ():
-	filepath_dimlex_j = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
+	filepath_dimlex_j = "../connectives-xml/dimlex.xml"
 
 	# Get list of Discourse Connective objects. (extract from dimlex.xml)	
 	dcons = dcon_scrape(filepath_dimlex_j)
