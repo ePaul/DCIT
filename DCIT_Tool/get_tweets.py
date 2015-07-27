@@ -31,33 +31,41 @@ class Tweet():
 		# word preceded with # (hashtags)
 
 def tweet_scrape(file_path_argument=0):
+# file_path_argument should be a single string or a list of strings
 
-	if file_path_argument==0: # if no argument given
+	 # if no argument given, prompt for file path
+	if file_path_argument==0:
 		file_path = raw_input("Enter the path of XML (tweets) file to get convo pairs: ")
 	
 		# For testing, so we don't have to type/paste each time
 		if file_path == 'r': # 'r' for "relative" path
-			file_path =  "../tweets-xml/toy.xml"
+			file_path_list = [ "../tweets-xml/toy.xml" ]
 		if file_path == 'j':
-			file_path = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"
+			file_path_list = ["/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"]
 		elif file_path == 'c':
-			file_path = "/home/clayton/bin/DCIT/tweets-xml/toy.xml"
+			file_path_list = ["/home/clayton/bin/DCIT/tweets-xml/toy.xml"]
 		else:
-			assert os.path.exists(file_path), "File not found: "+str(file_path)
+			file_path_list = [file_path]
 
-	else: # path passed to function as argument
-		file_path = file_path_argument
-		assert os.path.exists(file_path), "File not found: "+str(file_path)	
+	# list passed to function as argument, just rename	
+	elif isinstance(file_path_argument, list):
+		file_path_list = file_path_argument
+	
+	# if argument was string (or anything else), make it into list
+	else: 
+		file_path_list = [file_path_argument]
+		
+	# check if all files in list exist
+	for f in file_path_list:
+		assert os.path.exists(f), "File not found: "+str(f)
+	print "Using files: " + str(file_path_list)
 
-	print "Using file: " + str(file_path)		
 
-	soup = BeautifulSoup(open(file_path), "html")
-
-	# Creates list of Tweet objects.
-	tweets = []
-	for t in soup.find_all('thread'):
-			for i in t.find_all('tweet'):
-				tweet = Tweet(i)
-				tweets.append(tweet)
-
-	return tweets
+	for f in file_path_list:
+		soup = BeautifulSoup(open(f), "html")
+	
+		# returns instance of tweet object
+		for t in soup.find_all('thread'):
+				for i in t.find_all('tweet'):
+					tweet = Tweet(i)
+					yield tweet # next element of the iterator
