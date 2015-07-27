@@ -10,19 +10,20 @@ from get_matches import get_matches
 from get_stats import get_stats
 
 def main ():
-	filepath_dimlex_j = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
+	filepath_dimlex_j = "../connectives-xml/dimlex.xml"
 
 	# Get list of Discourse Connective objects. (extract from dimlex.xml)	
 	dcons = dcon_scrape(filepath_dimlex_j)
 
 	# Get list of Tweet objects. (extract from files)
 	tweets = tweet_scrape(filepath_toytweets_j)
-
-	# Get list of Conversations amongst Tweets.
-	convoPairs = convoPair_scrape(filepath_toytweets_j)
 	
 	# Get list of matches (tuples) between Discoure Connectives and Tweets.
 	matches_tweets = get_matches(all_tweets, dcons, True)
+
+
+	# Get list of Conversations amongst Tweets.
+	convoPairs = convoPair_scrape(filepath_toytweets_j)
 	
 	# Matches should work with conversation pairs, too, since that class now has a self.raw
 	matches_convoPairs = get_matches(all_convoPairs, dcons, True)
