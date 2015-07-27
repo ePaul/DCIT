@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+##!/usr/bin/env python
 
 # test.py
 # Authors: C. Clayton Violand & Jessica E. Grasso
@@ -11,12 +11,12 @@ from get_stats import get_stats
 from get_info import Info
 
 def main ():
-	filepath_dimlex_j = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
-	filepath_tweetdirectory_j = "/Volumes/TWITTER/DCIT/tweets-xml/"
-	filepath_toydirectory_j = "/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"
+	filepath_dimlex = "../connectives-xml/dimlex.xml"
+	filepath_tweetdirectory = "../tweets-xml/"
+	filepath_toydirectory = "../tweets-xml/toy.xml"
 	
 	# Get list of Discourse Connective objects. (extract from dimlex.xml)	
-	dcons = dcon_scrape(filepath_dimlex_j)
+	dcons = dcon_scrape(filepath_dimlex)
 
 	days = []
 	for i in range(1, 31): # 1 to 30
@@ -29,7 +29,7 @@ def main ():
 	tweetinfo = Info()
 
 	# Get list of Tweet objects. (extract from file)
-	tweets = tweet_scrape(filepath_toydirectory_j)
+	tweets = tweet_scrape(filepath_toydirectory)
 	matches = get_matches_new(tweets, dcons, tweetinfo)
 		
 	tweetinfo.summary()
