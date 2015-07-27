@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+##!/usr/bin/env python
 
 # test.py
 # Authors: C. Clayton Violand & Jessica E. Grasso
@@ -6,32 +6,33 @@
 from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
 from get_convoPairs import convoPair_scrape
-from get_matches import get_matches
+from get_matches_new import get_matches_new
 from get_stats import get_stats
+from get_info import Info
 
 def main ():
-	# Get list of Discourse Connective objects. (extract from dimlex.xml)
-	dcons = dcon_scrape()
+	filepath_dimlex = "../connectives-xml/dimlex.xml"
+	filepath_tweetdirectory = "../tweets-xml/"
+	filepath_toydirectory = "../tweets-xml/toy.xml"
+	
+	# Get list of Discourse Connective objects. (extract from dimlex.xml)	
+	dcons = dcon_scrape(filepath_dimlex)
+
+	days = []
+	for i in range(1, 31): # 1 to 30
+		if i < 10:
+			day = "json-tweets-2013-04-0" + str(i) + ".xml"
+		else:
+			day = "json-tweets-2013-04-" + str(i) + ".xml"
+		days.append(day)
+
+	tweetinfo = Info()
 
 	# Get list of Tweet objects. (extract from file)
-	tweets = tweet_scrape()
-
-	# Get list of Conversations amongst Tweets.
-	convoPairs = convoPair_scrape()
-	
-	# Get list of matches (tuples) between Discoure Connectives and Tweets.
-	matches_tweets = get_matches(tweets, dcons, True)
-	
-	# Matches should work with conversation pairs, too, since that class now has a self.raw
-	matches_convoPairs = get_matches(convoPairs, dcons, True)
-
-	# Get some statistics / info about the connectives
-	# Add funcitonality to display ambiguous tweets and their surroudnding contexts (ambiguous analysis).
-	# how many are schneider1s. How many are schneider2s. how many schneider1s can be resolved.
-	# trigrams of ambiguous.
-	# sentenc position of ambiguous.
-	# IN SUMMATION: pull out features that we can use to disambiguate.
-#	get_stats(dcons, matches, 10, 'a')
+	tweets = tweet_scrape(filepath_toydirectory)
+	matches = get_matches_new(tweets, dcons, tweetinfo)
+		
+	tweetinfo.summary()
 
 if __name__ == "__main__":
 	main()
