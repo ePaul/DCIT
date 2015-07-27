@@ -28,9 +28,7 @@ def main ():
 
 		# Get list of Tweet objects. (extract from file)
 		daytweets = tweet_scrape(filepath_tweetdirectory_j + day)
-		matches_tweets = get_matches(daytweets, dcons, info, True)
-		
-		
+		matches_tweets = get_matches(daytweets, dcons, info, True)		
 
 	# Get list of Conversations amongst Tweets.
 	# convoPairs = convoPair_scrape(filepath_toytweets_j)
