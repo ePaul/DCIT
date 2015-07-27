@@ -5,61 +5,85 @@
 
 from collections import Counter
 from disambiguate import disambiguate
+import get_info
 
-def get_matches(tweets, dcons, verbose = False, write_xml = False):
-	separables = [i for i in dcons if i.sep == "discont"]
-	matches_separables = []
-	hit_count_separables = 0 # number of discontinuous Discourse Connectives
+def get_matches_new(tweets, dcons, info):
+	discontins = [i for i in dcons if i.sep == "discont"]
+	hit_count_discontins = 0 # number of discontinuous Discourse Connectives
 
-	phrasals = [i for i in dcons if i.type == "phrasal" and i.sep == "cont"]
-	matches_phrasals = []
-	hit_count_phrasals = 0	# number of phrasal Discourse Connectives
-
-	singles = [i for i in dcons if i.type == "single" and i.sep == "cont"]
-	matches_singles = []
-	hit_count_singles = 0	# number of single Discourse Connectives
-
-	tweet_hit_count = 0		# number of Tweets containing a Discourse Connective.
+	contins = [i for i in dcons if i.sep == "cont"]
+	hit_count_contins = 0 # number of discontinuous Discourse Connectives
+	
+	tweet_count = 0		# number of Tweets seen so far
+	tweet_hit_count = 0	# number of Tweets containing a Discourse Connective.
 	tweet_trigger = False
 
 	for t in tweets:
+		tweet_count += 1
 		tweet_trigger = False
-		for k in separables:
-			if (" " + k.part_one + " ") in t.raw and (" " + k.part_two + " ") in t.raw and t.raw.find(k.part_one) < t.raw.find(k.part_two):
-				tweet_trigger = True
-				hit_count_separables += 1
-				matches_separables.append((t,k))
+		
+		# DISCONTINUOUS CASES
+		for i in discontins:
+			if i.type_part_one == "phrasal" and i.type_part_two == "single":
+				if (" " + i.part_one + " ") in t.raw and (" " + i.part_two + " ") in t.raw and t.raw.find(i.part_one) < t.raw.find(i.part_two):
+					tweet_trigger = True
+					hit_count_discontins += 1
+					# Remove found cases.
+					t.raw = t.raw.replace(i.part_one, '')
+					t.raw = t.raw.replace(i.part_two, '')
 
-				# Remove Separables before looking for Continuous (Phrasals and Singles).
-				########
-				t.raw = t.raw.replace(k.part_one, '')
-				t.raw = t.raw.replace(k.part_two, '')
-				########
+			# Switch Scenario.
+			elif i.type_part_one == "single" and i.type_part_two == "phrasal":
+				if (" " + i.part_one + " ") in t.raw and (" " + i.part_two + " ") in t.raw and t.raw.find(i.part_one) < t.raw.find(i.part_two):
+					tweet_trigger = True
+					hit_count_discontins += 1
+					# Remove found cases.
+					t.raw = t.raw.replace(i.part_one, '')
+					t.raw = t.raw.replace(i.part_two, '')
 
-		for p in phrasals:
-			if p.part_one in t.raw:
-				tweet_trigger = True
-				hit_count_phrasals += 1
-				matches_phrasals.append((t,p))
+			elif i.type_part_one == "single" and i.type_part_two == "single":
+				if (" " + i.part_one + " ") in t.raw and (" " + i.part_two + " ") in t.raw and t.raw.find(i.part_one) < t.raw.find(i.part_two):
+					tweet_trigger = True
+					hit_count_discontins += 1
+					# Remove found cases.
+					t.raw = t.raw.replace(i.part_one, '')
+					t.raw = t.raw.replace(i.part_two, '')
 
-				# Remove Phrasals before looking for Singles.
-				########
-				t.raw = t.raw.replace(p.part_one, '')
-				########
-
-		for s in singles:
-			if s.part_one in t.raw:
-				tweet_trigger = True
-				hit_count_singles += 1
-				matches_singles.append((t,s))
+		# CONTINUOUS CASES
+		for j in contins:
+			if j.type_part_one == "phrasal":
+				if j.part_one in t.raw:
+					tweet_trigger = True
+					hit_count_contins += 1
+					# Remove found cases.
+					t.raw = t.raw.replace(j.part_one, '')
+			if j.type_part_one == "single":
+				if j.part_one in t.raw:
+					tweet_trigger = True
+					hit_count_contins += 1
+					# Remove found cases.
+					t.raw = t.raw.replace(j.part_one, '')
 
 		if tweet_trigger == True:
 			tweet_hit_count += 1
 			t.has_dc = True
 	
-	matches = matches_singles + matches_phrasals + matches_separables
-	hit_count = hit_count_singles + hit_count_phrasals + hit_count_separables
-	ratio = tweet_hit_count / float(len(tweets))
+	hit_count = hit_count_contins + hit_count_discontins
+	
+	# update info object	
+	info.dcs_found += hit_count
+	info.tweets += tweet_count
+	info.tweets_with_dcs += tweet_hit_count
+	info.continuous += hit_count_contins
+	info.discontinuous += hit_count_discontins
+		
+	# still missing - store information about most common DCs without lists
+	# perhaps dictionary/ies in the info object that tracks DC and occurance?
+	
+	# also still missing - stats about which are ambiguous
+	
+	'''
+	# these lists are probably going to cause problems!
 
 	ambiguous_cases = []
 	ambiguous_singles = []
@@ -81,46 +105,5 @@ def get_matches(tweets, dcons, verbose = False, write_xml = False):
 	facts_singles = Counter(ambiguous_singles)
 	facts_phrasals = Counter(ambiguous_phrasals)
 	facts_separables = Counter(ambiguous_separables)
+	'''
 
-# testing disambiguation
-
-	if verbose:
-		print
-		print "--SUMMARY--"
-		print "NOTE: analysis done over one day of tweets (toy.xml)."
-		print "--------------------------------------------------------------------"
-		print		
-		print "I. Pre-disambiguation: all matches."
-		print "--------------------------------------------------------------------"
-		print "Found %d potential Discourse Connective matches amongst %d Tweets." % (hit_count, len(tweets))
-		print "Found a potential Discourse Connective in %d out of %d Tweets." % (tweet_hit_count, len(tweets))
-		print "Potential Discourse Connective Saturation is %f." % ratio
-		print "--------------------------------------------------------------------"
-		print "of type = 'continuous single': %d " % len(matches_singles)
-		print "of type = 'continuous phrasal: %d" % len(matches_phrasals)
-		print "of type = 'discontinuous': %d " % len(matches_separables)
-		print "--------------------------------------------------------------------"
-		print		
-		print "II. Pre-disambiguation: ambiguous matches."
-		print "--------------------------------------------------------------------"
-		print "Found %d ambiguous cases amongst %d matches." % (len(ambiguous_cases), hit_count)
-		print "--------------------------------------------------------------------"
-		print "of type = 'continuous single': %d " % len(ambiguous_singles)
-		print "of type = 'continuous phrasal: %d" % len(ambiguous_phrasals)
-		print "of type = 'discontinuous': %d " % len(ambiguous_separables)
-		print "--------------------------------------------------------------------"
-		print
-		print "III. Ambiguity facts."
-		print "--------------------------------------------------------------------"
-		print "**Counts for ambiguous singles**"
-		for i in facts_singles.most_common():
-			print i, facts_singles[i]	
-		print
-		print "**Counts for ambiguous phrasals**"
-		for i in facts_phrasals.most_common():
-			print i, facts_phrasals[i]	
-		print
-		print "**Counts for ambiguous separables**"
-		for i in facts_separables.most_common():
-			print i, facts_separables[i]	
-	return matches

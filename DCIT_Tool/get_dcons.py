@@ -10,33 +10,33 @@ import os
 class DiscourseConnective():
 
 	def __init__(self, entry):
-		self.type = entry.part["type"].lower()	
-		# single or phrasal ()
-		# !! This is not a feature of the DC but of each of its parts !!
-		
+		# CONTINUITIY
 		self.sep = entry.orth["type"].lower()	
-		# cont(inuous) or discont(inuous)
-		self.ambi = entry.find("conn_d").text.lower()
-		# 1 = ambiguous; 2 = not ambiguous
-		self.relation = entry.find("relation").text.lower()
-		# type of connective relation (sequence, elaboration, etc.), often empty
 
 		# TODO: Expand to include all orthographies from dimlex file (right now only standard (first) ortho entry.
 		# IDEA : self.part_one and self.part_two will be lists of strings, not strings.
-		
+
+		# PART ONE
+		self.type_part_one = entry.part["type"].lower()	
 		self.part_one = entry.find("part").text.lower()
 
+		# PART TWO
 		if self.sep == 'discont':
+			self.type_part_two = entry.find("orth").findAll("part")[1]["type"].lower()
 			self.part_two = entry.find("orth").findAll("part")[1].text.lower()
 		else:
+			self.type_part_two = None
 			self.part_two = None
+		
+		# AMBIGUITY
+		self.ambi = entry.find("conn_d").text.lower()
 
-		# what are these two blocks doing?
+		# NOT YET USED FEATURES FROM DIMLEX:
+		self.relation = entry.find("relation").text.lower()
 		try:
 			self.position = [ i.text.lower() for i in entry.findChildren("integr") ]
 		except:
 			self.position = None
-
 		try:
 			self.ordering = [ i.text.lower() for i in entry.findChildren("ordering") ]
 		except:

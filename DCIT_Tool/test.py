@@ -20,7 +20,9 @@ def main ():
 
 	days = []
 	for i in range(1, 31): # 1 to 30
-		if i < 10:
+		if i == 20:
+			continue
+		elif i < 10:
 			day = "json-tweets-2013-04-0" + str(i) + ".xml"
 		else:
 			day = "json-tweets-2013-04-" + str(i) + ".xml"
@@ -30,9 +32,10 @@ def main ():
 
 	# Get list of Tweet objects. (extract from file)
 	tweets = tweet_scrape(filepath_toydirectory)
-	matches = get_matches_new(tweets, dcons, tweetinfo)
+	matches = get_matches(tweets, dcons, tweetinfo)
 		
 	tweetinfo.summary()
 
 if __name__ == "__main__":
 	main()
+

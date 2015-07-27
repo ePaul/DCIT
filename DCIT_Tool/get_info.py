@@ -13,22 +13,13 @@ class Info():
 		self.tweets_with_dcs = 0
 		# how many tweets contain at least one discourse connective
 		
-		# not sure about these categories!
-		
-		self.single_continuous = 0
+		self.continuous = 0
 		# continuous single (aber)
-		self.phrasal_continuous = 0
+		self.disccontinuous = 0
 		# continuous phrasal (abgesehen davon)
-		self.discontinuous = 0
-		# various discontinuous
-		#	 discontinuous single single (auf ... hin)
-		#	 discontinuous phrasal single (aufgrund dessen ... dass )
-		#	 discontinuous single phrasal (sowohl ... als auch)
-		#	 discontinuous phrasal phrasal (? no examples found)
 		
 		# how many of the above are ambiguous
-		self.single_continuous_ambi = 0
-		self.phrasal_continuous_ambi = 0	
+		self.continuous_ambi = 0
 		self.discontinuous_ambi = 0
 		
 	def ratio(self):
@@ -46,8 +37,7 @@ class Info():
 			print "Found a potential Discourse Connective in %d out of %d Tweets." % (self.tweets_with_dcs, self.tweets)
 			print "Potential Discourse Connective Saturation is %f." % self.ratio()
 			print "--------------------------------------------------------------------"
-			print "of type = 'continuous single': %d " % self.single_continuous
-			print "of type = 'continuous phrasal: %d" % self.phrasal_continuous
+			print "of type = 'continuous single': %d " % self.continuous
 			print "of type = 'discontinuous': %d " % self.discontinuous
 			print "--------------------------------------------------------------------"
 			print		
