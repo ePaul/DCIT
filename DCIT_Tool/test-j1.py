@@ -14,7 +14,7 @@ def main ():
 	filepath_tweetdirectory_j = "/Volumes/TWITTER/DCIT/tweets-xml/"
 	#filepath_dimlex_c = "/home/clayton/bin/DCIT/connectives-xml/dimlex.xml"
 	#filepath_tweetdirectory_c = "/home/clayton/bin/DCIT/tweets-xml/"
-	
+
 	# Get list of Discourse Connective objects. (extract from dimlex.xml)	
 	dcons = dcon_scrape(filepath_dimlex_c)
 
@@ -30,6 +30,7 @@ def main ():
 
 		daytweets = tweet_scrape(filepath_tweetdirectory_j + day)
 		matches_tweets = get_matches(daytweets, dcons, info, True)		
+
 
 	# Get list of Conversations amongst Tweets.
 	# convoPairs = convoPair_scrape(filepath_toytweets_j)
