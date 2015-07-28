@@ -23,8 +23,18 @@ class Tweet():
 		# user ID (number)
 		self.depth = tweet["depth"]
 		# depth in conversation
+		
 		self.has_dc = False
 		# does the tweet contain discourse connectives?
+		
+		self.has_ambi_dc = False
+		# does the tweet contain at least one ambiguous DC?  i.e. should we disambiguate?
+		self.ambi_count_discontins = 0
+		self.ambi_count_contins = 0
+		# how many ambiguous DCs are in the tweet
+
+		# is this enough, or do we need to remember where these are?
+
 		self.ats = [ i.lower() for i in tweet["text"].split() if i.startswith("@") ]
 		# words preceded with @ (replies)
 		self.hashes = [ i.lower() for i in tweet["text"].split() if i.startswith("#") ]
