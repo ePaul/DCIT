@@ -6,8 +6,7 @@
 from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
 from get_convoPairs import convoPair_scrape
-from get_matches_new import get_matches_new
-from get_stats import get_stats
+from get_matches import get_matches
 from get_info import Info
 
 def main ():

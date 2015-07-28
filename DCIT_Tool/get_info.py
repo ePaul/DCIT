@@ -15,7 +15,7 @@ class Info():
 		
 		self.continuous = 0
 		# continuous single (aber)
-		self.disccontinuous = 0
+		self.discontinuous = 0
 		# continuous phrasal (abgesehen davon)
 		
 		# how many of the above are ambiguous

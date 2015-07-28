@@ -7,7 +7,7 @@ from collections import Counter
 from disambiguate import disambiguate
 import get_info
 
-def get_matches_new(tweets, dcons, info):
+def get_matches(tweets, dcons, info):
 	discontins = [i for i in dcons if i.sep == "discont"]
 	hit_count_discontins = 0 # number of discontinuous Discourse Connectives
 
