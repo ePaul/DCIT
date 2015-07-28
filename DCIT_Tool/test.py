@@ -7,6 +7,7 @@ from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
 from get_convoPairs import convoPair_scrape
 from get_matches import get_matches
+
 from get_info import Info
 
 def main ():
@@ -27,7 +28,7 @@ def main ():
 			day = "json-tweets-2013-04-" + str(i) + ".xml"
 		days.append(day)
 
-	tweetinfo = Info()
+	tweetinfo = Info(dcons)
 
 	# Get list of Tweet objects. (extract from file)
 	tweets = tweet_scrape(filepath_toydirectory)
