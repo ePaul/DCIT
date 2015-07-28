@@ -55,23 +55,23 @@ class Info():
 			print "Printing top " + str(n) + " continuous connectives:" #, which is " + str(num) + " items:"
 			
 			for key, freq in nlargest(num, self.continuous_dict.iteritems(), key=itemgetter(1)):
-				print "\t", key.part_one, "occurs ", self.continuous_dict[key], " times, which is ", float(self.continuous_dict[key])/float(self.continuous)*100, " percent."
+				print "\t", key.part_one[0], "occurs ", self.continuous_dict[key], " times, which is ", float(self.continuous_dict[key])/float(self.continuous)*100, " percent."
 			
 		elif which_kind == "discontinuous":
 			#num = int(len(self.discontinuous_dict) * (float(percent)/100))
 			print "Printing top " + str(n) + " discontinuous connectives:" #, which is " + str(num) + " items:"	
 			
 			for key, freq in nlargest(num, self.discontinuous_dict.iteritems(), key=itemgetter(1)):
-				print "\t", key.part_one, " ... ", key.part_two, "occurs ", self.discontinuous_dict[key], " times, which is ", float(self.discontinuous_dict[key])/float(self.discontinuous)*100, " percent."
+				print "\t", key.part_one[0], " ... ", key.part_two[0], "occurs ", self.discontinuous_dict[key], " times, which is ", float(self.discontinuous_dict[key])/float(self.discontinuous)*100, " percent."
 			
 		elif which_kind == "ambiguous":
 			#num = int(len(self.ambiguous_dict) * (float(percent)/100))
 			print "Printing top " + str(n) + " ambiguous connectives:" #, which is " + str(num) + " items:"	
 
 			for key, freq in nlargest(num, self.ambiguous_dict.iteritems(), key=itemgetter(1)):
-				print "\t", key.part_one, 
+				print "\t", key.part_one[0], 
 				if key.sep == "continuous":
-					print " ... ", key.part_two,
+					print " ... ", key.part_two[0],
 				print "occurs ", self.ambiguous_dict[key], " times, which is ", float(self.ambiguous_dict[key])/float(self.ambiguous())*100, " percent."
 
 		return

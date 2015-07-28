@@ -9,29 +9,27 @@ import os
 
 class DiscourseConnective():
 
-	def __init__(self, entry):
+	def __init__(self, entry):	
 		# CONTINUITIY
-		self.sep = entry.orth["type"].lower()	
-
-		# TODO: Expand to include all orthographies from dimlex file (right now only standard (first) ortho entry.
-		# IDEA : self.part_one and self.part_two will be lists of strings, not strings.
+		self.sep = entry.orth["type"].lower()
+		self.ortho_blocks = entry.findAll("orth")	
 
 		# PART ONE
-		self.type_part_one = entry.part["type"].lower()	
-		self.part_one = entry.find("part").text.lower()
+		self.type_part_one = [ i.find("part")["type"].lower() for i in self.ortho_blocks ]
+		self.part_one = [ i.find("part").text.lower() for i in self.ortho_blocks ]
 
 		# PART TWO
 		if self.sep == 'discont':
-			self.type_part_two = entry.find("orth").findAll("part")[1]["type"].lower()
-			self.part_two = entry.find("orth").findAll("part")[1].text.lower()
+			self.type_part_two = [ i.findAll("part")[1]["type"].lower() for i in self.ortho_blocks ]
+			self.part_two = [ i.findAll("part")[1].text.lower() for i in self.ortho_blocks ]
 		else:
-			self.type_part_two = None
-			self.part_two = None
+			self.type_part_two = [None]
+			self.part_two = [None]
 		
 		# AMBIGUITY
 		self.ambi = entry.find("conn_d").text.lower()
 
-		# NOT YET USED FEATURES FROM DIMLEX:
+		# NOT YET USED FEATURES:
 		self.relation = entry.find("relation").text.lower()
 		try:
 			self.position = [ i.text.lower() for i in entry.findChildren("integr") ]
