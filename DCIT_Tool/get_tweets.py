@@ -10,7 +10,9 @@ import re
 
 class Tweet():
 
-	def __init__(self, tweet):
+	def __init__(self, tweet, f):
+		self.filename = f
+	
 		self._original = tweet["text"]
 		# original tweet text, not modified
 		self.raw = tweet["text"].lower()
@@ -40,6 +42,7 @@ class Tweet():
 		self.hashes = [ i.lower() for i in tweet["text"].split() if i.startswith("#") ]
 		# word preceded with # (hashtags)
 
+		
 def tweet_scrape(file_path_argument=0):
 # file_path_argument should be a single string or a list of strings
 
@@ -76,6 +79,7 @@ def tweet_scrape(file_path_argument=0):
 	
 		# returns instance of tweet object
 		for t in soup.find_all('thread'):
-				for i in t.find_all('tweet'):
-					tweet = Tweet(i)
-					yield tweet # next element of the iterator
+			for i in t.find_all('tweet'):
+				tweet = Tweet(i,f)
+				yield tweet # next element of the iterator
+

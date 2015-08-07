@@ -8,8 +8,6 @@ from disambiguate import disambiguate
 import get_info
 import xml.etree.cElementTree as ET
 
-outfile = open("output.xml", "a")
-
 #root = ET.Element("html")
 #meta = ET.SubElement(root,"meta")
 #body = ET.SubElement(meta,"body")
@@ -27,7 +25,17 @@ def get_matches(tweets, dcons, info, write = True):
 	total_ambi_discontins = 0
 	total_ambi_contins = 0
 
+	currentfile = ""
 	for t in tweets:	# this is an iterator
+		if t.filename != currentfile:
+			if currentfile != "":			
+				outfile = open(currentfile+"_new.xml")  
+				outfile.write(soup.prettify())
+				outfile.close()
+			currentfile = t.filename
+			soup = BeautifulSoup(open(currentfile), "html")
+		t.id
+
 		tweet_count += 1
 		tweet_trigger = False
 		
