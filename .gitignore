@@ -5,5 +5,7 @@ tweets-sql
 tweets-threads-txt
 tweets-threads-withusers-txt
 tweets-txt
+unused-tweets
 
 *.pyc
+

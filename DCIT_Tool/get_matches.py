@@ -6,8 +6,15 @@
 from collections import Counter
 from disambiguate import disambiguate
 import get_info
+import xml.etree.cElementTree as ET
 
-def get_matches(tweets, dcons, info):
+outfile = open("output.xml", "a")
+
+#root = ET.Element("html")
+#meta = ET.SubElement(root,"meta")
+#body = ET.SubElement(meta,"body")
+
+def get_matches(tweets, dcons, info, write = True):
 	discontins = [i for i in dcons if i.sep == "discont"]
 	hit_count_discontins = 0 # number of discontinuous Discourse Connectives
 
@@ -114,7 +121,12 @@ def get_matches(tweets, dcons, info):
 	
 		total_ambi_discontins += t.ambi_count_discontins
 		total_ambi_contins += t.ambi_count_contins
-	
+
+		test = ET.Element("test_%s" % t.id) 
+		tree = ET.ElementTree(test)
+		newline = "\n"
+		tree.write("outfile")
+
 	hit_count = hit_count_contins + hit_count_discontins
 	
 	# update info object	

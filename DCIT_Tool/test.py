@@ -32,7 +32,7 @@ def main ():
 
 	# Get list of Tweet objects. (extract from file)
 	tweets = tweet_scrape(filepath_toydirectory)
-	matches = get_matches(tweets, dcons, tweetinfo)
+	matches = get_matches(tweets, dcons, tweetinfo, True)
 		
 	tweetinfo.summary()
 
