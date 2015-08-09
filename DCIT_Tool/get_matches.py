@@ -7,6 +7,8 @@ from collections import Counter
 from disambiguate import disambiguate
 import get_info
 import xml.etree.cElementTree as ET
+from bs4 import BeautifulSoup
+
 
 #root = ET.Element("html")
 #meta = ET.SubElement(root,"meta")
@@ -34,11 +36,14 @@ def get_matches(tweets, dcons, info, write = True):
 				outfile.close()
 			currentfile = t.filename
 			soup = BeautifulSoup(open(currentfile), "html")
+		
+		
+		# soup.find(id=str(t.id))
 		t.id
 
 		tweet_count += 1
 		tweet_trigger = False
-		
+
 		# DISCONTINUOUS CASES
 		for i in discontins:
 			for j in range(len(i.ortho_blocks)):
