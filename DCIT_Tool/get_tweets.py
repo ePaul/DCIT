@@ -75,11 +75,12 @@ def tweet_scrape(file_path_argument=0):
 
 
 	for f in file_path_list:
+		file = os.path.basename(f)
 		soup = BeautifulSoup(open(f), "html")
 	
 		# returns instance of tweet object
 		for t in soup.find_all('thread'):
 			for i in t.find_all('tweet'):
-				tweet = Tweet(i,f)
+				tweet = Tweet(i,file)
 				yield tweet # next element of the iterator
 
