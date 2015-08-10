@@ -36,6 +36,7 @@ class Tweet():
 		# how many ambiguous DCs are in the tweet
 
 		# is this enough, or do we need to remember where these are?
+		# DO THIS!!
 
 		self.ats = [ i.lower() for i in tweet["text"].split() if i.startswith("@") ]
 		# words preceded with @ (replies)

@@ -4,6 +4,7 @@
 # test.py
 # Authors: C. Clayton Violand & Jessica E. Grasso
 
+import os
 import glob
 from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
@@ -11,10 +12,15 @@ from get_convoPairs import convoPair_scrape
 from get_matches import get_matches
 from get_info import Info
 from disambiguate import disambiguate
+from write_results import write_results
 
 def main ():
 	filepath_dimlex = "../connectives-xml/dimlex.xml"
-	filepath_tweetdirectory = "../tweets-xml/"
+	filepath_tweetdirectory = "../tweets-xml/"	
+	filepath_output = "../results/"
+
+	if not os.path.exists(filepath_output):
+    		os.makedirs(filepath_output)
 
 	# Get list of Discourse Connective objects. (extract from dimlex.xml)	
 	dcons = dcon_scrape(filepath_dimlex)
@@ -61,9 +67,11 @@ def main ():
 	disambiguated_tweets = disambiguate(matched_tweets, schneiders)
 	# TODO: finish disambiguation 
 	
+	write_results(disambiguated_tweets, filepath_tweetdirectory, filepath_output)
+	
 	# this is needed because due to the iterator, disambiguated_tweets is generated on demand
-	for t in disambiguated_tweets:
-		continue
+	#for t in disambiguated_tweets:
+	#	continue
 		
 	# TODO: get_matches-like function for after disambiguation, pass 
 	# tweetinfo_postdisambiguation to this function to compare
