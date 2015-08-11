@@ -28,6 +28,7 @@ class Tweet():
 		
 		self.has_dc = False
 		# does the tweet contain discourse connectives?
+		self.dcs = []
 		
 		self.has_ambi_dc = False
 		# does the tweet contain at least one ambiguous DC?  i.e. should we disambiguate?
@@ -42,7 +43,12 @@ class Tweet():
 		# words preceded with @ (replies)
 		self.hashes = [ i.lower() for i in tweet["text"].split() if i.startswith("#") ]
 		# word preceded with # (hashtags)
-
+	
+	def print_dcs(self):
+		print self._original + '\t'
+		for d in self.dcs:
+			print d.part_one[0], d.part_two[0],
+		print
 		
 def tweet_scrape(file_path_argument=0):
 # file_path_argument should be a single string or a list of strings

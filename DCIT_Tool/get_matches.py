@@ -21,8 +21,9 @@ def get_matches(tweets, contins, discontins, info):
 		for i in discontins:
 			for j in range(len(i.ortho_blocks)):
 				if i.type_part_one[j] == "phrasal" and i.type_part_two[j] == "single":
-					if (" " + i.part_one[j] + " ") in t.raw and (" " + i.part_two[j] + " ") in t.raw and t.raw.find(i.part_one[j]) < t.raw.find(i.part_two[j]):
+					if (" " + i.part_one[j] + " ") in t.raw and (" " + i.part_two[j] + " ") in t.raw and t.raw.find(i.part_one[j]) < t.raw.find(i.part_two[j]):						
 						tweet_trigger = True
+						t.dcs.append(i)
 						info.discontinuous += 1		# number of discontinuous DCs
 						# Remove found cases.
 						t.raw = t.raw.replace(i.part_one[j], '')
@@ -30,16 +31,17 @@ def get_matches(tweets, contins, discontins, info):
 						#
 						info.discontinuous_dict[i] += 1
 						# Check for potential ambiguity, update Tweet object
-						if i.ambi == "1":
+						a = (i.ambi=='1')						
+						if a":
 							t.has_ambi_dc = True
 							t.ambi_count_discontins += 1
 							info.ambiguous_dict[i] += 1
-							# do we need to save more info here?
-
+						t.dcs.append(i,a)
 				# Switch Scenario.
 				elif i.type_part_one[j] == "single" and i.type_part_two[j] == "phrasal":
 					if (" " + i.part_one[j] + " ") in t.raw and (" " + i.part_two[j] + " ") in t.raw and t.raw.find(i.part_one[j]) < t.raw.find(i.part_two[j]):
 						tweet_trigger = True
+						t.dcs.append(i)
 						info.discontinuous += 1		# number of discontinuous DCs
 						# Remove found cases.
 						t.raw = t.raw.replace(i.part_one[j], '')
@@ -47,11 +49,12 @@ def get_matches(tweets, contins, discontins, info):
 						#
 						info.discontinuous_dict[i] += 1
 						# Check for potential ambiguity, update Tweet object
-						if i.ambi == "1":
+						a = (i.ambi=='1')						
+						if a:
 							t.has_ambi_dc = True
 							t.ambi_count_discontins += 1
 							info.ambiguous_dict[i] += 1
-							# do we need to save more info here?
+						t.dcs.append(i,a)
 
 				elif i.type_part_one[j] == "single" and i.type_part_two[j] == "single":
 					if (" " + i.part_one[j] + " ") in t.raw and (" " + i.part_two[j] + " ") in t.raw and t.raw.find(i.part_one[j]) < t.raw.find(i.part_two[j]):
@@ -63,43 +66,47 @@ def get_matches(tweets, contins, discontins, info):
 						#
 						info.discontinuous_dict[i] += 1
 						# Check for potential ambiguity, update Tweet object
-						if i.ambi == "1":
+						a = (i.ambi=='1')						
+						if a:
 							t.has_ambi_dc = True
 							t.ambi_count_discontins += 1	
 							info.ambiguous_dict[i] += 1
-						# do we need to save more info here?
-
+						t.dcs.append(i,a)
 		# CONTINUOUS CASES
 		for i in contins:
 			for j in range(len(i.ortho_blocks)):
 				if i.type_part_one[j] == "phrasal":
-					if i.part_one[j] in t.raw:
+					if (" " + i.part_one[j] + " ") in t.raw:
 						tweet_trigger = True
+						t.dcs.append(i)
 						info.continuous += 1	# number of continuous DCs
 						# Remove found cases.
 						t.raw = t.raw.replace(i.part_one[j], '')
 						#
 						info.continuous_dict[i] += 1					
 						# Check for potential ambiguity, update Tweet object
-						if i.ambi == "1":
+						a = (i.ambi=='1')
+						if a:
 							t.has_ambi_dc = True
 							t.ambi_count_contins += 1
 							info.ambiguous_dict[i] += 1
-							# do we need to save more info here?
+						t.dcs.append(i,a)
 				if i.type_part_one[j] == "single":
-					if i.part_one[j] in t.raw:
+					if (" " + i.part_one[j] + " ") in t.raw:
 						tweet_trigger = True
+						t.dcs.append(i)
 						info.continuous += 1	# number of continuous DCs
 						# Remove found cases.
 						t.raw = t.raw.replace(i.part_one[j], '')
 						#
 						info.continuous_dict[i] += 1					
 						# Check for potential ambiguity, update Tweet object
-						if i.ambi == "1":
+						a = (i.ambi=='1')
+						if a:
 							t.has_ambi_dc = True
 							t.ambi_count_contins += 1
 							info.ambiguous_dict[i] += 1					
-							# do we need to save more info here?
+						t.dcs.append(i,a)
 
 		if tweet_trigger == True:
 			info.tweets_with_dcs += 1	# was called tweet_hit_count
@@ -111,3 +118,4 @@ def get_matches(tweets, contins, discontins, info):
 	
 		# this is another iterator
 		yield t
+
