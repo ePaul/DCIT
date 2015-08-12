@@ -6,8 +6,82 @@
 import re
 import string
 
-def disambiguate(tweets, schneiders, zeros_limit):
+def disambiguate(tweets, dcons, zeros_limit = 0.8):
+	#SCHNEIDERS
 	pattern = re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/[A-ZÄÖÜẞ]+')
+
+	schneiders = [('denn',1,['KON']),
+					('doch',1,['KON']),
+					('entgegen',1,['APPO','APPR']),
+					('seit',1,['KOUS']),
+					('seitdem',1,['KOUS']),
+					('trotz',1,['APPR']),
+					('während',1,['KOUS']),
+					('wegen',1,['APPO','APPR']),
+						('also',2,['ADV']),
+						('auch',2,['ADV']),
+						('außer',2,['APPR']),
+						('da',2,['ADV','KOUS']),
+						('darum',2,['ADV']),
+						('nebenher',2,['ADV']),
+						('nur',2,['ADV']),
+						('so',2,['ADV']),
+						('sonst',2,['ADV']),
+						('soweit',2,['ADV','KOUS']),
+						('zugleich',2,['ADV']),
+					('und',0,79),
+					('als',0,17),
+					('auch',0,1),
+					('wie',0,12),
+					('so',0,37),
+					('nur',0,1),
+					('aber',0,145),
+					('dann',0,144),
+					('doch',0,80),
+					('da',0,90),
+					('denn',0,116),
+					('also',0,58),
+					('seit',0,21),
+					('während',0,102),
+					('darauf',0,13),
+					('dabie',0,19),
+					('allein',0,17),
+					('wegen',0,191),
+					('dafür',0,22),
+					('daher',0,184),
+					('sonst',0,56),
+					('statt',0,37),
+					('zugleich',0,81),
+					('allerdings',0,167),
+					('dagegen',0,148),
+					('ferner',0,182),
+					('trotz',0,180),
+					('darum',0,80),
+					('außer',0,15),
+					('soweit',0,169),
+					('entgegen',0,58),
+					('danach',0,115),
+					('wonach',0,14),
+					('worauf',0,97),
+					('weshalb',0,76),
+					('seitdem',0,61),
+					('womit',0,91),
+					('aufgrund',0,0),
+					('allenfalls',0,23),
+					('wogegen',0,146),
+					('nebenher',0,107),
+					('weswegen',0,89)
+				]			
+																																						
+	#contexts_for_schneider_twos	
+	#contexts =	
+
+	new_dcons = dcons
+	for d in new_dcons:
+		for s in schneiders:
+			if s[1] == 0:
+				if d.part_one[0] == s[0]:
+					pass				
 
 	for t in tweets:
 		tagged_path = "../tweets-POS_tagged/"+t.filename + "-tagged.txt"
@@ -26,16 +100,13 @@ def disambiguate(tweets, schneiders, zeros_limit):
 						continue
 					else:
 						instances[parts[1]] = (parts[0], parts[2])
-	#			for i in range(len(schneiders)):
-	#				if schneiders[i][1] == 0:
-	#					if float(schneiders[i][2]) >= float(zeros_limit) * 200 or float(schneiders[i][2]) <= 200 - (200 * float(zeros_limit)):					
-	#						pass					
-					for schneiders[i][1] == 1:
-						for j in instances:
-							if schneiders[i][0] == j:
-								if instances[j][1] in schneiders[i][2]:
+				for j in range(len(schneiders)):					
+					if schneiders[j][1] == 1:
+						for k in instances:
+							if schneiders[j][0] == k:
+								if instances[k][1] in schneiders[j][2]:
 									pass
-					elif schnedier[i][2]:
+					elif schneiders[j][2]:
 						pass
 						
 		yield t

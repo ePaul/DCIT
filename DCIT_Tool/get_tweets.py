@@ -47,7 +47,7 @@ class Tweet():
 	def print_dcs(self):
 		print self._original + '\t'
 		for d in self.dcs:
-			print d.part_one[0], d.part_two[0],
+			print d[0].part_one[0], d[0].part_two[0],
 		print
 		
 def tweet_scrape(file_path_argument=0):

@@ -18,7 +18,7 @@ def write_results(tweets, input_path, output_path):
 	
 	for t in tweets:
 		# For D-Buggin'
-		t.print_dcs()
+		#t.print_dcs()
 		if t.filename != currentfile:
 			# every time we see a new file, write old one and open new one
 			write()	
