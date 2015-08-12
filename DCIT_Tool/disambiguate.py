@@ -77,11 +77,20 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 	#contexts =	
 
 	new_dcons = dcons
-	for d in new_dcons:
+	
+	for i in new_dcons:
+		print i.part_one[0]
+	print
+
+	for d in new_dcons.copy():
 		for s in schneiders:
 			if s[1] == 0:
-				if d.part_one[0] == s[0]:
-					pass				
+				if (d.part_one[0].encode("utf-8") == s[0]) and ((200-s[2]) / float(200)) >= zeros_limit :			
+					print "\t\t\t\tremoving" + str(s[0])					
+					new_dcons.remove(d)					
+
+	for i in new_dcons:
+		print i.part_one[0]
 
 	for t in tweets:
 		tagged_path = "../tweets-POS_tagged/"+t.filename + "-tagged.txt"

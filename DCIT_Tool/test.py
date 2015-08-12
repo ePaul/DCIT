@@ -59,7 +59,7 @@ def main ():
 	# this is needed because due to the iterator, disambiguated_tweets is generated on demand
 	#for t in disambiguated_tweets:
 	#	continue
-		
+	"""	
 	print "\n\n"
 	print "-- PRE-DISAMBIGUATION"
 	tweetinfo_predisambiguation.summary()
@@ -67,7 +67,7 @@ def main ():
 	print "\n\n"
 	print "-- POST-DISAMBIGUATION"
 	tweetinfo_postdisambiguation.summary()
-
+	"""
 if __name__ == "__main__":
 	main()
 
