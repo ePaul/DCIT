@@ -28,9 +28,10 @@ def main ():
 	
 	days = []
 	# Get all files in filepath_tweetdirectory (only those for which we also have tagged).
-	#days = glob.glob(filepath_tweetdirectory+"*.xml")
+	days = glob.glob(filepath_tweetdirectory+"*.xml")
+	days = days[0:1]
 	# TESTING.
-	days = filepath_tweetdirectory+"toy.xml"
+	#days = filepath_tweetdirectory+"toy.xml"
 
 	"""
 	# using all the days we have
@@ -53,12 +54,12 @@ def main ():
 	disambiguated_tweets = disambiguate(matched_tweets, dcons)
 #	matched_disambiguated_tweets = get_matches(disambiguated_tweets, contins, discontins, tweetinfo_postdisambiguation)
 	
-	write_results(disambiguated_tweets, filepath_tweetdirectory, filepath_output)
+	#write_results(disambiguated_tweets, filepath_tweetdirectory, filepath_output)
 	
 	# Not Needed Now Because Write Does It.
 	# this is needed because due to the iterator, disambiguated_tweets is generated on demand
-	#for t in disambiguated_tweets:
-	#	continue
+	for t in disambiguated_tweets:
+		continue
 	"""	
 	print "\n\n"
 	print "-- PRE-DISAMBIGUATION"

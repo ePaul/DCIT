@@ -15,7 +15,8 @@ def get_matches(tweets, dcons, info):
 	contins = [i for i in dcons if i.sep == "cont"]
 
 	# info object now updated as we go
-	for t in tweets:	# this is an iterator
+	
+	def loop_contents(t):
 
 		info.tweets += 1	# number of Tweets seen so far
 		tweet_trigger = False
@@ -119,7 +120,9 @@ def get_matches(tweets, dcons, info):
 	
 		info.discontinuous_ambi += t.ambi_count_discontins
 		info.continuous_ambi += t.ambi_count_contins
-	
+
+	for t in tweets:	# this is an iterator
+		loop_contents(t)
 		# this is another iterator
 		yield t
 

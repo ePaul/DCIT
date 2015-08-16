@@ -92,7 +92,7 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 	for i in new_dcons:
 		print i.part_one[0]
 
-	for t in tweets:
+	def loop_content(t):
 		tagged_path = "../tweets-POS_tagged/"+t.filename + "-tagged.txt"
 		tagged = open(tagged_path)
 		
@@ -117,5 +117,7 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 									pass
 					elif schneiders[j][2]:
 						pass
-						
-		yield t
+		return t
+	
+	for t in tweets:
+		yield loop_content(t)
