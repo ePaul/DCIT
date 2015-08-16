@@ -92,14 +92,29 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 	for i in new_dcons:
 		print i.part_one[0]
 
-	def loop_content(t):
-		tagged_path = "../tweets-POS_tagged/"+t.filename + "-tagged.txt"
-		tagged = open(tagged_path)
-		
-		for line in tagged:
-			# find line that matches (maybe too slow for big files? use grep?)
-			if line.find(t.id) >= 0:
+	
+	current_file = {"name": None, "data": None}
+	id_regex = re.compile(r'^\t+(\d)+\t(.*)$')
+	
+	def load_tagged_file(filename):
+		if current_file["name"] != filename:
+			data = dict()
+			current_file["name"] = filename
+			current_file["data"] = data
+			tagged_path = "../tweets-POS_tagged/"+t.filename + "-tagged.txt"
+			tagged = open(tagged_path)
 			
+			for line in tagged:
+				match = id_regex.match(line)
+				if(match):
+					id = match.group(1)
+					rest = match.group(2)
+					data[id] = rest
+		return current_file["data"]
+
+	def loop_content(t, data):
+		line = data.get(t.id)
+		if(line):
 				# remains unchanged
 				results = re.findall(pattern,line)
 				instances = {}
@@ -120,4 +135,5 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 		return t
 	
 	for t in tweets:
-		yield loop_content(t)
+		data = load_tagged_file(t.filename)
+		yield loop_content(t, data)
