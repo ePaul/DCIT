@@ -4,7 +4,7 @@
 ## Authors: C. Violand & J. Grasso
 ##
 
-## TODO: FINISH SCHNEIDER ONES; TWOS; PASS OUT ZEROS.
+## TODO: FINISH SCHNEIDER TWOS.
 
 import re
 import string
@@ -22,17 +22,17 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 					('trotz',1,['APPR']),
 					('während',1,['KOUS']),
 					('wegen',1,['APPO','APPR']),
-						('also',2,['ADV']),
-						('auch',2,['ADV']),
-						('außer',2,['APPR']),
-						('da',2,['ADV','KOUS']),
-						('darum',2,['ADV']),
-						('nebenher',2,['ADV']),
-						('nur',2,['ADV']),
-						('so',2,['ADV']),
-						('sonst',2,['ADV']),
-						('soweit',2,['ADV','KOUS']),
-						('zugleich',2,['ADV']),
+						('also',2),
+						('auch',2),
+						('außer',2),
+						('da',2),
+						('darum',2),
+						('nebenher',2),
+						('nur',2),
+						('so',2),
+						('sonst',2),
+						('soweit',2),
+						('zugleich',2),
 					('und',0,79),
 					('als',0,17),
 					('auch',0,1),
@@ -80,31 +80,23 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 	# Contexts For Schneiders type '2'.		
 	contexts = {
 		'also' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'), 
-				  re.compile(r'.\/.\/\$. [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'),
-				  re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV'),
-				  re.compile(r'\?\/\?\/\$. [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/ADV')],
-		'auch' : [],
+				  re.compile(r'\.\/\.\/\$\. [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'),
+				  re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV')],
+		'auch' : [re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/auch\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVFIN')],
 		'außer': [],
-		'da' : [],
+		'da' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/da\/ADV'),
+				re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/da\/KOUS')],
 		'darum' : [],
-		'nebenher': [],
-		'nur' : [],
-		'so' : [],
+		'nebenher': [re.compile(r'\.\/\.\/\$\. [a-zA-ZäöüßÄÖÜẞ]+\/nebenher\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVFIN')],
+		'nur' : [re.compile(r'\.\/\.\/\$\. [a-zA-ZäöüßÄÖÜẞ]+\/nur\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVFIN')],
+		'so' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/so\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KOUS'),
+				re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/so\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'),
+				re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KON [a-zA-ZäöüßÄÖÜẞ]+\/so\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN')],
 		'sonst' : [],
-		'soweit' : [],
-		'zugleich' : []
+		'soweit' : [re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/soweit\/KOUS')],
+		'zugleich' : [re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/V[*]+ [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KON [a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV'),
+					  re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV')]
 		}
-
-	# Create new mutable copy of dcons.
-	new_dcons = dcons
-	for d in new_dcons.copy():
-		for s in schneiders:
-			# HANDLING FOR SCHNEIDERS TYPE '0'.
-			if s[1] == 0:
-				if (d.part_one[0].encode("utf-8") == s[0]) and ((200-s[2]) / float(200)) >= zeros_limit :			
-					# Remove this Schneider from new_dcons list as they qualify
-					# as unambiguous.				
-					new_dcons.remove(d)					
 
 	# File handling for tweets-pos-tagged files.
 	for t in tweets:
@@ -125,39 +117,68 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 					else:
 						instances[parts[1]] = (parts[0], parts[2])
 
-				to_delete = []
+				# DISAMBIGUATION.
+				zeros_to_delete = []
+				ones_to_delete = []
+				twos_to_delete = []
 				# Iterate over DC matches associated with current Tweet object.
 				for x in t.dcs:
 					# If DC occurance is cited as ambiguous.
 					if x[1] == True:
 						# For each Schneider:
 						for j in range(len(schneiders)):
-							# If the Schneider matches the DC occurance.
-							if x[0].part_one[0].encode("utf-8") == schneiders[j][0] and x[0].part_two == [None]:
-								'''				
-								# HANDLING FOR SCHNEIDERS TYPE '1'.
-								if schneiders[j][1] == 1:									
-									for k in instances:
-										if schneiders[j][0] == k:
-											if instances[k][1] in schneiders[j][2]:
-												pass							
-								'''
 
-								# HANDLING FOR SCHNEIDERS TYPE '2'.
-								if schneiders[j][1] == 2:
-									context_found = False
-									for k in contexts[schneiders[j][0]]:
-										if re.search(k, line):
-											context_found = True
-									if not context_found:
-										to_delete.append(x)
+							# HANDLING FOR SCHNEIDERS TYPE '0'.
+							if schneiders[j][1] == 0:
+								if ( x[0].part_one[0].encode("utf8") == schneiders[j][0] ) and ( 200-x[2] / float(200) ) >= zeros_limit:
+									### COMMENT OUT AFTER TESTING ###									
+									print "deleting type 0 discourse connective occurance %s (not a connective)!" % schneiders[j][0]
+									###		
+									zeros_to_delete.append(x)
+								
+							# HANDLING FOR SCHNEIDERS TYPE '1'.
+							# Delete ambiguous cases if pos tag matches.
+							if schneiders[j][1] == 1:								
+								for k in instances:
+									if schneiders[j][0] == k:
+										if instances[k][1] in schneiders[j][2]:
+											### COMMENT OUT AFTER TESTING ###
+											print "deleting type 1 discourse connective occurance %s (not a connective)!" % schneiders[j][0]
+											###
+											ones_to_delete.append(x)											
+
+							# HANDLING FOR SCHNEIDERS TYPE '2'.
+							# Delete ambiguous cases if no exception found
+							# (should be most).
+							if schneiders[j][1] == 2:
+								context_found = False
+								for k in contexts[schneiders[j][0]]:
+									if re.search(k, line):
+										context_found = True
+								if context_found == False:
+									### COMMENT OUT AFTER TESTING ###
+									#print "deleting type 2 discourse connective occurance %s (not a connective)!" % schneiders[j][0]
+									###
+									twos_to_delete.append(x)
 
 				### COMMENT OUT AFTER TESTING ###
 				print len(t.dcs)
 				###
-
-				for item in to_delete:
-					t.dcs.remove(item)	
+				for item in zeros_to_delete:
+					try: 
+						t.dcs.remove(item)	
+					except:
+						pass	
+				for item in ones_to_delete:
+					try: 
+						t.dcs.remove(item)	
+					except:
+						pass		
+				for item in twos_to_delete:
+					try: 
+						t.dcs.remove(item)	
+					except:
+						pass
 
 				### COMMENT OUT AFTER TESTING ###		
 				print len(t.dcs)
