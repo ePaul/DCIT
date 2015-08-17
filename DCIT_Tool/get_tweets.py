@@ -1,93 +1,91 @@
-#!/usr/bin/env python
+##!/usr/bin/env python
+##
+## get_tweets.py
+## Authors: J. Grasso & C. Violand
+##
 
-# get_tweets.py
-# Authors: Jessica E. Grasso & C. Clayton Violand
-
-from bs4 import BeautifulSoup
-import sys
 import os
+import sys
 import re
 
+from bs4 import BeautifulSoup
+
 class Tweet():
+	'''
+	Instance are Tweet objects instantiated by tweet_scrape(). Information 
+	source is an .xml file. Methods defined are print_dcs(), which neatly prints 
+	DiscourseConnectives matched within the Tweet object text.
+	'''
+
 
 	def __init__(self, tweet, f):
 		self.filename = f
 	
+		# UNMODIFIED Tweet text.
 		self._original = tweet["text"]
-		# original tweet text, not modified
+		# Modifed-as-need Tweet text.
 		self.raw = tweet["text"].lower()
-		# tweet text, modified as needed
+		# Tokenized Tweet text.
 		self.words = [ i.lower() for i in tweet["text"].split() ]
-		# tweet text tokenized
+		# Tweet ID.
 		self.id = tweet["id"].lower()
-		# tweet ID (number)
+		# Twitter user ID.
 		self.user = tweet["user"].lower()
-		# user ID (number)
+		# Conversation depth.
 		self.depth = tweet["depth"]
-		# depth in conversation
 		
-		self.has_dc = False
-		# does the tweet contain discourse connectives?
+		# Does the Tweet object contain (a) discourse connective(s)?
+		self.has_dc = False		
 		self.dcs = []
 		
+		# Does the Tweet object contain (an) ambiguous DC(s)?
 		self.has_ambi_dc = False
-		# does the tweet contain at least one ambiguous DC?  i.e. should we disambiguate?
+		# How many of each type?
 		self.ambi_count_discontins = 0
 		self.ambi_count_contins = 0
-		# how many ambiguous DCs are in the tweet
 
-		# is this enough, or do we need to remember where these are?
-		# DO THIS!!
-
+		# Extras.
 		self.ats = [ i.lower() for i in tweet["text"].split() if i.startswith("@") ]
-		# words preceded with @ (replies)
 		self.hashes = [ i.lower() for i in tweet["text"].split() if i.startswith("#") ]
-		# word preceded with # (hashtags)
 	
+	# Method for printing DiscourseConnective matches found in Tweet object.
 	def print_dcs(self):
 		print self._original + '\t'
 		for d in self.dcs:
 			print d[0].part_one[0], d[0].part_two[0],
 		print
 		
-def tweet_scrape(file_path_argument=0):
-# file_path_argument should be a single string or a list of strings
-
-	 # if no argument given, prompt for file path
+def tweet_scrape(file_path_argument=0): # Argument as string or list of strings.
+	# Filepath handling.
 	if file_path_argument==0:
 		file_path = raw_input("Enter the path of XML (tweets) file to get convo pairs: ")
-	
-		# For testing, so we don't have to type/paste each time
+		### COMMENT OUT AFTER TESTING ###
 		if file_path == 'r': # 'r' for "relative" path
-			file_path_list = [ "../tweets-xml/toy.xml" ]
+			file_path_list = ["../tweets-xml/toy.xml"]
 		if file_path == 'j':
 			file_path_list = ["/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"]
 		elif file_path == 'c':
 			file_path_list = ["/home/clayton/bin/DCIT/tweets-xml/toy.xml"]
 		else:
 			file_path_list = [file_path]
-
-	# list passed to function as argument, just rename	
+		###
 	elif isinstance(file_path_argument, list):
 		file_path_list = file_path_argument
-	
-	# if argument was string (or anything else), make it into list
 	else: 
 		file_path_list = [file_path_argument]
-		
-	# check if all files in list exist
 	for f in file_path_list:
 		assert os.path.exists(f), "File not found: "+str(f)
 	print "Using files: " + str(file_path_list)
 
-
+	# Create soup objects from Tweet .xml files (returns as iterator).
 	for f in file_path_list:
 		file = os.path.basename(f)
 		soup = BeautifulSoup(open(f), "html")
 	
-		# returns instance of tweet object
+		# Find/create Tweet objects from soup objects.
 		for t in soup.find_all('thread'):
 			for i in t.find_all('tweet'):
 				tweet = Tweet(i,file)
-				yield tweet # next element of the iterator
+
+				yield tweet
 

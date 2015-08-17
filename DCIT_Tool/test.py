@@ -1,8 +1,9 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-# test.py
-# Authors: C. Clayton Violand & Jessica E. Grasso
+##!/usr/bin/env python
+## -*- coding: utf-8 -*-
+##
+## test.py
+## Authors: C. Violand & J. Grasso
+##
 
 import os
 import glob
@@ -16,23 +17,24 @@ from disambiguate import disambiguate
 from write_results import write_results
 
 def main ():
+	# Filepath handling.
 	filepath_dimlex = "../connectives-xml/dimlex.xml"
 	filepath_tweetdirectory = "../tweets-xml/"	
 	filepath_output = "../results/"
-
 	if not os.path.exists(filepath_output):
-    		os.makedirs(filepath_output)
+		os.makedirs(filepath_output)
 
-	# Get list of Discourse Connective objects (extract from dimlex.xml).
+	# Get list of DiscourseConnective objects.
 	dcons = dcon_scrape(filepath_dimlex)
 	
-	days = []
-	# Get all files in filepath_tweetdirectory (only those for which we also have tagged).
-	#days = glob.glob(filepath_tweetdirectory+"*.xml")
-	# TESTING.
-	days = filepath_tweetdirectory+"toy.xml"
-
-	"""
+	# Get list of files in filepath_tweetdirectory.
+	days = []	
+	### COMMENT OUT AFTER TESTING ###
+	days = filepath_tweetdirectory + "toy.xml"
+	###
+	"""	
+	days = glob.glob(filepath_tweetdirectory+"*.xml")
+	
 	# using all the days we have
 	for i in range(1, 31): # 1 to 30
 		if i == 20:
@@ -44,22 +46,31 @@ def main ():
 		days.append(day)
 	"""
 
+	# Initialize Info objects.
 	tweetinfo_predisambiguation = Info(dcons)
 	tweetinfo_postdisambiguation = Info(dcons)
 
+	# Get Tweet objects (returns as iterator).
 	tweets = tweet_scrape(days)
+	# Get pre-disambiguation matches (returns as iterator).
 	matched_tweets = get_matches(tweets, dcons, tweetinfo_predisambiguation)
 	
+	# Disambiguate matches containing ambiguity.
 	disambiguated_tweets = disambiguate(matched_tweets, dcons)
+	# Get post-disambiguation matches.
 #	matched_disambiguated_tweets = get_matches(disambiguated_tweets, contins, discontins, tweetinfo_postdisambiguation)
 	
+	# Write results to .xml file.
 	write_results(disambiguated_tweets, filepath_tweetdirectory, filepath_output)
 	
 	# Not Needed Now Because Write Does It.
-	# this is needed because due to the iterator, disambiguated_tweets is generated on demand
-	#for t in disambiguated_tweets:
-	#	continue
-	"""	
+	# this is needed because due to the iterator, disambiguated_tweets is 
+	# generated on demand
+#	for t in disambiguated_tweets:
+#		continue
+
+	# Print Statistics Summaries.
+"""	
 	print "\n\n"
 	print "-- PRE-DISAMBIGUATION"
 	tweetinfo_predisambiguation.summary()
@@ -67,7 +78,8 @@ def main ():
 	print "\n\n"
 	print "-- POST-DISAMBIGUATION"
 	tweetinfo_postdisambiguation.summary()
-	"""
+"""
+
 if __name__ == "__main__":
 	main()
 

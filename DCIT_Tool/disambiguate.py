@@ -1,15 +1,19 @@
-#!/usr/env/python coding
-# -*- coding: utf-8 -*-
+##!/usr/env/python coding
+## -*- coding: utf-8 -*-
+##
+## Authors: C. Violand & J. Grasso
+##
 
-# Authors: C. Clayton Violand & Jessica E. Grasso
+## TODO: FINISH SCHNEIDER ONES; TWOS; PASS OUT ZEROS.
 
 import re
 import string
 
 def disambiguate(tweets, dcons, zeros_limit = 0.8):
-	#SCHNEIDERS
-	pattern = re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/[A-ZÄÖÜẞ]+')
-
+	# Schneiders -->
+	# DiscourseConnective objects that qualify for a certain amount of 
+	# disambiguation confidence based on 1 of 3 disambiguation methods as 
+	# defined in "Bachelorarbeit_Angela_Schneider_735923".
 	schneiders = [('denn',1,['KON']),
 					('doch',1,['KON']),
 					('entgegen',1,['APPO','APPR']),
@@ -71,36 +75,47 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 					('wogegen',0,146),
 					('nebenher',0,107),
 					('weswegen',0,89)
-				]			
-																																						
-	#contexts_for_schneider_twos	
-	#contexts =	
+					]
+																									
+	# Contexts For Schneiders type '2'.		
+	contexts = {
+		'also' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'), 
+				  re.compile(r'.\/.\/\$. [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'),
+				  re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV'),
+				  re.compile(r'\?\/\?\/\$. [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/ADV')],
+		'auch' : [],
+		'außer': [],
+		'da' : [],
+		'darum' : [],
+		'nebenher': [],
+		'nur' : [],
+		'so' : [],
+		'sonst' : [],
+		'soweit' : [],
+		'zugleich' : []
+		}
 
+	# Create new mutable copy of dcons.
 	new_dcons = dcons
-	
-	for i in new_dcons:
-		print i.part_one[0]
-	print
-
 	for d in new_dcons.copy():
 		for s in schneiders:
+			# HANDLING FOR SCHNEIDERS TYPE '0'.
 			if s[1] == 0:
 				if (d.part_one[0].encode("utf-8") == s[0]) and ((200-s[2]) / float(200)) >= zeros_limit :			
-					print "\t\t\t\tremoving" + str(s[0])					
+					# Remove this Schneider from new_dcons list as they qualify
+					# as unambiguous.				
 					new_dcons.remove(d)					
 
-	for i in new_dcons:
-		print i.part_one[0]
-
+	# File handling for tweets-pos-tagged files.
 	for t in tweets:
-		tagged_path = "../tweets-POS_tagged/"+t.filename + "-tagged.txt"
+		tagged_path = "../tweets-pos-tagged/" + t.filename + "-tagged.txt"
 		tagged = open(tagged_path)
 		
+		# Retrieve/create dictionary of information from tweets-pos-tagged 
+		# files using a regular expression.
+		pattern = re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/[A-ZÄÖÜẞ]+')
 		for line in tagged:
-			# find line that matches (maybe too slow for big files? use grep?)
 			if line.find(t.id) >= 0:
-			
-				# remains unchanged
 				results = re.findall(pattern,line)
 				instances = {}
 				for i in results:
@@ -109,13 +124,45 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 						continue
 					else:
 						instances[parts[1]] = (parts[0], parts[2])
-				for j in range(len(schneiders)):					
-					if schneiders[j][1] == 1:
-						for k in instances:
-							if schneiders[j][0] == k:
-								if instances[k][1] in schneiders[j][2]:
-									pass
-					elif schneiders[j][2]:
-						pass
-						
+
+				to_delete = []
+				# Iterate over DC matches associated with current Tweet object.
+				for x in t.dcs:
+					# If DC occurance is cited as ambiguous.
+					if x[1] == True:
+						# For each Schneider:
+						for j in range(len(schneiders)):
+							# If the Schneider matches the DC occurance.
+							if x[0].part_one[0].encode("utf-8") == schneiders[j][0] and x[0].part_two == [None]:
+								'''				
+								# HANDLING FOR SCHNEIDERS TYPE '1'.
+								if schneiders[j][1] == 1:									
+									for k in instances:
+										if schneiders[j][0] == k:
+											if instances[k][1] in schneiders[j][2]:
+												pass							
+								'''
+
+								# HANDLING FOR SCHNEIDERS TYPE '2'.
+								if schneiders[j][1] == 2:
+									context_found = False
+									for k in contexts[schneiders[j][0]]:
+										if re.search(k, line):
+											context_found = True
+									if not context_found:
+										to_delete.append(x)
+
+				### COMMENT OUT AFTER TESTING ###
+				print len(t.dcs)
+				###
+
+				for item in to_delete:
+					t.dcs.remove(item)	
+
+				### COMMENT OUT AFTER TESTING ###		
+				print len(t.dcs)
+				print "-----"
+				###
+
 		yield t
+

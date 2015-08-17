@@ -1,8 +1,9 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-# write_results.py
-# Authors: C. Clayton Violand & Jessica E. Grasso
+##!/usr/bin/env python
+## -*- coding: utf-8 -*-
+##
+## write_results.py
+## Authors: J. Grasso & C. Violand
+##
 
 from bs4 import BeautifulSoup
 
@@ -34,3 +35,4 @@ def write_results(tweets, input_path, output_path):
 		results[0]["hasAmbiDC"] = t.has_ambi_dc
 		
 	write() # write the last one
+

@@ -1,7 +1,8 @@
-#!/usr/bin/env python
-
-# get_info.py
-# Authors: Jessica E. Grasso & C. Clayton Violand
+##!/usr/bin/env python
+##
+## get_info.py
+## Authors: J. Grasso & C. Violand
+##
 
 from heapq import nlargest
 from operator import itemgetter

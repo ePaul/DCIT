@@ -1,14 +1,19 @@
-#!/usr/bin/python
+##!/usr/bin/env python
+##
+## get_convosPairs.py
+## Authors: J. Grasso & C. Violand
+##
 
-# get_convosPairs.py
-# Authors: Jessica E. Grasso & C. Clayton Violand
+import os
+import sys
 
 from bs4 import BeautifulSoup
-import sys
-import os
-
 
 class ConvoPair():
+	'''
+	Instances are ConvoPair objects, instantiated by convoPair_scrape().
+	Information source is an .xml file.
+	'''
 
 	def __init__(self, tweet1, tweet2):
 	
@@ -44,10 +49,7 @@ class ConvoPair():
 		self.hashes = [ i.lower() for i in pairtext.split() if i.startswith("#") ]
 		# words preceded with # (hashtags)
 
-
-
 def convoPair_scrape(file_path_argument=0):
-
 	if file_path_argument==0: # if no argument given
 		file_path = raw_input("Enter the path of XML (tweets) file to get convo pairs: ")
 	
@@ -65,7 +67,6 @@ def convoPair_scrape(file_path_argument=0):
 	assert os.path.exists(file_path), "File not found: "+str(file_path)	
 
 	print "Using file: " + str(file_path)	
-
 
 	# get pairs
 	
@@ -87,3 +88,4 @@ def convoPair_scrape(file_path_argument=0):
 				convoPairs.append(newpair)
 
 	return convoPairs
+
