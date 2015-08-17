@@ -130,10 +130,7 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 
 							# HANDLING FOR SCHNEIDERS TYPE '0'.
 							if schneiders[j][1] == 0:
-								if ( x[0].part_one[0].encode("utf8") == schneiders[j][0] ) and ( 200-x[2] / float(200) ) >= zeros_limit:
-									### COMMENT OUT AFTER TESTING ###									
-									print "deleting type 0 discourse connective occurance %s (not a connective)!" % schneiders[j][0]
-									###		
+								if ( x[0].part_one[0].encode("utf8") == schneiders[j][0] ) and ( 200-x[2] / float(200) ) >= zeros_limit:	
 									zeros_to_delete.append(x)
 								
 							# HANDLING FOR SCHNEIDERS TYPE '1'.
@@ -142,23 +139,17 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 								for k in instances:
 									if schneiders[j][0] == k:
 										if instances[k][1] in schneiders[j][2]:
-											### COMMENT OUT AFTER TESTING ###
-											print "deleting type 1 discourse connective occurance %s (not a connective)!" % schneiders[j][0]
-											###
 											ones_to_delete.append(x)											
 
 							# HANDLING FOR SCHNEIDERS TYPE '2'.
 							# Delete ambiguous cases if no exception found
 							# (should be most).
+							context_found = False
 							if schneiders[j][1] == 2:
-								context_found = False
 								for k in contexts[schneiders[j][0]]:
 									if re.search(k, line):
 										context_found = True
 								if context_found == False:
-									### COMMENT OUT AFTER TESTING ###
-									#print "deleting type 2 discourse connective occurance %s (not a connective)!" % schneiders[j][0]
-									###
 									twos_to_delete.append(x)
 
 				### COMMENT OUT AFTER TESTING ###
@@ -166,17 +157,20 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 				###
 				for item in zeros_to_delete:
 					try: 
-						t.dcs.remove(item)	
+						t.dcs.remove(item)
+						print "removing DC type 0 " + item[0].part_one[0]
 					except:
 						pass	
 				for item in ones_to_delete:
 					try: 
-						t.dcs.remove(item)	
+						t.dcs.remove(item)
+						print "removing DC type 1 " + item[0].part_one[0]
 					except:
 						pass		
 				for item in twos_to_delete:
 					try: 
-						t.dcs.remove(item)	
+						t.dcs.remove(item)
+						print "removing DC type 2 " + item[0].part_one[0]
 					except:
 						pass
 
