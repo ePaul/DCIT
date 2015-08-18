@@ -15,6 +15,7 @@ from get_matches import get_matches
 from get_info import Info
 from disambiguate import disambiguate
 from write_results import write_results
+from post_disambiguation_stats import post_disambiguation_stats
 
 def main ():
 	# Filepath handling.
@@ -58,7 +59,15 @@ def main ():
 	# Disambiguate matches containing ambiguity.
 	disambiguated_tweets = disambiguate(matched_tweets, dcons)
 	# Get post-disambiguation matches.
-#	matched_disambiguated_tweets = get_matches(disambiguated_tweets, contins, discontins, tweetinfo_postdisambiguation)
+	
+	###
+	### Just for testing until Schneider 0s are done!
+	new_dcons = dcons
+	### IDEA: make new_dcons in main but pass them into disambiguate
+	### like done for the two info objects here.
+	###
+	
+	disambiguated_tweets2 = post_disambiguation_stats(disambiguated_tweets, new_dcons, tweetinfo_postdisambiguation)
 	
 	# Write results to .xml file.
 	write_results(disambiguated_tweets, filepath_tweetdirectory, filepath_output)
@@ -70,15 +79,19 @@ def main ():
 #		continue
 
 	# Print Statistics Summaries.
-"""	
+
 	print "\n\n"
 	print "-- PRE-DISAMBIGUATION"
 	tweetinfo_predisambiguation.summary()
 
+	###
+	### change wording, i.e. remove "potential" post disambiguation!
+	###
+		
 	print "\n\n"
 	print "-- POST-DISAMBIGUATION"
 	tweetinfo_postdisambiguation.summary()
-"""
+
 
 if __name__ == "__main__":
 	main()

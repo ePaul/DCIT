@@ -6,9 +6,6 @@
 
 from collections import Counter
 
-from disambiguate import disambiguate
-import get_info
-
 def get_matches(tweets, dcons, info):
 	tweet_trigger = False
 	discontins = [i for i in dcons if i.sep == "discont"]
