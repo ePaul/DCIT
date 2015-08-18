@@ -19,6 +19,7 @@ class Info():
 		# continuous single (aber)
 		self.discontinuous = 0
 		# continuous phrasal (abgesehen davon)
+		# COMMENT NOT CORRECT! ^
 		
 		# how many of the above are ambiguous
 		self.continuous_ambi = 0
