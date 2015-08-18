@@ -13,7 +13,7 @@ from get_tweets import tweet_scrape
 from get_convoPairs import convoPair_scrape
 from get_matches import get_matches
 from get_info import Info
-from disambiguate import disambiguate
+from disambiguate import *
 from write_results import write_results
 from post_disambiguation_stats import post_disambiguation_stats
 
@@ -49,7 +49,6 @@ def main ():
 
 	# Initialize Info objects.
 	tweetinfo_predisambiguation = Info(dcons)
-	tweetinfo_postdisambiguation = Info(dcons)
 
 	# Get Tweet objects (returns as iterator).
 	tweets = tweet_scrape(days)
@@ -57,40 +56,26 @@ def main ():
 	matched_tweets = get_matches(tweets, dcons, tweetinfo_predisambiguation)
 	
 	# Disambiguate matches containing ambiguity.
+	# Schneider 0s	
+	new_dcons = disambiguate_remove_zeroes(dcons)
+	
+	# Schneider 1s and 2s
 	disambiguated_tweets = disambiguate(matched_tweets, dcons)
 	# Get post-disambiguation matches.
 	
-	###
-	### Just for testing until Schneider 0s are done!
-	new_dcons = dcons
-	### IDEA: make new_dcons in main but pass them into disambiguate
-	### like done for the two info objects here.
-	###
-	
-	disambiguated_tweets2 = post_disambiguation_stats(disambiguated_tweets, new_dcons, tweetinfo_postdisambiguation)
-	
+	tweetinfo_postdisambiguation = Info(new_dcons)
+		
+	disambiguated_tweets2 = post_disambiguation_stats(disambiguated_tweets, dcons, tweetinfo_postdisambiguation)
+		
 	# Write results to .xml file.
-	write_results(disambiguated_tweets, filepath_tweetdirectory, filepath_output)
-	
-	# Not Needed Now Because Write Does It.
-	# this is needed because due to the iterator, disambiguated_tweets is 
-	# generated on demand
-#	for t in disambiguated_tweets:
-#		continue
+	write_results(disambiguated_tweets2, filepath_tweetdirectory, filepath_output)
 
 	# Print Statistics Summaries.
-
 	print "\n\n"
-	print "-- PRE-DISAMBIGUATION"
-	tweetinfo_predisambiguation.summary()
-
-	###
-	### change wording, i.e. remove "potential" post disambiguation!
-	###
+	tweetinfo_predisambiguation.summary("pre")
 		
 	print "\n\n"
-	print "-- POST-DISAMBIGUATION"
-	tweetinfo_postdisambiguation.summary()
+	tweetinfo_postdisambiguation.summary("post")
 
 
 if __name__ == "__main__":

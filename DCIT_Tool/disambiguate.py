@@ -9,12 +9,11 @@
 import re
 import string
 
-def disambiguate(tweets, dcons, zeros_limit = 0.8):
-	# Schneiders -->
-	# DiscourseConnective objects that qualify for a certain amount of 
-	# disambiguation confidence based on 1 of 3 disambiguation methods as 
-	# defined in "Bachelorarbeit_Angela_Schneider_735923".
-	schneiders = [('denn',1,['KON']),
+# Schneiders -->
+# DiscourseConnective objects that qualify for a certain amount of 
+# disambiguation confidence based on 1 of 3 disambiguation methods as 
+# defined in "Bachelorarbeit_Angela_Schneider_735923".
+schneiders = [('denn',1,['KON']),
 					('doch',1,['KON']),
 					('entgegen',1,['APPO','APPR']),
 					('seit',1,['KOUS']),
@@ -74,9 +73,22 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 					('allenfalls',0,23),
 					('wogegen',0,146),
 					('nebenher',0,107),
-					('weswegen',0,89)
-					]
-																									
+					('weswegen',0,89)]
+
+def disambiguate_remove_zeroes(dcons, zeros_limit = 0.8):
+	new_dcons = []
+	for d in dcons:
+		include = True	# all others added regardless
+		for s in schneiders:
+			if s[1] == 0: #schneider type 0 added only if in limit
+				if (d.part_one[0].encode("utf-8") == s[0]) and ((200-s[2]) / float(200)) >= zeros_limit: 
+					include = False
+		if include:
+			new_dcons.append(d)
+			
+	return new_dcons
+
+def disambiguate(tweets, dcons):					
 	# Contexts For Schneiders type '2'.		
 	contexts = {
 		'also' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'), 
@@ -128,11 +140,8 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 						# For each Schneider:
 						for j in range(len(schneiders)):
 
-							# HANDLING FOR SCHNEIDERS TYPE '0'.
-							if schneiders[j][1] == 0:
-								if ( x[0].part_one[0].encode("utf8") == schneiders[j][0] ) and ( 200-x[2] / float(200) ) >= zeros_limit:	
-									zeros_to_delete.append(x)
-								
+							# Removed type 0, happens before!
+
 							# HANDLING FOR SCHNEIDERS TYPE '1'.
 							# Delete ambiguous cases if pos tag matches.
 							if schneiders[j][1] == 1:								
@@ -153,30 +162,30 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 									twos_to_delete.append(x)
 
 				### COMMENT OUT AFTER TESTING ###
-				print len(t.dcs)
+				#print len(t.dcs)
 				###
 				for item in zeros_to_delete:
 					try: 
 						t.dcs.remove(item)
-						print "removing DC type 0 " + item[0].part_one[0]
+						#print "removing DC type 0 " + item[0].part_one[0]
 					except:
 						pass	
 				for item in ones_to_delete:
 					try: 
 						t.dcs.remove(item)
-						print "removing DC type 1 " + item[0].part_one[0]
+						#print "removing DC type 1 " + item[0].part_one[0]
 					except:
 						pass		
 				for item in twos_to_delete:
 					try: 
 						t.dcs.remove(item)
-						print "removing DC type 2 " + item[0].part_one[0]
+						#print "removing DC type 2 " + item[0].part_one[0]
 					except:
 						pass
 
 				### COMMENT OUT AFTER TESTING ###		
-				print len(t.dcs)
-				print "-----"
+				#print len(t.dcs)
+				#print "-----"
 				###
 
 		yield t
