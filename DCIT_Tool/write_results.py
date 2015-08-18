@@ -23,7 +23,7 @@ def write_results(tweets, input_path, output_path):
 			# every time we see a new file, write old one and open new one
 			write()	
 			currentfile = t.filename
-			soup = BeautifulSoup(open(input_path+currentfile), "html")
+			soup = BeautifulSoup(open(input_path+currentfile), "lxml")
 	
 		# modify soup
 		results = soup.findAll("tweet", {"id" : t.id})

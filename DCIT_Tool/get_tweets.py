@@ -82,7 +82,7 @@ def tweet_scrape(file_path_argument=0): # Argument as string or list of strings.
 	# Create soup objects from Tweet .xml files (returns as iterator).
 	for f in file_path_list:
 		file = os.path.basename(f)
-		soup = BeautifulSoup(open(f), "html")
+		soup = BeautifulSoup(open(f), "lxml")
 	
 		# Find/create Tweet objects from soup objects.
 		for t in soup.find_all('thread'):
