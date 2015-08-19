@@ -98,6 +98,21 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 					  re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV')]
 		}
 
+	# HANDLING FOR SCHNEIDERS TYPE '0'.
+	new_dcons = dcons
+	for i in new_dcons:
+		print i.part_one[0]
+	print
+
+	for d in new_dcons.copy():
+		for s in schneiders:
+			if s[1] == 0:
+				if d.part_one[0] == s[0]:
+					pass               
+				if (d.part_one[0].encode("utf-8") == s[0]) and ((200-s[2]) / float(200)) >= zeros_limit :           
+					print "\t\t\t\tremoving" + str(s[0])                   
+					new_dcons.remove(d)    
+
 	# File handling for tweets-pos-tagged files.
 	for t in tweets:
 		tagged_path = "../tweets-pos-tagged/" + t.filename + "-tagged.txt"
@@ -118,7 +133,6 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 						instances[parts[1]] = (parts[0], parts[2])
 
 				# DISAMBIGUATION.
-				zeros_to_delete = []
 				ones_to_delete = []
 				twos_to_delete = []
 				# Iterate over DC matches associated with current Tweet object.
@@ -128,24 +142,19 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 						# For each Schneider:
 						for j in range(len(schneiders)):
 
-							# HANDLING FOR SCHNEIDERS TYPE '0'.
-							if schneiders[j][1] == 0:
-								if ( x[0].part_one[0].encode("utf8") == schneiders[j][0] ) and ( 200-x[2] / float(200) ) >= zeros_limit:	
-									zeros_to_delete.append(x)
-								
 							# HANDLING FOR SCHNEIDERS TYPE '1'.
 							# Delete ambiguous cases if pos tag matches.
 							if schneiders[j][1] == 1:								
 								for k in instances:
 									if schneiders[j][0] == k:
 										if instances[k][1] in schneiders[j][2]:
-											ones_to_delete.append(x)											
-
+											ones_to_delete.append(x)
+											
 							# HANDLING FOR SCHNEIDERS TYPE '2'.
 							# Delete ambiguous cases if no exception found
 							# (should be most).
-							context_found = False
 							if schneiders[j][1] == 2:
+								context_found = False
 								for k in contexts[schneiders[j][0]]:
 									if re.search(k, line):
 										context_found = True
@@ -155,12 +164,6 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 				### COMMENT OUT AFTER TESTING ###
 				print len(t.dcs)
 				###
-				for item in zeros_to_delete:
-					try: 
-						t.dcs.remove(item)
-						print "removing DC type 0 " + item[0].part_one[0]
-					except:
-						pass	
 				for item in ones_to_delete:
 					try: 
 						t.dcs.remove(item)
