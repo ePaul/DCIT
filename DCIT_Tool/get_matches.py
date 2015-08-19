@@ -17,6 +17,7 @@ def get_matches(tweets, dcons, info):
 
 		# DISCONTINUOUS CASES
 		for i in discontins:
+		
 			for j in range(len(i.ortho_blocks)):
 				if i.type_part_one[j] == "phrasal" and i.type_part_two[j] == "single":
 					if (" " + i.part_one[j] + " ") in t.raw and (" " + i.part_two[j] + " ") in t.raw and t.raw.find(i.part_one[j]) < t.raw.find(i.part_two[j]):						

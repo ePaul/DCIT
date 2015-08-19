@@ -130,7 +130,6 @@ def disambiguate(tweets, dcons):
 						instances[parts[1]] = (parts[0], parts[2])
 
 				# DISAMBIGUATION.
-				zeros_to_delete = []
 				ones_to_delete = []
 				twos_to_delete = []
 				# Iterate over DC matches associated with current Tweet object.
@@ -164,12 +163,6 @@ def disambiguate(tweets, dcons):
 				### COMMENT OUT AFTER TESTING ###
 				#print len(t.dcs)
 				###
-				for item in zeros_to_delete:
-					try: 
-						t.dcs.remove(item)
-						#print "removing DC type 0 " + item[0].part_one[0]
-					except:
-						pass	
 				for item in ones_to_delete:
 					try: 
 						t.dcs.remove(item)

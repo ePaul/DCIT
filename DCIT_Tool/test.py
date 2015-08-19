@@ -72,10 +72,12 @@ def main ():
 
 	# Print Statistics Summaries.
 	print "\n\n"
-	tweetinfo_predisambiguation.summary("pre")
+	print "Pre-disambiguation"
+	tweetinfo_predisambiguation.summary()
 		
 	print "\n\n"
-	tweetinfo_postdisambiguation.summary("post")
+	print "Post-disambiguation"
+	tweetinfo_postdisambiguation.summary()
 
 
 if __name__ == "__main__":

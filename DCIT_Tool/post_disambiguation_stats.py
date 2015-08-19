@@ -21,15 +21,22 @@ def post_disambiguation_stats(tweets, dcons, info):
 		for d in t.dcs:
 		
 			if d[0] in dcons:
-			# because Schneider 0s were removed
-						
+			# because Schneider 0s were removed.
+										
 				if d[0].sep == "cont":
 					info.continuous += 1
-					if d[1] == True:	 # if ambiguous
+					info.continuous_dict[d[0]] += 1
+
+					if d[1] == True:	 # if (still) ambiguous
 						info.continuous_ambi += 1
+						info.ambiguous_dict[d[0]] += 1
+						
 				elif d[0].sep == "discont":
 					info.discontinuous +=1
-					if d[1] == True:	 # if ambiguous
+					info.discontinuous_dict[d[0]] += 1
+					
+					if d[1] == True:	 # if (still) ambiguous
 						info.discontinuous_ambi += 1
+						info.ambiguous_dict[d[0]] += 1
 						
 		yield t
