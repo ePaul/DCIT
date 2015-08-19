@@ -9,12 +9,11 @@
 import re
 import string
 
-def disambiguate(tweets, dcons, zeros_limit = 0.8):
-	# Schneiders -->
-	# DiscourseConnective objects that qualify for a certain amount of 
-	# disambiguation confidence based on 1 of 3 disambiguation methods as 
-	# defined in "Bachelorarbeit_Angela_Schneider_735923".
-	schneiders = [('denn',1,['KON']),
+# Schneiders -->
+# DiscourseConnective objects that qualify for a certain amount of 
+# disambiguation confidence based on 1 of 3 disambiguation methods as 
+# defined in "Bachelorarbeit_Angela_Schneider_735923".
+schneiders = [('denn',1,['KON']),
 					('doch',1,['KON']),
 					('entgegen',1,['APPO','APPR']),
 					('seit',1,['KOUS']),
@@ -74,9 +73,23 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 					('allenfalls',0,23),
 					('wogegen',0,146),
 					('nebenher',0,107),
-					('weswegen',0,89)
-					]
-																									
+					('weswegen',0,89)]
+
+# HANDLING FOR SCHNEIDERS TYPE '0'.
+def disambiguate_remove_zeroes(dcons, zeros_limit = 0.8):
+	new_dcons = []
+	for d in dcons:
+		include = True	# all others added regardless
+		for s in schneiders:
+			if s[1] == 0: #schneider type 0 added only if in limit
+				if (d.part_one[0].encode("utf-8") == s[0]) and ((200-s[2]) / float(200)) >= zeros_limit: 
+					include = False
+		if include:
+			new_dcons.append(d)
+			
+	return new_dcons
+
+def disambiguate(tweets, dcons):					
 	# Contexts For Schneiders type '2'.		
 	contexts = {
 		'also' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'), 
@@ -97,22 +110,7 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 		'zugleich' : [re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/V[*]+ [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KON [a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV'),
 					  re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV')]
 		}
-
-	# HANDLING FOR SCHNEIDERS TYPE '0'.
-	new_dcons = dcons
-	for i in new_dcons:
-		print i.part_one[0]
-	print
-
-	for d in new_dcons.copy():
-		for s in schneiders:
-			if s[1] == 0:
-				if d.part_one[0] == s[0]:
-					pass               
-				if (d.part_one[0].encode("utf-8") == s[0]) and ((200-s[2]) / float(200)) >= zeros_limit :           
-					print "\t\t\t\tremoving" + str(s[0])                   
-					new_dcons.remove(d)    
-
+  
 	# File handling for tweets-pos-tagged files.
 	for t in tweets:
 		tagged_path = "../tweets-pos-tagged/" + t.filename + "-tagged.txt"
@@ -167,19 +165,19 @@ def disambiguate(tweets, dcons, zeros_limit = 0.8):
 				for item in ones_to_delete:
 					try: 
 						t.dcs.remove(item)
-						print "removing DC type 1 " + item[0].part_one[0]
+						#print "removing DC type 1 " + item[0].part_one[0]
 					except:
 						pass		
 				for item in twos_to_delete:
 					try: 
 						t.dcs.remove(item)
-						print "removing DC type 2 " + item[0].part_one[0]
+						#print "removing DC type 2 " + item[0].part_one[0]
 					except:
 						pass
 
 				### COMMENT OUT AFTER TESTING ###		
-				print len(t.dcs)
-				print "-----"
+				#print len(t.dcs)
+				#print "-----"
 				###
 
 		yield t

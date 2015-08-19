@@ -125,7 +125,6 @@ def get_matches(tweets, dcons, info):
 
 		if tweet_trigger == True:
 			info.tweets_with_dcs += 1
-			t.has_dc = True
 	
 		info.discontinuous_ambi += t.ambi_count_discontins
 		info.continuous_ambi += t.ambi_count_contins

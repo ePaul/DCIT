@@ -34,7 +34,6 @@ class Tweet():
 		self.depth = tweet["depth"]
 		
 		# Does the Tweet object contain (a) discourse connective(s)?
-		self.has_dc = False		
 		self.dcs = []
 		
 		# Does the Tweet object contain (an) ambiguous DC(s)?
@@ -53,6 +52,10 @@ class Tweet():
 		for d in self.dcs:
 			print d[0].part_one[0], d[0].part_two[0],
 		print
+		
+	def has_dc(self):
+		return len(self.dcs) != 0
+
 		
 def tweet_scrape(file_path_argument=0): # Argument as string or list of strings.
 	# Filepath handling.

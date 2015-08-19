@@ -14,6 +14,7 @@ class Info():
 		# number of tweets seen
 		self.tweets_with_dcs = 0
 		# how many tweets contain at least one discourse connective
+		self.num_dcons = len(dcons)
 		
 		self.continuous = 0
 		# continuous single (aber)
@@ -57,7 +58,7 @@ class Info():
 		
 	def mostcommon(self, n, which_kind):
 		num = n
-		print "\n--------------------------------------------------------------------\n"
+		print "--------------------------------------------------------------------"
 		if which_kind == "continuous":
 			if self.continuous == 0:
 				print "No continuous connectives found!"
@@ -90,13 +91,15 @@ class Info():
 
 		return
 
-	def summary(self, flag=0, top_many=10):
-		if flag == 0:
-			print "-- SUMMARY"
+	def summary(self, flag, top_many=10):
+		if flag == "pre":
+			print "-- SUMMARY pre-disambiguation"
+			print "There are %d possible Discourse Connectives." % self.num_dcons			
 			print "--------------------------------------------------------------------"
-			print		
+				
 			print "I. all matches."
 			print "--------------------------------------------------------------------"
+			
 			print "Found %d potential Discourse Connective matches amongst %d Tweets." % (self.dcs_found(), self.tweets)
 			print "Found a potential Discourse Connective in %d out of %d Tweets." % (self.tweets_with_dcs, self.tweets)
 			print "Potential Discourse Connective Saturation is %f." % self.ratio()
@@ -104,7 +107,7 @@ class Info():
 			print "of type = 'continuous': %d " % self.continuous
 			print "of type = 'discontinuous': %d " % self.discontinuous
 			print "--------------------------------------------------------------------"
-			print		
+					
 			print "II. ambiguous matches."
 			print "--------------------------------------------------------------------"
 			print "Found %d ambiguous cases amongst %d matches." % (self.ambiguous(), self.dcs_found())
@@ -112,15 +115,27 @@ class Info():
 			print "of type = 'continuous': %d" % self.continuous_ambi
 			print "of type = 'discontinuous': %d " % self.discontinuous_ambi
 			print "--------------------------------------------------------------------"
-			print
 			print "III. Most common discourse connectives."
 
 			self.mostcommon(top_many,"continuous")
 			self.mostcommon(top_many,"discontinuous")
 			self.mostcommon(top_many,"ambiguous")
+			print "--------------------------------------------------------------------"	
 				
-		elif flag == 1:
-			print "One!  Nothing here yet!"
+		elif flag == "post":
+			print "-- SUMMARY post-disambiguation"
+			print "There are %d possible Discourse Connectives." % self.num_dcons				
+			print "--------------------------------------------------------------------"
+			print "Found %d Discourse Connective matches amongst %d Tweets." % (self.dcs_found(), self.tweets)
+			print "Found a Discourse Connective in %d out of %d Tweets." % (self.tweets_with_dcs, self.tweets)
+			print "Discourse Connective Saturation is %f." % self.ratio()
+			print "--------------------------------------------------------------------"
+			print "of type = 'continuous': %d " % self.continuous
+			print "of type = 'discontinuous': %d " % self.discontinuous
+
+			self.mostcommon(top_many,"continuous")
+			self.mostcommon(top_many,"discontinuous")
+				
+			print "--------------------------------------------------------------------"	
 		else:
-			print "Some other number!  Nothing here yet!"
-	
+			print "Nothing here yet!"		
