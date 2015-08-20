@@ -4,35 +4,37 @@
 ## Authors: C. Violand & J. Grasso
 ##
 
-## TODO: FINISH SCHNEIDER TWOS.
+# TODO: Increase disambiguation accuracy.
 
 import re
 import string
 
-# Schneiders -->
+# SCHNEIDERS -->
 # DiscourseConnective objects that qualify for a certain amount of 
 # disambiguation confidence based on 1 of 3 disambiguation methods as 
 # defined in "Bachelorarbeit_Angela_Schneider_735923".
-schneiders = [('denn',1,['KON']),
-					('doch',1,['KON']),
-					('entgegen',1,['APPO','APPR']),
-					('seit',1,['KOUS']),
-					('seitdem',1,['KOUS']),
-					('trotz',1,['APPR']),
-					('während',1,['KOUS']),
-					('wegen',1,['APPO','APPR']),
-						('also',2),
-						('auch',2),
-						('außer',2),
-						('da',2),
-						('darum',2),
-						('nebenher',2),
-						('nur',2),
-						('so',2),
-						('sonst',2),
-						('soweit',2),
-						('zugleich',2),
-					('und',0,79),
+schneider_ones = [('denn',['KON'],['ADV']),
+					('doch',['KON'],['ADV']),
+					('entgegen',['APPO','APPR'],['PTKVZ']),
+					('seit',['KOUS'],['APPR']),
+					('seitdem',['KOUS'],['PAV']),
+					('trotz',['APPR'],['NN']),
+					('während',['KOUS'],['APPR']),
+					('wegen',['APPO','APPR'],['NN'])]
+
+schneider_twos = [('also',2),
+					('auch',2),
+					('außer',2),
+					('da',2),
+					('darum',2),
+					('nebenher',2),
+					('nur',2),
+					('so',2),
+					('sonst',2),
+					('soweit',2),
+					('zugleich',2)]
+
+schneider_zeros = [('und',0,79),
 					('als',0,17),
 					('auch',0,1),
 					('wie',0,12),
@@ -80,7 +82,7 @@ def disambiguate_remove_zeroes(dcons, zeros_limit = 0.8):
 	new_dcons = []
 	for d in dcons:
 		include = True	# all others added regardless
-		for s in schneiders:
+		for s in schneider_zeros:
 			if s[1] == 0: #schneider type 0 added only if in limit
 				if (d.part_one[0].encode("utf-8") == s[0]) and ((200-s[2]) / float(200)) >= zeros_limit: 
 					include = False
@@ -90,95 +92,124 @@ def disambiguate_remove_zeroes(dcons, zeros_limit = 0.8):
 	return new_dcons
 
 def disambiguate(tweets, dcons):					
-	# Contexts For Schneiders type '2'.		
+	# PREPARATION FOR SCHNEDIERS TYPE '2'.		
 	contexts = {
 		'also' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'), 
 				  re.compile(r'\.\/\.\/\$\. [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'),
 				  re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV')],
 		'auch' : [re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/auch\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVFIN')],
-		'außer': [],
+		'außer': [re.compile(r'[\S]+\/[\S]+\/\$[\S]* [a-zA-ZäöüßÄÖÜẞ]+\/außer\/APPR ,\/,\/\$,'),
+				  re.compile(r'[\S]+\/[\S]+\/\$[\S]* [a-zA-ZäöüßÄÖÜẞ]+\/außer\/APPR [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KOUS')],
 		'da' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/da\/ADV'),
-				re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/da\/KOUS')],
-		'darum' : [],
-		'nebenher': [re.compile(r'\.\/\.\/\$\. [a-zA-ZäöüßÄÖÜẞ]+\/nebenher\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVFIN')],
+				re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/da\/KOUS'),
+				re.compile(r'[\S]+\/[\S]+\/\$[\S]* [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KON [a-zA-ZäöüßÄÖÜẞ]+\/da\/ADV')],
+		'darum' : ["all"],
+		'nebenher': [re.compile(r'\.\/\.\/\$\. [a-zA-ZäöüßÄÖÜẞ]+\/nebenher\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVFIN'),
+					 "all"],
 		'nur' : [re.compile(r'\.\/\.\/\$\. [a-zA-ZäöüßÄÖÜẞ]+\/nur\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVFIN')],
 		'so' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/so\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KOUS'),
 				re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/so\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'),
 				re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KON [a-zA-ZäöüßÄÖÜẞ]+\/so\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN')],
-		'sonst' : [],
-		'soweit' : [re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/soweit\/KOUS')],
-		'zugleich' : [re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/V[*]+ [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KON [a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV'),
-					  re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV')]
+		'sonst' : [re.compile(r'[\S]+\/[\S]+\/\$[\S]* [a-zA-ZäöüßÄÖÜẞ]+\/sonst\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN')],
+		'soweit' : [re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/soweit\/KOUS'),
+					re.compile(r'[\S]+\/[\S]+\/\$[\S]* [a-zA-ZäöüßÄÖÜẞ]+\/soweit\/ADV')],
+		'zugleich' : [re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/V[a-zA-ZäöüßÄÖÜẞ]* [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KON [a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV'),
+					  re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVFIN [a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV'),
+					  re.compile(r'[\S]+\/[\S]+\/\$[\S]* [a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'),
+					  re.compile(r'[\S]+\/[\S]+\/\$[\S]* [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KON [a-zA-ZäöüßÄÖÜẞ]+\/zugleich\/ADV')]
 		}
-  
+
+	not_contexts = {
+		'also' : ["all"],
+		'auch' : ["all"],
+		'außer': ["all"],
+		'da' : [re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/da\/ADV' ),
+				re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/da\/PTKVZ' )],
+		'darum' : [re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/darum\/PAV [\S]+\/[\S]+\/\$\( [\S]+\/[\S]+\/\$[\S]*' ),
+				   re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/darum\/PAV ,\/,\/\$,' ),
+				   re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/darum\/PAV \.\/\.\/\$\.' ),
+			   	   re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/darum\/PAV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VV' )],
+		'nebenher': [re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/nebenher\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVFIN' ),
+					 re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/nebenher\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVPP' ),
+					 re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/nebenher\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/KON' ),
+					 re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/nebenher\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VVINF' ),
+					 re.compile(r' [a-zA-ZäöüßÄÖÜẞ]+\/nebenher\/ADV [\S]+\/[\S]+\/\$[\S]*' )],
+		'nur' : ["all"],
+		'so' : ["all"],
+		'sonst' : ["all"],
+		'soweit' : ["all"],
+		'zugleich' : ["all"]
+		}
+
 	# File handling for tweets-pos-tagged files.
 	for t in tweets:
 		tagged_path = "../tweets-pos-tagged/" + t.filename + "-tagged.txt"
 		tagged = open(tagged_path)
 		
-		# Retrieve/create dictionary of information from tweets-pos-tagged 
-		# files using a regular expression.
+		# PREPARATION FOR SCHNEIDERS TYPE '1'.
+		# Get dictionary of tagged words for current line of current tweet.
 		pattern = re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/[A-ZÄÖÜẞ]+')
 		for line in tagged:
 			if line.find(t.id) >= 0:
 				results = re.findall(pattern,line)
-				instances = {}
+				tagged_words = {}
 				for i in results:
 					parts = string.split(i,'/')
-					if parts[1] in instances.keys():
+					if parts[1] in tagged_words.keys():
 						continue
 					else:
-						instances[parts[1]] = (parts[0], parts[2])
+						tagged_words[parts[1]] = (parts[0], parts[2])
 
-				# DISAMBIGUATION.
-				ones_to_delete = []
-				twos_to_delete = []
-				# Iterate over DC matches associated with current Tweet object.
-				for x in t.dcs:
-					# If DC occurance is cited as ambiguous.
-					if x[1] == True:
-						# For each Schneider:
-						for j in range(len(schneiders)):
+		# DISAMBIGUATION PROCESS.
+		ones_to_delete = []
+		twos_to_delete = []
+		for x in t.dcs:
+			# If DC occurance is cited as ambiguous.
+			if x[1] == True:
 
-							# HANDLING FOR SCHNEIDERS TYPE '1'.
-							# Delete ambiguous cases if pos tag matches.
-							if schneiders[j][1] == 1:								
-								for k in instances:
-									if schneiders[j][0] == k:
-										if instances[k][1] in schneiders[j][2]:
-											ones_to_delete.append(x)
-											
-							# HANDLING FOR SCHNEIDERS TYPE '2'.
-							# Delete ambiguous cases if no exception found
-							# (should be most).
-							if schneiders[j][1] == 2:
-								context_found = False
-								for k in contexts[schneiders[j][0]]:
-									if re.search(k, line):
-										context_found = True
-								if context_found == False:
-									twos_to_delete.append(x)
-
-				### COMMENT OUT AFTER TESTING ###
-				print len(t.dcs)
-				###
-				for item in ones_to_delete:
-					try: 
-						t.dcs.remove(item)
-						#print "removing DC type 1 " + item[0].part_one[0]
-					except:
-						pass		
-				for item in twos_to_delete:
-					try: 
-						t.dcs.remove(item)
-						#print "removing DC type 2 " + item[0].part_one[0]
-					except:
-						pass
-
-				### COMMENT OUT AFTER TESTING ###		
-				#print len(t.dcs)
-				#print "-----"
-				###
+				# HANDLING FOR SCHNEIDERS TYPE '1'.
+				for j in range(len(schneider_ones)):				
+					for k in tagged_words:
+						if schneider_ones[j][0] == k and x[0].part_one[0] == k:
+							# Add to remove list if the part of speech matches the criteria for deletion.								
+							if tagged_words[k][1] in schneider_ones[j][2]:
+								### COMMENT OUT AFTER TESTING ###
+								print "removing DC type 1 ", x[0].part_one[0]
+								###								
+								ones_to_delete.append(x)
+							elif tagged_words[k][1] in schneider_ones[j][1]:
+								# Maintain ambiguitiy of DiscourseConnective instance
+								pass
+									
+				# HANDLING FOR SCHNEIDERS TYPE '2'.
+				for l in range(len(schneider_twos)):
+					if x[0].part_one[0].encode("utf-8") == schneider_twos[l][0]:
+						remove = False
+						for q in not_contexts[schneider_twos[l][0]]:
+							if q != "all":
+								if re.search(q,line):
+									try:
+										t.dcs.remove(x)
+										### COMMENT OUT AFTER TESTING ###[
+										print "removing DC type 2 ", l
+										###
+										break
+									except:
+										pass
+							else:	# If delete criteria is 'all'
+								for p in contexts[schneider_twos[l][0]]:
+									if p != "all":
+										if not re.search(p,line):
+											try:
+												t.dcs.remove(x)
+												### COMMENT OUT AFTER TESTING ###[
+												print "removing DC type 2 ", x[0].part_one[0]
+												###
+												break
+											except:
+												pass
+						if remove == True:
+							twos_to_delete.append(x)
 
 		yield t
 

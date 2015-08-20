@@ -7,4 +7,6 @@ unused-tweets
 
 .DC_Store
 
+.DCIT.tex.swp
+
 *.pyc

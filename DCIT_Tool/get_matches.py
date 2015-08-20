@@ -14,7 +14,7 @@ def get_matches(tweets, dcons, info):
 	for t in tweets:
 		info.tweets += 1	# number of Tweets seen so far
 		tweet_trigger = False
-
+	
 		# DISCONTINUOUS CASES
 		for i in discontins:
 			for j in range(len(i.ortho_blocks)):
