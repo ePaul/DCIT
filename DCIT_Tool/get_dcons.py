@@ -61,7 +61,7 @@ def dcon_scrape(file_path_argument=0):
 	else:
 		file_path = file_path_argument
 	assert os.path.exists(file_path), "File not found: "+str(file_path)	
-	print "Using file: " + str(file_path)	
+	print "Using dimlex file: " + str(file_path)	
 	
 	# Create soup object of dimlex file.
 	soup = BeautifulSoup(open(file_path), "xml")

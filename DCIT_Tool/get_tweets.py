@@ -77,12 +77,12 @@ def tweet_scrape(file_path_argument=0): # Argument as string or list of strings.
 		file_path_list = [file_path_argument]
 	for f in file_path_list:
 		assert os.path.exists(f), "File not found: "+str(f)
-	print "Using files: " + str(file_path_list)
+	print "Using tweet files: " + str(file_path_list)
 
 	# Create soup objects from Tweet .xml files (returns as iterator).
 	for f in file_path_list:
 		file = os.path.basename(f)
-		soup = BeautifulSoup(open(f), "html")
+		soup = BeautifulSoup(open(f), "lxml")
 	
 		# Find/create Tweet objects from soup objects.
 		for t in soup.find_all('thread'):
