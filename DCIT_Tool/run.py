@@ -34,18 +34,10 @@ def main ():
 	if sys.argv[1] == "glob":
 		# Get list of files in filepath_tweetdirectory.
 		days = glob.glob(filepath_tweetdirectory+"*.xml")
-<<<<<<< HEAD
-
-	else:
-		for s in sys.argv[1:]:
-			days.append(filepath_tweetdirectory + s)
-	
-=======
 	else:
 		for s in sys.argv[1:]:
 			days.append(filepath_tweetdirectory + s)
 
->>>>>>> f54367d79435610578a47ede936dfd45f75ce5f7
 	# Initialize Info objects.
 	tweetinfo_predisambiguation = Info(dcons)
 
