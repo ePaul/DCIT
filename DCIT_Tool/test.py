@@ -33,20 +33,8 @@ def main ():
 	### COMMENT OUT AFTER TESTING ###
 	days = filepath_tweetdirectory + "toy.xml"
 	###
-	"""	
-	days = glob.glob(filepath_tweetdirectory+"*.xml")
+	#days = glob.glob(filepath_tweetdirectory+"*.xml")
 	
-	# using all the days we have
-	for i in range(1, 31): # 1 to 30
-		if i == 20:
-			continue
-		elif i < 10:
-			day = "json-tweets-2013-04-0" + str(i) + ".xml"
-		else:
-			day = "json-tweets-2013-04-" + str(i) + ".xml"
-		days.append(day)
-	"""
-
 	# Initialize Info objects.
 	tweetinfo_predisambiguation = Info(dcons)
 

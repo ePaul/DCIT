@@ -141,6 +141,20 @@ def disambiguate(tweets, dcons):
 		'zugleich' : ["all"]
 		}
 
+	'''
+	for current tweet
+
+		get correct pos file
+			for current line in pos file
+				get dictionary of bla/bla/POS entries for that line : DICT[word] = [(lemma,POS)]
+
+		for item in (dcon object, ambi?, index) for current tweet
+			for current schnedier 1
+				for STRING DCON KEY in dictionary
+					
+					
+	'''
+
 	# File handling for tweets-pos-tagged files.
 	for t in tweets:
 		tagged_path = "../tweets-pos-tagged/" + t.filename + "-tagged.txt"
@@ -170,7 +184,7 @@ def disambiguate(tweets, dcons):
 				# HANDLING FOR SCHNEIDERS TYPE '1'.
 				for j in range(len(schneider_ones)):				
 					for k in tagged_words:
-						if schneider_ones[j][0] == k and x[0].part_one[0] == k:
+						if schneider_ones[j][0] == k and x[0].part_one[0].encode("utf-8") == k:
 							# Add to remove list if the part of speech matches the criteria for deletion.								
 							if tagged_words[k][1] in schneider_ones[j][2]:
 								### COMMENT OUT AFTER TESTING ###
@@ -184,32 +198,23 @@ def disambiguate(tweets, dcons):
 				# HANDLING FOR SCHNEIDERS TYPE '2'.
 				for l in range(len(schneider_twos)):
 					if x[0].part_one[0].encode("utf-8") == schneider_twos[l][0]:
-						remove = False
 						for q in not_contexts[schneider_twos[l][0]]:
 							if q != "all":
 								if re.search(q,line):
-									try:
-										t.dcs.remove(x)
-										### COMMENT OUT AFTER TESTING ###[
-										print "removing DC type 2 ", l
-										###
-										break
-									except:
-										pass
+									t.dcs.remove(x)
+									### COMMENT OUT AFTER TESTING ###[
+									print "removing DC type 2 ", l
+									###
+									break
 							else:	# If delete criteria is 'all'
 								for p in contexts[schneider_twos[l][0]]:
 									if p != "all":
 										if not re.search(p,line):
-											try:
-												t.dcs.remove(x)
-												### COMMENT OUT AFTER TESTING ###[
-												print "removing DC type 2 ", x[0].part_one[0]
-												###
-												break
-											except:
-												pass
-						if remove == True:
-							twos_to_delete.append(x)
+											t.dcs.remove(x)
+											### COMMENT OUT AFTER TESTING ###[
+											print "removing DC type 2 ", x[0].part_one[0]
+											###
+											break
 
 		yield t
 
