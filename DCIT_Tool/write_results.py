@@ -38,6 +38,7 @@ def write_results(tweets, input_path, output_path):
 		text = results[0]["text"]
 		tag = "DC/"
 		oldindex = 0
+		newtext = ""
 		
 		for d in sorted(t.dcs, key=lambda x:x[2]):
 			if n == 0:	# first

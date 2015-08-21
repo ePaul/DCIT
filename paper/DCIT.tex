@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-%\usepackage{fullpage}
+\usepackage{fullpage}
 
 \def\mono#1{\texttt{#1}}  % "mono" command for monospace font
 
@@ -11,7 +11,7 @@
 
 \maketitle
 
-\abstract{DCIT is a tool written in Python that analyzes the usage of discourse connectives in German Twitter data. It utilizes Twitter text data, parallel POS-tagged text, and the DiMLex discourse connective framework. It allows for the analysis of the use of discourse connectives amongst Twitter speech, and provides the groundwork for further analysis of this type of dialogue as compared to more standard forms of conversation.}
+\abstract{DCIT is a tool written in Python that analyzes the usage of discourse connectives in German Twitter data. It utilizes Twitter text data, parallel POS-tagged text, and the DiMLex discourse connective framework. It allows for the analysis of the use of discourse connectives among Twitter speech, and provides the groundwork for further analysis of this type of dialogue as compared to more standard forms of conversation.}
 
 \section{Background and Related Work}
 
@@ -46,7 +46,7 @@ DCIT is a tool written in Python that analyzes the usage of discourse connective
 
 \item  \mono{has\textunderscore dc} - with value \mono{True} or \mono{False} corresponding to whether the tweet contains at least one (potential) discourse connective
 \item  \mono{num\textunderscore dcs} - the number of (potential) discourse connectives contained in that tweet
-\item  \mono{dc\textunderscore location\textunderscore x} - for each (potential) discourse connective present, the string index at which it begins in the text.
+\item  the tag \mono{DC$\backslash$} is added before each discourse connective in the tweet text
 
 \end{itemize} % end tags
 
