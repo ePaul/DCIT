@@ -5,12 +5,13 @@
 ## Authors: C. Violand & J. Grasso
 ##
 
+import sys
 import os
 import glob
 
 from get_dcons import dcon_scrape
 from get_tweets import tweet_scrape
-from get_convoPairs import convoPair_scrape
+#from get_convoPairs import convoPair_scrape
 from get_matches import get_matches
 from get_info import Info
 from disambiguate import *
@@ -24,17 +25,19 @@ def main ():
 	filepath_output = "../results/"
 	if not os.path.exists(filepath_output):
 		os.makedirs(filepath_output)
-
+		
 	# Get list of DiscourseConnective objects.
 	dcons = dcon_scrape(filepath_dimlex)
 	
-	# Get list of files in filepath_tweetdirectory.
-	days = []	
-	### COMMENT OUT AFTER TESTING ###
+	days = []
+		
+	if sys.argv[1] == "glob":
+		# Get list of files in filepath_tweetdirectory.
+		days = glob.glob(filepath_tweetdirectory+"*.xml")
 
-	#days = filepath_tweetdirectory + "toy.xml"
-	###
-	days = glob.glob(filepath_tweetdirectory+"*.xml")
+	else:
+		for s in sys.argv[1:]:
+			days.append(filepath_tweetdirectory + s)
 	
 	# Initialize Info objects.
 	tweetinfo_predisambiguation = Info(dcons)

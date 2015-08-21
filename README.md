@@ -1,20 +1,25 @@
-# DCIT
-Discourse Connectives in Twitter
-
+```
 Jessica Grasso
 Universität Potsdam
 MSc Program in Cognitive Systems
 jgrasso@uni-potsdam.de
-
+```
+```
 Clayton Violand
 Universität Potsdam
 MSc Program in Cognitive Systems
-charles.violand@uni-potsdam.de
-
-
-To demo:
-
-$ python test.py
-
-To run:
-
+cvioland@uni-potsdam.de
+```
+# DCIT: Discourse Connectives in Twitter
+## To run on (a) specific file(s):
+$ python run.py a.xml b.xml
+<br>
+## To run on all files in ../tweets-xml/
+$ python run.py glob
+<br>
+### Note -->
+#### From ~/DCIT_Tool, DCIT assumes the following:
+#### * *dimlex.html* is in ../connectives-xml/dimlex.xml. 
+#### * tweet files are in ../tweets-xml/. 
+#### * POS-tagged files are in ../tweets-pos-tagged/, having the same name as the tweet file w/ extension *-tagged.txt*.
+#### * Results are written to files with extension *_new.xml* and saved to **../results/**, which is created if it does not exist.
