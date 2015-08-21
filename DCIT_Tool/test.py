@@ -32,9 +32,9 @@ def main ():
 	days = []	
 	### COMMENT OUT AFTER TESTING ###
 
-	days = filepath_tweetdirectory + "toy.xml"
+	#days = filepath_tweetdirectory + "toy.xml"
 	###
-	#days = glob.glob(filepath_tweetdirectory+"*.xml")
+	days = glob.glob(filepath_tweetdirectory+"*.xml")
 	
 	# Initialize Info objects.
 	tweetinfo_predisambiguation = Info(dcons)
