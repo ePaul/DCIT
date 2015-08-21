@@ -32,9 +32,15 @@ def main ():
 	days = []	
 	### COMMENT OUT AFTER TESTING ###
 	days = filepath_tweetdirectory + "toy.xml"
+<<<<<<< HEAD
 	###	
 	#days = glob.glob(filepath_tweetdirectory+"*.xml")
 
+=======
+	###
+	#days = glob.glob(filepath_tweetdirectory+"*.xml")
+	
+>>>>>>> 50727311e5a2818ce9ac3ee153919a91feca1e6f
 	# Initialize Info objects.
 	tweetinfo_predisambiguation = Info(dcons)
 
@@ -66,7 +72,6 @@ def main ():
 	print "\n\n"
 	print "Post-disambiguation"
 	tweetinfo_postdisambiguation.summary()
-
 
 if __name__ == "__main__":
 	main()

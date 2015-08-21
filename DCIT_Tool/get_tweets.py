@@ -17,7 +17,6 @@ class Tweet():
 	DiscourseConnectives matched within the Tweet object text.
 	'''
 
-
 	def __init__(self, tweet, f):
 		self.filename = f
 	

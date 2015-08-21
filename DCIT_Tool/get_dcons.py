@@ -47,6 +47,7 @@ class DiscourseConnective():
 		except:
 			self.ordering = None
 
+
 def dcon_scrape(file_path_argument=0):
 	# Filepath handling.
 	if file_path_argument==0:
