@@ -65,7 +65,7 @@ def main ():
 	
 	tweetinfo_postdisambiguation = Info(new_dcons)
 		
-	disambiguated_tweets2 = post_disambiguation_stats(disambiguated_tweets, dcons, tweetinfo_postdisambiguation)
+	disambiguated_tweets2 = post_disambiguation_stats(disambiguated_tweets, new_dcons, tweetinfo_postdisambiguation)
 		
 	# Write results to .xml file.
 	write_results(disambiguated_tweets2, filepath_tweetdirectory, filepath_output)
@@ -78,7 +78,6 @@ def main ():
 	print "\n\n"
 	print "Post-disambiguation"
 	tweetinfo_postdisambiguation.summary()
-
 
 if __name__ == "__main__":
 	main()
