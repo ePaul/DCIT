@@ -31,10 +31,11 @@ def main ():
 	# Get list of files in filepath_tweetdirectory.
 	days = []	
 	### COMMENT OUT AFTER TESTING ###
-	days = filepath_tweetdirectory + "toy.xml" #"toy.xml"
-	###	
-	#days = glob.glob(filepath_tweetdirectory+"*.xml")
 
+	days = filepath_tweetdirectory + "toy.xml"
+	###
+	#days = glob.glob(filepath_tweetdirectory+"*.xml")
+	
 	# Initialize Info objects.
 	tweetinfo_predisambiguation = Info(dcons)
 
