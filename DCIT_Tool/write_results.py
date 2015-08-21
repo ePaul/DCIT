@@ -33,16 +33,10 @@ def write_results(tweets, input_path, output_path):
 		results[0]["has_dc"] = t.has_dc()	
 		results[0]["num_dcs"] = len(t.dcs)
 		
-		# !!! should also tag the specific word?
+		n = 1
 		for d in t.dcs:
 			
-			results[0]["dc_location"] = d[2]
-			
-			# or include name of DC?
-			#results[0]["dc_location_"+d[0].part_one[0]] = d[2]
-			
-			# CHECK THIS for multiple DCs in one tweet, and
-			# for discontinuous DCs, none in current test file!
+			results[0]["dc_location_"+str(n)] = d[2]
+			n += 1
 		
 	write() # write the last one
-

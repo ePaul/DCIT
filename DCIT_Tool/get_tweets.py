@@ -61,16 +61,6 @@ def tweet_scrape(file_path_argument=0): # Argument as string or list of strings.
 	# Filepath handling.
 	if file_path_argument==0:
 		file_path = raw_input("Enter the path of XML (tweets) file to get convo pairs: ")
-		### COMMENT OUT AFTER TESTING ###
-		if file_path == 'r': # 'r' for "relative" path
-			file_path_list = ["../tweets-xml/toy.xml"]
-		if file_path == 'j':
-			file_path_list = ["/Volumes/TWITTER/DCIT/tweets-xml/toy.xml"]
-		elif file_path == 'c':
-			file_path_list = ["/home/clayton/bin/DCIT/tweets-xml/toy.xml"]
-		else:
-			file_path_list = [file_path]
-		###
 	elif isinstance(file_path_argument, list):
 		file_path_list = file_path_argument
 	else: 
@@ -90,4 +80,3 @@ def tweet_scrape(file_path_argument=0): # Argument as string or list of strings.
 				tweet = Tweet(i,file)
 
 				yield tweet
-

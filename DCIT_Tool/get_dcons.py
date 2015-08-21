@@ -52,14 +52,6 @@ def dcon_scrape(file_path_argument=0):
 	# Filepath handling.
 	if file_path_argument==0:
 		file_path = raw_input("Enter path of XML (connectives) file: ")
-		### COMMENT OUT AFTER TESTING ###
-		if file_path == 'r':
-			file_path = "../connectives-xml/dimlex.xml"
-		if file_path == 'j':
-			file_path = "/Volumes/TWITTER/DCIT/connectives-xml/dimlex.xml"
-		elif file_path == 'c':
-			file_path = "/home/clayton/bin/DCIT/connectives-xml/dimlex.xml"
-		###
 	else:
 		file_path = file_path_argument
 	assert os.path.exists(file_path), "File not found: "+str(file_path)	
@@ -75,4 +67,3 @@ def dcon_scrape(file_path_argument=0):
 		dcons.append(dcon)
 
 	return set(dcons)
-

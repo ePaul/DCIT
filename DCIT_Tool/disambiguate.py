@@ -23,60 +23,60 @@ schneider_ones = [('denn',['KON'],['ADV']),
 			('während',['KOUS'],['APPR']),
 			('wegen',['APPO','APPR'],['NN'])]
 
-schneider_twos = [('also',2),
-			('auch',2),
-			('außer',2),
-			('da',2),
-			('darum',2),
-			('nebenher',2),
-			('nur',2),
-			('so',2),
-			('sonst',2),
-			('soweit',2),
-			('zugleich',2)]
+schneider_twos = [('also'),
+			('auch'),
+			('außer'),
+			('da'),
+			('darum'),
+			('nebenher'),
+			('nur'),
+			('so'),
+			('sonst'),
+			('soweit'),
+			('zugleich')]
 
-schneider_zeros = [('und',0,79),
-			('als',0,17),
-			('auch',0,1),
-			('wie',0,12),
-			('so',0,37),
-			('nur',0,1),
-			('aber',0,145),
-			('dann',0,144),
-			('doch',0,80),
-			('da',0,90),
-			('denn',0,116),
-			('also',0,58),
-			('seit',0,21),
-			('während',0,102),
-			('darauf',0,13),
-			('dabie',0,19),
-			('allein',0,17),
-			('wegen',0,191),
-			('dafür',0,22),
-			('daher',0,184),
-			('sonst',0,56),
-			('statt',0,37),
-			('zugleich',0,81),
-			('allerdings',0,167),
-			('dagegen',0,148),
-			('ferner',0,182),
-			('trotz',0,180),
-			('darum',0,80),
-			('außer',0,15),
-			('soweit',0,169),
-			('entgegen',0,58),
-			('danach',0,115),
-			('wonach',0,14),
-			('worauf',0,97),
-			('weshalb',0,76),
-			('seitdem',0,61),
-			('womit',0,91),
-			('aufgrund',0,0),
-			('allenfalls',0,23),
-			('wogegen',0,146),
-			('nebenher',0,107),
-			('weswegen',0,89)]
+schneider_zeros = [('und',79),
+			('als',17),
+			('auch',1),
+			('wie',12),
+			('so',37),
+			('nur',1),
+			('aber',145),
+			('dann',144),
+			('doch',80),
+			('da',90),
+			('denn',116),
+			('also',58),
+			('seit',21),
+			('während',102),
+			('darauf',13),
+			('dabie',19),
+			('allein',17),
+			('wegen',191),
+			('dafür',22),
+			('daher',184),
+			('sonst',56),
+			('statt',37),
+			('zugleich',81),
+			('allerdings',167),
+			('dagegen',148),
+			('ferner',182),
+			('trotz',180),
+			('darum',80),
+			('außer',15),
+			('soweit',169),
+			('entgegen',58),
+			('danach',115),
+			('wonach',14),
+			('worauf',97),
+			('weshalb',76),
+			('seitdem',61),
+			('womit',91),
+			('aufgrund'),
+			('allenfalls',23),
+			('wogegen',146),
+			('nebenher',107),
+			('weswegen',89)]
 
 # HANDLING FOR SCHNEIDERS TYPE '0'.
 def disambiguate_remove_zeroes(dcons, zeros_limit = 0.8):
@@ -143,22 +143,8 @@ def disambiguate(tweets, dcons):
 		'sonst' : ["all"],
 		'soweit' : ["all"],
 		'zugleich' : ["all"]
-		}
-
-	'''
-	for current tweet
-
-		get correct pos file
-			for current line in pos file
-				get dictionary of bla/bla/POS entries for that line : DICT[word] = [(lemma,POS)]
-
-		for item in (dcon object, ambi?, index) for current tweet
-			for current schnedier 1
-				for STRING DCON KEY in dictionary
-					
-					
-	'''
-
+		
+}
 	# File handling for tweets-pos-tagged files.
 	# Load file only when necessary, not during every iteration.
 	current_file = {"name": None, "data": None}
@@ -175,9 +161,9 @@ def disambiguate(tweets, dcons):
 				match = id_pattern.match(line)
 				if(match):
 					
-					id = match.group(1)		# groups defined by parenthesis in RE above, first is ID
+					id_num = match.group(1)		# groups defined by parenthesis in RE above, first is ID
 					rest = match.group(2)		# next is rest of line
-					data_dict[id] = rest
+					data_dict[id_num] = rest
 					
 		return current_file["data"]		
 	
