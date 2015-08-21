@@ -32,20 +32,8 @@ def main ():
 	days = []	
 	### COMMENT OUT AFTER TESTING ###
 	days = filepath_tweetdirectory + "toy.xml"
-	###
-	"""	
-	days = glob.glob(filepath_tweetdirectory+"*.xml")
-	
-	# using all the days we have
-	for i in range(1, 31): # 1 to 30
-		if i == 20:
-			continue
-		elif i < 10:
-			day = "json-tweets-2013-04-0" + str(i) + ".xml"
-		else:
-			day = "json-tweets-2013-04-" + str(i) + ".xml"
-		days.append(day)
-	"""
+	###	
+	#days = glob.glob(filepath_tweetdirectory+"*.xml")
 
 	# Initialize Info objects.
 	tweetinfo_predisambiguation = Info(dcons)
@@ -65,12 +53,12 @@ def main ():
 	
 	tweetinfo_postdisambiguation = Info(new_dcons)
 		
-	disambiguated_tweets2 = post_disambiguation_stats(disambiguated_tweets, dcons, tweetinfo_postdisambiguation)
+	disambiguated_tweets2 = post_disambiguation_stats(disambiguated_tweets, new_dcons, tweetinfo_postdisambiguation)
 		
 	# Write results to .xml file.
 	write_results(disambiguated_tweets2, filepath_tweetdirectory, filepath_output)
 
-	# Print Statistics Summaries.
+	# Print statistics summaries.
 	print "\n\n"
 	print "Pre-disambiguation"
 	tweetinfo_predisambiguation.summary()
