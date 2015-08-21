@@ -1,6 +1,7 @@
 ##!/usr/env/python coding
 ## -*- coding: utf-8 -*-
 ##
+## disambiguate.py
 ## Authors: C. Violand & J. Grasso
 ##
 
@@ -92,6 +93,9 @@ def disambiguate_remove_zeroes(dcons, zeros_limit = 0.8):
 	return new_dcons
 
 def disambiguate(tweets, dcons):					
+	# used to interpet the POS-tagged text files
+	pattern = re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/[A-ZÄÖÜẞ]+')
+
 	# PREPARATION FOR SCHNEDIERS TYPE '2'.		
 	contexts = {
 		'also' : [re.compile(r',\/,\/\$, [a-zA-ZäöüßÄÖÜẞ]+\/also\/ADV [a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/VFIN'), 
@@ -156,23 +160,41 @@ def disambiguate(tweets, dcons):
 	'''
 
 	# File handling for tweets-pos-tagged files.
+	# Load file only when necessary, not during every iteration.
+	current_file = {"name": None, "data": None}
+	id_pattern = re.compile(r'^\t*(\d+)\t(.*)$')	
+	
+	def load_tagged_file(filename):
+		if current_file["name"] != filename:
+			data_dict = {}
+			current_file["name"] = filename
+			current_file["data"] = data_dict
+			tagged_path = "../tweets-pos-tagged/" + t.filename + "-tagged.txt"
+			tagged = open(tagged_path)
+			for line in tagged:
+				match = id_pattern.match(line)
+				if(match):
+					
+					id = match.group(1)		# groups defined by parenthesis in RE above, first is ID
+					rest = match.group(2)		# next is rest of line
+					data_dict[id] = rest
+					
+		return current_file["data"]		
+	
 	for t in tweets:
-		tagged_path = "../tweets-pos-tagged/" + t.filename + "-tagged.txt"
-		tagged = open(tagged_path)
+		data = load_tagged_file(t.filename)
+		line = data[t.id]
 		
 		# PREPARATION FOR SCHNEIDERS TYPE '1'.
 		# Get dictionary of tagged words for current line of current tweet.
-		pattern = re.compile(r'[a-zA-ZäöüßÄÖÜẞ]+\/[a-zA-ZäöüßÄÖÜẞ]+\/[A-ZÄÖÜẞ]+')
-		for line in tagged:
-			if line.find(t.id) >= 0:
-				results = re.findall(pattern,line)
-				tagged_words = {}
-				for i in results:
-					parts = string.split(i,'/')
-					if parts[1] in tagged_words.keys():
-						continue
-					else:
-						tagged_words[parts[1]] = (parts[0], parts[2])
+		results = re.findall(pattern,line)
+		tagged_words = {}
+		for i in results:
+			parts = string.split(i,'/')
+			if parts[1] in tagged_words.keys():
+				continue
+			else:
+				tagged_words[parts[1]] = (parts[0], parts[2])
 
 		# DISAMBIGUATION PROCESS.
 		ones_to_delete = []
@@ -186,17 +208,19 @@ def disambiguate(tweets, dcons):
 					for k in tagged_words:
 						if schneider_ones[j][0] == k and x[0].part_one[0].encode("utf-8") == k:
 							# Add to remove list if the part of speech matches the criteria for deletion.								
-							if tagged_words[k][1] in schneider_ones[j][2]:
+							if tagged_words[k][1] in schneider_ones[j][2]:  #tagged_words[k][1] is POS
 								### COMMENT OUT AFTER TESTING ###
 								print "removing DC type 1 ", x[0].part_one[0]
 								###								
 								ones_to_delete.append(x)
+								
 							elif tagged_words[k][1] in schneider_ones[j][1]:
 								# Maintain ambiguitiy of DiscourseConnective instance
 								pass
 									
 				# HANDLING FOR SCHNEIDERS TYPE '2'.
 				for l in range(len(schneider_twos)):
+				
 					if x[0].part_one[0].encode("utf-8") == schneider_twos[l][0]:
 						for q in not_contexts[schneider_twos[l][0]]:
 							if q != "all":

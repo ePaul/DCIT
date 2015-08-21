@@ -1,4 +1,5 @@
 ##!/usr/bin/env python
+## -*- coding: utf-8 -*-
 ##
 ## get_matches.py
 ## Authors: C. Violand & J. Grasso

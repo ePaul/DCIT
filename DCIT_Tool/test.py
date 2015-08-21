@@ -58,7 +58,7 @@ def main ():
 	# Write results to .xml file.
 	write_results(disambiguated_tweets2, filepath_tweetdirectory, filepath_output)
 
-	# Print Statistics Summaries.
+	# Print statistics summaries.
 	print "\n\n"
 	print "Pre-disambiguation"
 	tweetinfo_predisambiguation.summary()
