@@ -4,7 +4,7 @@ Discourse Connectives in Twitter
 Jessica Grasso
 Universität Potsdam
 MSc Program in Cognitive Systems
-
+jgrasso@uni-potsdam.de
 
 Clayton Violand
 Universität Potsdam
