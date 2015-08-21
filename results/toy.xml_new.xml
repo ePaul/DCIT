@@ -4,144 +4,82 @@
  </head>
  <body>
   <thread max_depth="41" size="61">
-<<<<<<< HEAD
-   <tweet dc_location_1="42" depth="0" has_dc="True" id="319392812892319744" num_dcs="1" text="Niemand hat das Recht auf Konsum wenn man dafür nicht arbeitet! Ich weiß das klingt fies...könnt mir gerne Contra geben... #Hartz4" user="625844151">
-    <tweet dc_location_1="23" depth="1" has_dc="True" id="319394580925673472" num_dcs="1" text="@HorstAgainstAll Schon mal das Grundgesetz gelesen? Haben dir deine Lehrer das nicht beigebracht? BILDungsl(m)ücke ? :)" user="83620313">
-     <tweet dc_location_1="125" dc_location_2="113" dc_location_3="13" dc_location_4="30" depth="2" has_dc="True" id="319394843682017280" num_dcs="4" text="@Micx5 doch! Aber es geht mir darum das die Hartz4 Empfänger rumheulen das sie kein Geld haben, im Gegenzug aber auch nichts dafür tun :)" user="625844151">
-      <tweet dc_location_1="86" dc_location_2="32" dc_location_3="49" dc_location_4="63" dc_location_5="58" depth="3" has_dc="True" id="319395856547713024" num_dcs="5" text="@HorstAgainstAll Woher weißt du das sie nichts dafür tun? Also doch BILDungsl(m)ücke? Und wenn da soviel steht bist du damit überfordert? :)" user="83620313">
-       <tweet dc_location_1="17" dc_location_2="34" depth="4" has_dc="True" id="319396349097414657" num_dcs="2" text="@Micx5 nein ganz und gar nicht :) Wie gesagt ich sprach von den Rumgammlern :) Woher ich das wissn will? Hör den Menschen einfach zu~" user="625844151">
+   <tweet depth="0" has_dc="True" id="319392812892319744" num_dcs="1" text="Niemand hat das Recht auf Konsum wenn man DC/DC/dafür nicht arbeitet! Ich weiß das klingt fies...könnt mir gerne Contra geben... #Hartz4" user="625844151">
+    <tweet depth="1" has_dc="True" id="319394580925673472" num_dcs="1" text="@HorstAgainstAll Schon DC/DC/mal das Grundgesetz gelesen? Haben dir deine Lehrer das nicht beigebracht? BILDungsl(m)ücke ? :)" user="83620313">
+     <tweet depth="2" has_dc="True" id="319394843682017280" num_dcs="3" text="@Micx5 doch! DC/DC/Aber es geht mDC/ir DC/darum das die Hartz4 Empfänger rumheulen das sie kein Geld haben, im Gegenzug aber auch nDC/ichts DC/dafür tun :)" user="625844151">
+      <tweet depth="3" has_dc="True" id="319395856547713024" num_dcs="4" text="@HorstAgainstAll Woher weißt du das sie nichts DC/DC/dafür tun? AlDC/so DC/doch BILDungsl(m)DC/ücke? DC/Und wenn da soviel stehtDC/ bist du DC/damit überfordert? :)" user="83620313">
+       <tweet depth="4" has_dc="True" id="319396349097414657" num_dcs="2" text="@Micx5 nein ganz DC/DC/und gar nicht DC/:) DC/Wie gesagt ich sprach von den Rumgammlern :) Woher ich das wissn will? Hör den Menschen einfach zu~" user="625844151">
        </tweet>
-       <tweet dc_location_1="89" depth="4" has_dc="True" id="319396598121627649" num_dcs="1" text="@Micx5 ~das reicht schon....zudem bin ich nun im 2 Lehrjahr...über genau dieses Thema :) Also Bildungslücken kann man mir nicht unterstellen" user="625844151">
-        <tweet dc_location_1="54" dc_location_2="20" depth="5" has_dc="True" id="319397339691356160" num_dcs="2" text="@HorstAgainstAll Na immerhin hast du begriffen das du noch lernen musst. :)" user="83620313">
-         <tweet dc_location_1="35" dc_location_2="98" depth="6" has_dc="True" id="319397586194796544" num_dcs="2" text="@Micx5 natürlich, das sollte jeder und das tut man sein Leben lang :) Trotzdm sehe ich nicht ein, für Faulenzer zu bezahlen!" user="625844151">
-          <tweet depth="7" has_dc="False" id="319399075474726912" num_dcs="0" text="@HorstAgainstAll Wer denkst du das du in deinen jungen Jahren bist solche Sprüche loszulassen?Medienmanipuliert.Unwissend.Kind.Geh lernen." user="83620313">
+       <tweet depth="4" has_dc="False" id="319396598121627649" num_dcs="0" text="@Micx5 nein ganz DC/DC/und gar nicht DC/:) DC/Wie gesagt ich sprach von den Rumgammlern :) Woher ich das wissn will? Hör den Menschen einfach zu~@Micx5 nein ganz DC/und gar nicht :) DC/Wie gesagt ich sprach von den Rumgammlern :) Woher ich das wissn will? Hör den Menschen einfach zu~@Micx5 ~das reicht schon....zudem bin ich nun im 2 Lehrjahr...über genau dieses Thema :) Also Bildungslücken kann man mir nicht unterstellen" user="625844151">
+        <tweet depth="5" has_dc="True" id="319397339691356160" num_dcs="2" text="@HorstAgainstAll Na DC/DC/immerhin hast du begriffen das DC/du DC/noch lernen musst. :)" user="83620313">
+         <tweet depth="6" has_dc="True" id="319397586194796544" num_dcs="2" text="@Micx5 natürlich, das sollte jeder DC/DC/und das tut man sein Leben lang :) Trotzdm sehe ich nicht eiDC/n, DC/für Faulenzer zu bezahlen!" user="625844151">
+          <tweet depth="7" has_dc="False" id="319399075474726912" num_dcs="0" text="@Micx5 natürlich, das sollte jeder DC/DC/und das tut man sein Leben lang :) Trotzdm sehe ich nicht eiDC/n, DC/für Faulenzer zu bezahlen!@Micx5 natürlich, das sollte jeder DC/und das tut man sein Leben lang :) Trotzdm sehe ich nicht ein, DC/für Faulenzer zu bezahlen!@HorstAgainstAll Wer denkst du das du in deinen jungen Jahren bist solche Sprüche loszulassen?Medienmanipuliert.Unwissend.Kind.Geh lernen." user="83620313">
           </tweet>
-          <tweet dc_location_1="17" dc_location_2="91" depth="7" has_dc="True" id="319399352718204928" num_dcs="2" text="@HorstAgainstAll Und haben Erwerbslose deiner Meinung nach keine Lebensberechtigung. Schon mal in der Geschichte des 3. Reiches nachgelesen?" user="83620313">
-           <tweet dc_location_1="110" depth="8" has_dc="True" id="319400498010681344" num_dcs="1" text="@Micx5 jaa klar Medienmanipuliert :D Ich mach mir meine Meinung selbst...denn ich habe ein Gehirn :) Nicht so wie manch anderer ;)" user="625844151">
-            <tweet dc_location_1="17" dc_location_2="99" dc_location_3="115" dc_location_4="73" depth="9" has_dc="True" id="319400950043394049" num_dcs="4" text="@HorstAgainstAll Ja ist klar. Du denkst selbst. Hat die Jugend von heute noch so einen netten Witz oder war es das für heute mit GeBILDeten?" user="83620313">
-=======
-   <tweet dc_location="42" depth="0" has_dc="True" id="319392812892319744" num_dcs="1" text="Niemand hat das Recht auf Konsum wenn man dafür nicht arbeitet! Ich weiß das klingt fies...könnt mir gerne Contra geben... #Hartz4" user="625844151">
-    <tweet dc_location="23" depth="1" has_dc="True" id="319394580925673472" num_dcs="1" text="@HorstAgainstAll Schon mal das Grundgesetz gelesen? Haben dir deine Lehrer das nicht beigebracht? BILDungsl(m)ücke ? :)" user="83620313">
-     <tweet dc_location="30" depth="2" has_dc="True" id="319394843682017280" num_dcs="3" text="@Micx5 doch! Aber es geht mir darum das die Hartz4 Empfänger rumheulen das sie kein Geld haben, im Gegenzug aber auch nichts dafür tun :)" user="625844151">
-      <tweet dc_location="63" depth="3" has_dc="True" id="319395856547713024" num_dcs="4" text="@HorstAgainstAll Woher weißt du das sie nichts dafür tun? Also doch BILDungsl(m)ücke? Und wenn da soviel steht bist du damit überfordert? :)" user="83620313">
-       <tweet dc_location="34" depth="4" has_dc="True" id="319396349097414657" num_dcs="2" text="@Micx5 nein ganz und gar nicht :) Wie gesagt ich sprach von den Rumgammlern :) Woher ich das wissn will? Hör den Menschen einfach zu~" user="625844151">
-       </tweet>
-       <tweet depth="4" has_dc="False" id="319396598121627649" num_dcs="0" text="@Micx5 ~das reicht schon....zudem bin ich nun im 2 Lehrjahr...über genau dieses Thema :) Also Bildungslücken kann man mir nicht unterstellen" user="625844151">
-        <tweet dc_location="20" depth="5" has_dc="True" id="319397339691356160" num_dcs="2" text="@HorstAgainstAll Na immerhin hast du begriffen das du noch lernen musst. :)" user="83620313">
-         <tweet dc_location="98" depth="6" has_dc="True" id="319397586194796544" num_dcs="2" text="@Micx5 natürlich, das sollte jeder und das tut man sein Leben lang :) Trotzdm sehe ich nicht ein, für Faulenzer zu bezahlen!" user="625844151">
-          <tweet depth="7" has_dc="False" id="319399075474726912" num_dcs="0" text="@HorstAgainstAll Wer denkst du das du in deinen jungen Jahren bist solche Sprüche loszulassen?Medienmanipuliert.Unwissend.Kind.Geh lernen." user="83620313">
-          </tweet>
-          <tweet dc_location="91" depth="7" has_dc="True" id="319399352718204928" num_dcs="2" text="@HorstAgainstAll Und haben Erwerbslose deiner Meinung nach keine Lebensberechtigung. Schon mal in der Geschichte des 3. Reiches nachgelesen?" user="83620313">
-           <tweet dc_location="110" depth="8" has_dc="True" id="319400498010681344" num_dcs="1" text="@Micx5 jaa klar Medienmanipuliert :D Ich mach mir meine Meinung selbst...denn ich habe ein Gehirn :) Nicht so wie manch anderer ;)" user="625844151">
-            <tweet dc_location="99" depth="9" has_dc="True" id="319400950043394049" num_dcs="4" text="@HorstAgainstAll Ja ist klar. Du denkst selbst. Hat die Jugend von heute noch so einen netten Witz oder war es das für heute mit GeBILDeten?" user="83620313">
->>>>>>> aef1ca08f0182b9a917d96399103f54c3e8eeb3f
-             <tweet depth="10" has_dc="False" id="319401356391768064" num_dcs="0" text="@Micx5 hör auf mit deinen anspilungen auf die Bild :D Das ist der letzte Dreckshaufen!" user="625844151">
+          <tweet depth="7" has_dc="True" id="319399352718204928" num_dcs="2" text="@HorstAgainstAll DC/DC/Und haben Erwerbslose deiner Meinung nach keine Lebensberechtigung. SchDC/on DC/mal in der Geschichte des 3. Reiches nachgelesen?" user="83620313">
+           <tweet depth="8" has_dc="True" id="319400498010681344" num_dcs="1" text="@Micx5 jaa klar Medienmanipuliert :D Ich mach mir meine Meinung selbst...denn ich habe ein Gehirn :) Nicht so DC/DC/wie manch anderer ;)" user="625844151">
+            <tweet depth="9" has_dc="True" id="319400950043394049" num_dcs="4" text="@HorstAgainstAll DC/DC/Ja ist klar. Du denkst selbst. Hat die Jugend von heuDC/te DC/noch so einen nettenDC/ Witz DC/oder waDC/r es das DC/für heute mit GeBILDeten?" user="83620313">
+             <tweet depth="10" has_dc="False" id="319401356391768064" num_dcs="0" text="@HorstAgainstAll DC/DC/Ja ist klar. Du denkst selbst. Hat die Jugend von heuDC/te DC/noch so einen nettenDC/ Witz DC/oder waDC/r es das DC/für heute mit GeBILDeten?@HorstAgainstAll DC/Ja ist klar. Du denkst selbst. Hat die Jugend von heute DC/noch so einen netten Witz DC/oder war es das DC/für heute mit GeBILDeten?@Micx5 hör auf mit deinen anspilungen auf die Bild :D Das ist der letzte Dreckshaufen!" user="625844151">
              </tweet>
             </tweet>
            </tweet>
-           <tweet dc_location_1="50" depth="8" has_dc="True" id="319400726617014272" num_dcs="1" text="@Micx5 Gottes Willen willst du unbedingt streiten oder so? Du verfehlst vollkommen das Diskussionsthema! Mit solchen Leuten kann~" user="625844151">
-            <tweet dc_location_1="67" depth="9" has_dc="True" id="319401103986917376" num_dcs="1" text="@HorstAgainstAll Hey du hast gesagt das du Kontra willst. Kann ich für deine gesitigen Unzulänglichkeien? :)" user="83620313">
-             <tweet depth="10" has_dc="False" id="319401582540238849" num_dcs="0" text="@Micx5 *geistigen ;) Ich wollte Kontra das zu einer normalen, interessanten Diskussion führt..kein Du bist dumm! Deine Meinung ist scheisse!" user="625844151">
-<<<<<<< HEAD
-              <tweet dc_location_1="64" depth="11" has_dc="True" id="319402482591756288" num_dcs="1" text="@HorstAgainstAll Hältst du,wie dein Vorbild Clement,Erwerbslose für Schmarotzer?Was erwartest du wenn du Menschen das Lebensrecht absprichst" user="83620313">
-               <tweet dc_location_1="36" dc_location_2="70" depth="12" has_dc="True" id="319402846485372928" num_dcs="2" text="@Micx5 wer faul auf der Couch liegt und sich alles bezahlen lässt ist für mich ganz unten angekommen!" user="625844151">
-                <tweet dc_location_1="109" depth="13" has_dc="True" id="319403644950806528" num_dcs="1" text="@HorstAgainstAll Meinst du wirklich das in einer Welt die immer mehr automatisiert es genügend Arbeitsplätze für alle Menschen geben wird?" user="83620313">
-                 <tweet dc_location_1="84" dc_location_2="7" depth="14" has_dc="True" id="319404296737267712" num_dcs="2" text="@Micx5 dann sollte man seinen Arsch hochkriegen, die Schule ordentlich abschliessen und sich bemühen! Und wer nicht alles versucht hat~" user="625844151">
-=======
-              <tweet dc_location="64" depth="11" has_dc="True" id="319402482591756288" num_dcs="1" text="@HorstAgainstAll Hältst du,wie dein Vorbild Clement,Erwerbslose für Schmarotzer?Was erwartest du wenn du Menschen das Lebensrecht absprichst" user="83620313">
-               <tweet dc_location="70" depth="12" has_dc="True" id="319402846485372928" num_dcs="2" text="@Micx5 wer faul auf der Couch liegt und sich alles bezahlen lässt ist für mich ganz unten angekommen!" user="625844151">
-                <tweet dc_location="109" depth="13" has_dc="True" id="319403644950806528" num_dcs="1" text="@HorstAgainstAll Meinst du wirklich das in einer Welt die immer mehr automatisiert es genügend Arbeitsplätze für alle Menschen geben wird?" user="83620313">
-                 <tweet dc_location="7" depth="14" has_dc="True" id="319404296737267712" num_dcs="2" text="@Micx5 dann sollte man seinen Arsch hochkriegen, die Schule ordentlich abschliessen und sich bemühen! Und wer nicht alles versucht hat~" user="625844151">
->>>>>>> aef1ca08f0182b9a917d96399103f54c3e8eeb3f
+           <tweet depth="8" has_dc="True" id="319400726617014272" num_dcs="1" text="@Micx5 Gottes Willen willst du unbedingt streiten DC/DC/oder so? Du verfehlst vollkommen das Diskussionsthema! Mit solchen Leuten kann~" user="625844151">
+            <tweet depth="9" has_dc="True" id="319401103986917376" num_dcs="1" text="@HorstAgainstAll Hey du hast gesagt das du Kontra willst. Kann ich DC/DC/für deine gesitigen Unzulänglichkeien? :)" user="83620313">
+             <tweet depth="10" has_dc="False" id="319401582540238849" num_dcs="0" text="@HorstAgainstAll Hey du hast gesagt das du Kontra willst. Kann ich DC/DC/für deine gesitigen Unzulänglichkeien? :)@HorstAgainstAll Hey du hast gesagt das du Kontra willst. Kann ich DC/für deine gesitigen Unzulänglichkeien? :)@Micx5 *geistigen ;) Ich wollte Kontra das zu einer normalen, interessanten Diskussion führt..kein Du bist dumm! Deine Meinung ist scheisse!" user="625844151">
+              <tweet depth="11" has_dc="True" id="319402482591756288" num_dcs="1" text="@HorstAgainstAll Hältst du,wie dein Vorbild Clement,Erwerbslose DC/DC/für Schmarotzer?Was erwartest du wenn du Menschen das Lebensrecht absprichst" user="83620313">
+               <tweet depth="12" has_dc="True" id="319402846485372928" num_dcs="2" text="@Micx5 wer faul auf der Couch liegt DC/DC/und sich alles bezahlen lässt iDC/st DC/für mich ganz unten angekommen!" user="625844151">
+                <tweet depth="13" has_dc="True" id="319403644950806528" num_dcs="1" text="@HorstAgainstAll Meinst du wirklich das in einer Welt die immer mehr automatisiert es genügend Arbeitsplätze DC/DC/für alle Menschen geben wird?" user="83620313">
+                 <tweet depth="14" has_dc="True" id="319404296737267712" num_dcs="2" text="@Micx5 DC/DC/dann sollte man seinen Arsch hochkriegen, die Schule ordentlich abschliessDC/en DC/und sich bemühen! Und wer nicht alles versucht hat~" user="625844151">
                  </tweet>
-                 <tweet dc_location_1="86" dc_location_2="31" depth="14" has_dc="True" id="319404594411233281" num_dcs="2" text="@Micx5 um einen Job zu kriegen bzw. ans äusserste gegangen ist um sich zu bilden, hat auch beim scheitern kein Geld verdient :)" user="625844151">
-                  <tweet dc_location_1="82" dc_location_2="57" depth="15" has_dc="True" id="319405803251564544" num_dcs="2" text="@HorstAgainstAll Beim Scheitern schreibt mensch groß. :D Aber sag, hat die Schule und die Lehrer bei dir komplett versagt?You must learn.:)" user="83620313">
-                   <tweet dc_location_1="17" dc_location_2="75" depth="16" has_dc="True" id="319406291401461761" num_dcs="2" text="@Micx5 nein ganz und gar nicht :) ich habe viel gelernt über das Thema und auch viele Menschen gesehen..so hat sich meine Meinung gebildet.." user="625844151">
+                 <tweet depth="14" has_dc="True" id="319404594411233281" num_dcs="1" text="@Micx5 um einen Job zu kriegen DC/DC/bzw. ans äusserste gegangen ist um sich zu bilden, hat auch beim scheitern kein Geld verdient :)" user="625844151">
+                  <tweet depth="15" has_dc="True" id="319405803251564544" num_dcs="2" text="@HorstAgainstAll Beim Scheitern schreibt mensch groß. :D DC/DC/Aber sag, hat die SchuDC/le DC/und die Lehrer bei dir komplett versagt?You must learn.:)" user="83620313">
+                   <tweet depth="16" has_dc="True" id="319406291401461761" num_dcs="1" text="@Micx5 nein ganz DC/DC/und gar nicht :) ich habe viel gelernt über das Thema und auch viele Menschen gesehen..so hat sich meine Meinung gebildet.." user="625844151">
                    </tweet>
-<<<<<<< HEAD
-                   <tweet dc_location_1="67" dc_location_2="37" depth="16" has_dc="True" id="319406782546075648" num_dcs="2" text="@Micx5 ich muss gar nichts lernen :) Denn das ist meine Meinung :) und die wird mir kein verkorkstes Bildungssytem nehmen :)" user="625844151">
-                    <tweet dc_location_1="50" dc_location_2="22" depth="17" has_dc="True" id="319407724158922753" num_dcs="2" text="@HorstAgainstAll  Ist nur die Frage welche Schule und welche BILDung du genossen (apropos) hast? :)" user="83620313">
-                     <tweet dc_location_1="48" depth="18" has_dc="True" id="319408541062549504" num_dcs="1" text="@Micx5 natürlich habe ich ein Gymnasium besucht und werde bald Informatik studieren :)" user="625844151">
-                      <tweet dc_location_1="17" dc_location_2="78" dc_location_3="121" depth="19" has_dc="True" id="319409340593344512" num_dcs="3" text="@HorstAgainstAll Und natürlich beglückwünsche ich dich zu dieser Entscheidung aber das mit dem logischen Denken musst du noch lernen. :)" user="83620313">
-                       <tweet dc_location_1="32" depth="20" has_dc="True" id="319409687667818498" num_dcs="1" text="@Micx5 muss ich leider nicht :) Aber schön ie du die ganze Zeit von dem eigentlichen Thema abweichst :)" user="625844151">
-                        <tweet depth="21" has_dc="False" id="319410187951820800" num_dcs="0" text="@HorstAgainstAll Was? Von deinem menschenverachtenden Thema das Erwerbslose nicht konsumieren sollen? Do you have another Joke? :)" user="83620313">
-                         <tweet depth="22" has_dc="False" id="319412513471082496" num_dcs="0" text="@Micx5 darf man heute nicht mehr menschenverachtend sein? :3 Wegen.dem Thema hast du mich angeschrieben ;)" user="625844151">
-                          <tweet dc_location_1="79" dc_location_2="82" dc_location_3="57" dc_location_4="87" depth="23" has_dc="True" id="319413346275315712" num_dcs="4" text="@HorstAgainstAll Klar darfst du menschenverachtend sein. Deswegen hast du dich ja auch als Scherge des Systems geoutet. :)" user="83620313">
+                   <tweet depth="16" has_dc="True" id="319406782546075648" num_dcs="2" text="@Micx5 ich muss gar nichts lernen :) DC/DC/Denn das ist meine Meinung DC/:) DC/und die wird mir kein verkorkstes Bildungssytem nehmen :)" user="625844151">
+                    <tweet depth="17" has_dc="True" id="319407724158922753" num_dcs="1" text="@HorstAgainstAll  Ist nur die Frage welche Schule DC/DC/und welche BILDung du genossen (apropos) hast? :)" user="83620313">
+                     <tweet depth="18" has_dc="True" id="319408541062549504" num_dcs="1" text="@Micx5 natürlich habe ich ein Gymnasium besucht DC/DC/und werde bald Informatik studieren :)" user="625844151">
+                      <tweet depth="19" has_dc="True" id="319409340593344512" num_dcs="3" text="@HorstAgainstAll DC/DC/Und natürlich beglückwünsche ich dich zu dieser EntscheiduDC/ng DC/aber das mit dem logischen Denken musDC/st du DC/noch lernen. :)" user="83620313">
+                       <tweet depth="20" has_dc="True" id="319409687667818498" num_dcs="1" text="@Micx5 muss ich leider nicht :) DC/DC/Aber schön ie du die ganze Zeit von dem eigentlichen Thema abweichst :)" user="625844151">
+                        <tweet depth="21" has_dc="False" id="319410187951820800" num_dcs="0" text="@Micx5 muss ich leider nicht :) DC/DC/Aber schön ie du die ganze Zeit von dem eigentlichen Thema abweichst :)@Micx5 muss ich leider nicht :) DC/Aber schön ie du die ganze Zeit von dem eigentlichen Thema abweichst :)@HorstAgainstAll Was? Von deinem menschenverachtenden Thema das Erwerbslose nicht konsumieren sollen? Do you have another Joke? :)" user="83620313">
+                         <tweet depth="22" has_dc="False" id="319412513471082496" num_dcs="0" text="@Micx5 muss ich leider nicht :) DC/DC/Aber schön ie du die ganze Zeit von dem eigentlichen Thema abweichst :)@Micx5 muss ich leider nicht :) DC/Aber schön ie du die ganze Zeit von dem eigentlichen Thema abweichst :)@HorstAgainstAll Was? Von deinem menschenverachtenden Thema das Erwerbslose nicht konsumieren sollen? Do you have another Joke? :)@Micx5 muss ich leider nicht :) DC/Aber schön ie du die ganze Zeit von dem eigentlichen Thema abweichst :)@HorstAgainstAll Was? Von deinem menschenverachtenden Thema das Erwerbslose nicht konsumieren sollen? Do you have another Joke? :)@Micx5 darf man heute nicht mehr menschenverachtend sein? :3 Wegen.dem Thema hast du mich angeschrieben ;)" user="625844151">
+                          <tweet depth="23" has_dc="True" id="319413346275315712" num_dcs="3" text="@HorstAgainstAll Klar darfst du menschenverachtend sein. DC/DC/Deswegen hast du diDC/ch DC/jaDC/ auch DC/als Scherge des Systems geoutet. :)" user="83620313">
                           </tweet>
-                          <tweet dc_location_1="17" dc_location_2="54" depth="23" has_dc="True" id="319413796303159296" num_dcs="2" text="@HorstAgainstAll Aber mach dir keine Sorgen. Menschen wie dich gibt es viele auf dieser Welt. Du bist nicht alleine. :)" user="83620313">
-                           <tweet depth="24" has_dc="False" id="319423053429870592" num_dcs="0" text="@Micx5 scherge des Systems :D Ich bin Anarchistin xD" user="625844151">
-                            <tweet dc_location_1="115" dc_location_2="119" dc_location_3="36" dc_location_4="58" dc_location_5="98" depth="25" has_dc="True" id="319424278527348736" num_dcs="5" text="@HorstAgainstAll #Lol, der war gut. Für die Ausrede haste aber lange gebraucht. Aber gut, du bist also Anarchistin und dafür das andere 1/2" user="83620313">
-                             <tweet dc_location_1="80" depth="26" has_dc="True" id="319426241843322880" num_dcs="1" text="@Micx5 ich bezog mich auf deine Aussage über das System :D Der Rest hat einfach damit zutun das ich faule.Menschen verachte :3" user="625844151">
-                              <tweet dc_location_1="78" depth="27" has_dc="True" id="319427388922552320" num_dcs="1" text="@HorstAgainstAll Ach du verachtest Menschen? Interessant. Willst du mir jetzt noch erklären was Verachtung mit Anarchismus zu tun hat?  .D" user="83620313">
-                               <tweet dc_location_1="43" dc_location_2="36" dc_location_3="31" depth="28" has_dc="True" id="319431605364072448" num_dcs="3" text="@Micx5 ...ich frage mich immer noch wie du darauf kommst :D Ich habe das in keiner Form so geäußert :D" user="625844151">
-                                <tweet dc_location_1="107" dc_location_2="79" dc_location_3="113" depth="29" has_dc="True" id="319432821485731840" num_dcs="3" text="@HorstAgainstAll #ilike Zitat: %quot%Niemand hat das Recht auf Konsum wenn man dafür nicht arbeitet%quot%. Sonst noch irgendwelche Ausreden? 1/2 :D" user="83620313">
+                          <tweet depth="23" has_dc="True" id="319413796303159296" num_dcs="2" text="@HorstAgainstAll DC/DC/Aber mach dir keine Sorgen. MenschDC/en DC/wie dich gibt es viele auf dieser Welt. Du bist nicht alleine. :)" user="83620313">
+                           <tweet depth="24" has_dc="False" id="319423053429870592" num_dcs="0" text="@HorstAgainstAll DC/DC/Aber mach dir keine Sorgen. MenschDC/en DC/wie dich gibt es viele auf dieser Welt. Du bist nicht alleine. :)@HorstAgainstAll DC/Aber mach dir keine Sorgen. Menschen DC/wie dich gibt es viele auf dieser Welt. Du bist nicht alleine. :)@Micx5 scherge des Systems :D Ich bin Anarchistin xD" user="625844151">
+                            <tweet depth="25" has_dc="True" id="319424278527348736" num_dcs="4" text="@HorstAgainstAll #Lol, der war gut. DC/DC/Für die Ausrede hasDC/te DC/aber lange gebraucht. Aber gut, du bist also AnarchDC/istiDC/n DC/und DC/dafür das andere 1/2" user="83620313">
+                             <tweet depth="26" has_dc="True" id="319426241843322880" num_dcs="1" text="@Micx5 ich bezog mich auf deine Aussage über das System :D Der Rest hat einfach DC/DC/damit zutun das ich faule.Menschen verachte :3" user="625844151">
+                              <tweet depth="27" has_dc="True" id="319427388922552320" num_dcs="1" text="@HorstAgainstAll Ach du verachtest Menschen? Interessant. Willst du mir jetzt DC/DC/noch erklären was Verachtung mit Anarchismus zu tun hat?  .D" user="83620313">
+                               <tweet depth="28" has_dc="True" id="319431605364072448" num_dcs="3" text="@Micx5 ...ich frage mich immer DC/DC/noDC/ch DC/wDC/ie du DC/darauf kommst :D Ich habe das in keiner Form so geäußert :D" user="625844151">
+                                <tweet depth="29" has_dc="True" id="319432821485731840" num_dcs="3" text="@HorstAgainstAll #ilike Zitat: %quot%Niemand hat das Recht auf Konsum wenn man DC/DC/dafür nicht arbeitet%quotDC/%. DC/DC/Sonst DC/noch irgendwelche Ausreden? 1/2 :D" user="83620313">
                                 </tweet>
-                                <tweet dc_location_1="88" dc_location_2="58" depth="29" has_dc="True" id="319433184053956608" num_dcs="2" text="@HorstAgainstAll Kann das sein das du dich gerade windest wie eine Schlange auf die ich drauf getreten bin? Scherge?  #oups 2/2" user="83620313">
-                                 <tweet dc_location_1="14" dc_location_2="30" dc_location_3="108" dc_location_4="38" depth="30" has_dc="True" id="319433562619252736" num_dcs="4" text="@Micx5 hahaha ja das gebe ich auch zu nur du verknüpfst das mit meiner Anarchie Aussage xD Die beiden haben aber nichts miteinander zutun xD" user="625844151">
-                                  <tweet dc_location_1="66" dc_location_2="45" dc_location_3="89" depth="31" has_dc="True" id="319434621882343425" num_dcs="3" text="@HorstAgainstAll Come on. Du hälst dich dich für eine Anarchistin und bist nichts weiter als eine BILDungsl(m)ücke! Wdh: You must learn :)" user="83620313">
-                                   <tweet dc_location_1="15" depth="32" has_dc="True" id="319438461717315584" num_dcs="1" text="@Micx5 oh Gott eh :D Typisch Mensch...wenn man keine Argumente mehr hat muss man beleidigen :)" user="625844151">
-                                    <tweet depth="33" has_dc="False" id="319439252083572736" num_dcs="0" text="@HorstAgainstAll Hey, hast du nicht am Anfang 6 Millionen Menschen in Deutschland das Lebensrecht abgesprochen?Anarchisten in Tüten,jetzt :)" user="83620313">
+                                <tweet depth="29" has_dc="True" id="319433184053956608" num_dcs="2" text="@HorstAgainstAll Kann das sein das du dich gerade windest DC/DC/wie eine Schlange auf die iDC/ch DC/drauf getreten bin? Scherge?  #oups 2/2" user="83620313">
+                                 <tweet depth="30" has_dc="True" id="319433562619252736" num_dcs="3" text="@Micx5 hahaha DC/DC/ja das gebe ich auch DC/zu DC/nur du verknüpfst das mit meiner Anarchie Aussage xD Die beiden DC/haben DC/aber nichts miteinander zutun xD" user="625844151">
+                                  <tweet depth="31" has_dc="True" id="319434621882343425" num_dcs="3" text="@HorstAgainstAll Come on. Du hälst dich dich DC/DC/für eine AnarchistDC/in DC/und bist nichts wDC/eiter DC/als eine BILDungsl(m)ücke! Wdh: You must learn :)" user="83620313">
+                                   <tweet depth="32" has_dc="True" id="319438461717315584" num_dcs="1" text="@Micx5 oh Gott DC/DC/eh :D Typisch Mensch...wenn man keine Argumente mehr hat muss man beleidigen :)" user="625844151">
+                                    <tweet depth="33" has_dc="False" id="319439252083572736" num_dcs="0" text="@Micx5 oh Gott DC/DC/eh :D Typisch Mensch...wenn man keine Argumente mehr hat muss man beleidigen :)@Micx5 oh Gott DC/eh :D Typisch Mensch...wenn man keine Argumente mehr hat muss man beleidigen :)@HorstAgainstAll Hey, hast du nicht am Anfang 6 Millionen Menschen in Deutschland das Lebensrecht abgesprochen?Anarchisten in Tüten,jetzt :)" user="83620313">
                                     </tweet>
-                                    <tweet dc_location_1="17" dc_location_2="21" depth="33" has_dc="True" id="319440074183942145" num_dcs="2" text="@HorstAgainstAll Und dann sich beschweren. Kleiner Käfer. :)" user="83620313">
-                                     <tweet dc_location_1="13" depth="34" has_dc="True" id="319443128157339648" num_dcs="1" text="@Micx5 jetzt halt ma die Backen du Pseudoaktivist :D" user="625844151">
+                                    <tweet depth="33" has_dc="True" id="319440074183942145" num_dcs="2" text="@HorstAgainstAll DC/DC/UDC/nd DC/dann sich beschweren. Kleiner Käfer. :)" user="83620313">
+                                     <tweet depth="34" has_dc="True" id="319443128157339648" num_dcs="1" text="@Micx5 jetzt DC/DC/halt ma die Backen du Pseudoaktivist :D" user="625844151">
                                      </tweet>
                                     </tweet>
-                                    <tweet dc_location_1="62" dc_location_2="84" depth="33" has_dc="True" id="319440692260794368" num_dcs="2" text="@HorstAgainstAll l Ich hab mich geirrt du bist keine Schlange sondern nichts weiter als ein Fehler des Systems. :) #bug #detected :)" user="83620313">
-                                     <tweet depth="34" has_dc="False" id="319443322320064513" num_dcs="0" text="@Micx5 gerade ich bin ein Fehler :D Klaar :D du bist so lächerlich das ist genial :D *screenshot*" user="625844151">
-                                      <tweet dc_location_1="54" dc_location_2="18" dc_location_3="60" dc_location_4="21" depth="35" has_dc="True" id="319444051852140546" num_dcs="4" text="@HorstAgainstAll  Ja immerhin sag ich was ich denke. Geh du nur auf deine Latschdemos, ändern wirst du eh nix. Geh heim üben, ok?" user="83620313">
-                                       <tweet dc_location_1="108" dc_location_2="126" dc_location_3="12" depth="36" has_dc="True" id="319445970658136067" num_dcs="3" text="@Micx5 nein aber ich hab wenigstens die Eier in der Hose zu meinen Überzeugungen zu stehen ;) Apropos biste auch so n Hartzer oder wieso~" user="625844151">
-=======
-                   <tweet dc_location="37" depth="16" has_dc="True" id="319406782546075648" num_dcs="2" text="@Micx5 ich muss gar nichts lernen :) Denn das ist meine Meinung :) und die wird mir kein verkorkstes Bildungssytem nehmen :)" user="625844151">
-                    <tweet dc_location="50" depth="17" has_dc="True" id="319407724158922753" num_dcs="1" text="@HorstAgainstAll  Ist nur die Frage welche Schule und welche BILDung du genossen (apropos) hast? :)" user="83620313">
-                     <tweet dc_location="48" depth="18" has_dc="True" id="319408541062549504" num_dcs="1" text="@Micx5 natürlich habe ich ein Gymnasium besucht und werde bald Informatik studieren :)" user="625844151">
-                      <tweet dc_location="78" depth="19" has_dc="True" id="319409340593344512" num_dcs="3" text="@HorstAgainstAll Und natürlich beglückwünsche ich dich zu dieser Entscheidung aber das mit dem logischen Denken musst du noch lernen. :)" user="83620313">
-                       <tweet dc_location="32" depth="20" has_dc="True" id="319409687667818498" num_dcs="1" text="@Micx5 muss ich leider nicht :) Aber schön ie du die ganze Zeit von dem eigentlichen Thema abweichst :)" user="625844151">
-                        <tweet depth="21" has_dc="False" id="319410187951820800" num_dcs="0" text="@HorstAgainstAll Was? Von deinem menschenverachtenden Thema das Erwerbslose nicht konsumieren sollen? Do you have another Joke? :)" user="83620313">
-                         <tweet depth="22" has_dc="False" id="319412513471082496" num_dcs="0" text="@Micx5 darf man heute nicht mehr menschenverachtend sein? :3 Wegen.dem Thema hast du mich angeschrieben ;)" user="625844151">
-                          <tweet dc_location="87" depth="23" has_dc="True" id="319413346275315712" num_dcs="3" text="@HorstAgainstAll Klar darfst du menschenverachtend sein. Deswegen hast du dich ja auch als Scherge des Systems geoutet. :)" user="83620313">
-                          </tweet>
-                          <tweet dc_location="17" depth="23" has_dc="True" id="319413796303159296" num_dcs="2" text="@HorstAgainstAll Aber mach dir keine Sorgen. Menschen wie dich gibt es viele auf dieser Welt. Du bist nicht alleine. :)" user="83620313">
-                           <tweet depth="24" has_dc="False" id="319423053429870592" num_dcs="0" text="@Micx5 scherge des Systems :D Ich bin Anarchistin xD" user="625844151">
-                            <tweet dc_location="36" depth="25" has_dc="True" id="319424278527348736" num_dcs="4" text="@HorstAgainstAll #Lol, der war gut. Für die Ausrede haste aber lange gebraucht. Aber gut, du bist also Anarchistin und dafür das andere 1/2" user="83620313">
-                             <tweet dc_location="80" depth="26" has_dc="True" id="319426241843322880" num_dcs="1" text="@Micx5 ich bezog mich auf deine Aussage über das System :D Der Rest hat einfach damit zutun das ich faule.Menschen verachte :3" user="625844151">
-                              <tweet dc_location="78" depth="27" has_dc="True" id="319427388922552320" num_dcs="1" text="@HorstAgainstAll Ach du verachtest Menschen? Interessant. Willst du mir jetzt noch erklären was Verachtung mit Anarchismus zu tun hat?  .D" user="83620313">
-                               <tweet dc_location="43" depth="28" has_dc="True" id="319431605364072448" num_dcs="3" text="@Micx5 ...ich frage mich immer noch wie du darauf kommst :D Ich habe das in keiner Form so geäußert :D" user="625844151">
-                                <tweet dc_location="107" depth="29" has_dc="True" id="319432821485731840" num_dcs="3" text="@HorstAgainstAll #ilike Zitat: %quot%Niemand hat das Recht auf Konsum wenn man dafür nicht arbeitet%quot%. Sonst noch irgendwelche Ausreden? 1/2 :D" user="83620313">
-                                </tweet>
-                                <tweet dc_location="88" depth="29" has_dc="True" id="319433184053956608" num_dcs="2" text="@HorstAgainstAll Kann das sein das du dich gerade windest wie eine Schlange auf die ich drauf getreten bin? Scherge?  #oups 2/2" user="83620313">
-                                 <tweet dc_location="108" depth="30" has_dc="True" id="319433562619252736" num_dcs="2" text="@Micx5 hahaha ja das gebe ich auch zu nur du verknüpfst das mit meiner Anarchie Aussage xD Die beiden haben aber nichts miteinander zutun xD" user="625844151">
-                                  <tweet dc_location="89" depth="31" has_dc="True" id="319434621882343425" num_dcs="3" text="@HorstAgainstAll Come on. Du hälst dich dich für eine Anarchistin und bist nichts weiter als eine BILDungsl(m)ücke! Wdh: You must learn :)" user="83620313">
-                                   <tweet dc_location="15" depth="32" has_dc="True" id="319438461717315584" num_dcs="1" text="@Micx5 oh Gott eh :D Typisch Mensch...wenn man keine Argumente mehr hat muss man beleidigen :)" user="625844151">
-                                    <tweet depth="33" has_dc="False" id="319439252083572736" num_dcs="0" text="@HorstAgainstAll Hey, hast du nicht am Anfang 6 Millionen Menschen in Deutschland das Lebensrecht abgesprochen?Anarchisten in Tüten,jetzt :)" user="83620313">
-                                    </tweet>
-                                    <tweet dc_location="21" depth="33" has_dc="True" id="319440074183942145" num_dcs="2" text="@HorstAgainstAll Und dann sich beschweren. Kleiner Käfer. :)" user="83620313">
-                                     <tweet dc_location="13" depth="34" has_dc="True" id="319443128157339648" num_dcs="1" text="@Micx5 jetzt halt ma die Backen du Pseudoaktivist :D" user="625844151">
-                                     </tweet>
-                                    </tweet>
-                                    <tweet dc_location="84" depth="33" has_dc="True" id="319440692260794368" num_dcs="2" text="@HorstAgainstAll l Ich hab mich geirrt du bist keine Schlange sondern nichts weiter als ein Fehler des Systems. :) #bug #detected :)" user="83620313">
-                                     <tweet depth="34" has_dc="False" id="319443322320064513" num_dcs="0" text="@Micx5 gerade ich bin ein Fehler :D Klaar :D du bist so lächerlich das ist genial :D *screenshot*" user="625844151">
-                                      <tweet dc_location="54" depth="35" has_dc="True" id="319444051852140546" num_dcs="3" text="@HorstAgainstAll  Ja immerhin sag ich was ich denke. Geh du nur auf deine Latschdemos, ändern wirst du eh nix. Geh heim üben, ok?" user="83620313">
-                                       <tweet dc_location="126" depth="36" has_dc="True" id="319445970658136067" num_dcs="2" text="@Micx5 nein aber ich hab wenigstens die Eier in der Hose zu meinen Überzeugungen zu stehen ;) Apropos biste auch so n Hartzer oder wieso~" user="625844151">
->>>>>>> aef1ca08f0182b9a917d96399103f54c3e8eeb3f
+                                    <tweet depth="33" has_dc="True" id="319440692260794368" num_dcs="2" text="@HorstAgainstAll l Ich hab mich geirrt du bist keine Schlange DC/DC/sondern nichts weitDC/er DC/als ein Fehler des Systems. :) #bug #detected :)" user="83620313">
+                                     <tweet depth="34" has_dc="False" id="319443322320064513" num_dcs="0" text="@HorstAgainstAll l Ich hab mich geirrt du bist keine Schlange DC/DC/sondern nichts weitDC/er DC/als ein Fehler des Systems. :) #bug #detected :)@HorstAgainstAll l Ich hab mich geirrt du bist keine Schlange DC/sondern nichts weiter DC/als ein Fehler des Systems. :) #bug #detected :)@Micx5 gerade ich bin ein Fehler :D Klaar :D du bist so lächerlich das ist genial :D *screenshot*" user="625844151">
+                                      <tweet depth="35" has_dc="True" id="319444051852140546" num_dcs="3" text="@HorstAgainstAll  DC/DC/DC/Ja DC/immerhin sag ich was ich deDC/nke. GDC/eh du nur auf deine Latschdemos, ändern wirst du eh nix. Geh heim üben, ok?" user="83620313">
+                                       <tweet depth="36" has_dc="True" id="319445970658136067" num_dcs="2" text="@Micx5 nein DC/DC/aber ich hab wenigstens die Eier in der Hose zu meinen Überzeugungen zu stehen ;) Apropos biste auch so n HartzDC/er DC/oder wieso~" user="625844151">
                                        </tweet>
-                                       <tweet depth="36" has_dc="False" id="319446038542950400" num_dcs="0" text="@Micx5 ~regst dich so auf :3" user="625844151">
-                                        <tweet dc_location_1="75" depth="37" has_dc="True" id="319446899298033666" num_dcs="1" text="@HorstAgainstAll Ich reg mich nicht auf. Du bist ein Spielzeug. Nicht mehr und nicht weniger. .D" user="83620313">
-                                         <tweet dc_location_1="17" depth="38" has_dc="True" id="319449082772987904" num_dcs="1" text="@Micx5 hahaha :D Und du der Clown.der kurze Zeit meine Langeweile beiseite geschoben hat :D" user="625844151">
-                                          <tweet dc_location_1="103" depth="39" has_dc="True" id="319450491241234432" num_dcs="1" text="@HorstAgainstAll Siehst du. Wir haben eine Win-Win Situation. Du der ich die Langeweile vertrieben hab und ich der seinen Spaß gehabt hat :)" user="83620313">
+                                       <tweet depth="36" has_dc="False" id="319446038542950400" num_dcs="0" text="@Micx5 nein DC/DC/aber ich hab wenigstens die Eier in der Hose zu meinen Überzeugungen zu stehen ;) Apropos biste auch so n HartzDC/er DC/oder wieso~@Micx5 nein DC/aber ich hab wenigstens die Eier in der Hose zu meinen Überzeugungen zu stehen ;) Apropos biste auch so n Hartzer DC/oder wieso~@Micx5 ~regst dich so auf :3" user="625844151">
+                                        <tweet depth="37" has_dc="True" id="319446899298033666" num_dcs="1" text="@HorstAgainstAll Ich reg mich nicht auf. Du bist ein Spielzeug. Nicht mehr DC/DC/und nicht weniger. .D" user="83620313">
+                                         <tweet depth="38" has_dc="True" id="319449082772987904" num_dcs="1" text="@Micx5 hahaha :D DC/DC/Und du der Clown.der kurze Zeit meine Langeweile beiseite geschoben hat :D" user="625844151">
+                                          <tweet depth="39" has_dc="True" id="319450491241234432" num_dcs="1" text="@HorstAgainstAll Siehst du. Wir haben eine Win-Win Situation. Du der ich die Langeweile vertrieben hab DC/DC/und ich der seinen Spaß gehabt hat :)" user="83620313">
                                           </tweet>
-<<<<<<< HEAD
-                                          <tweet dc_location_1="17" dc_location_2="97" depth="39" has_dc="True" id="319451071959408640" num_dcs="2" text="@HorstAgainstAll Aber wenn du an wirklicher Hilfe, du weißt schon, interessiert bist kontaktiere doch deinen Psychiater. :D" user="83620313">
-=======
-                                          <tweet dc_location="97" depth="39" has_dc="True" id="319451071959408640" num_dcs="2" text="@HorstAgainstAll Aber wenn du an wirklicher Hilfe, du weißt schon, interessiert bist kontaktiere doch deinen Psychiater. :D" user="83620313">
->>>>>>> aef1ca08f0182b9a917d96399103f54c3e8eeb3f
-                                           <tweet depth="40" has_dc="False" id="319453504051757057" num_dcs="0" text="@Micx5 hahaha :D Solche Leute sind unnötig ;)" user="625844151">
+                                          <tweet depth="39" has_dc="True" id="319451071959408640" num_dcs="2" text="@HorstAgainstAll DC/DC/Aber wenn du an wirklicher Hilfe, du weißt schon, interessiert bist kontaktieDC/re DC/doch deinen Psychiater. :D" user="83620313">
+                                           <tweet depth="40" has_dc="False" id="319453504051757057" num_dcs="0" text="@HorstAgainstAll DC/DC/Aber wenn du an wirklicher Hilfe, du weißt schon, interessiert bist kontaktieDC/re DC/doch deinen Psychiater. :D@HorstAgainstAll DC/Aber wenn du an wirklicher Hilfe, du weißt schon, interessiert bist kontaktiere DC/doch deinen Psychiater. :D@Micx5 hahaha :D Solche Leute sind unnötig ;)" user="625844151">
                                            </tweet>
                                           </tweet>
                                          </tweet>
                                         </tweet>
                                        </tweet>
                                       </tweet>
-                                      <tweet dc_location_1="119" depth="35" has_dc="True" id="319444490018492416" num_dcs="1" text="@HorstAgainstAll Darf ich dich zu deinem erstklassigen Screenshoot beglückwünschen. Verehrtes Publikum. Einmal Applaus für eine einen Käfer." user="83620313">
+                                      <tweet depth="35" has_dc="True" id="319444490018492416" num_dcs="1" text="@HorstAgainstAll Darf ich dich zu deinem erstklassigen Screenshoot beglückwünschen. Verehrtes Publikum. Einmal Applaus DC/DC/für eine einen Käfer." user="83620313">
                                       </tweet>
                                      </tweet>
                                     </tweet>
@@ -153,7 +91,7 @@
                               </tweet>
                              </tweet>
                             </tweet>
-                            <tweet depth="25" has_dc="False" id="319424707055210498" num_dcs="0" text="@HorstAgainstAll Menschen verrecken wenn sie nicht arbeiten. Könntest du mir erklären was das mit Anarchismus zu tun hat, BILDungsl(m)ücke?" user="83620313">
+                            <tweet depth="25" has_dc="False" id="319424707055210498" num_dcs="0" text="@HorstAgainstAll Darf ich dich zu deinem erstklassigen Screenshoot beglückwünschen. Verehrtes Publikum. Einmal Applaus DC/DC/für eine einen Käfer.@HorstAgainstAll Darf ich dich zu deinem erstklassigen Screenshoot beglückwünschen. Verehrtes Publikum. Einmal Applaus DC/für eine einen Käfer.@HorstAgainstAll Menschen verrecken wenn sie nicht arbeiten. Könntest du mir erklären was das mit Anarchismus zu tun hat, BILDungsl(m)ücke?" user="83620313">
                             </tweet>
                            </tweet>
                           </tweet>
@@ -167,13 +105,8 @@
                   </tweet>
                  </tweet>
                 </tweet>
-<<<<<<< HEAD
-                <tweet dc_location_1="17" dc_location_2="25" depth="13" has_dc="True" id="319404004989882368" num_dcs="2" text="@HorstAgainstAll Und ist für dich die Wertigkeit eines Menschen mit seinem finanziellen Status gekoppelt?" user="83620313">
-                 <tweet dc_location_1="24" dc_location_2="92" dc_location_3="28" depth="14" has_dc="True" id="319405019705274368" num_dcs="3" text="@Micx5 nope! :D Es geht nur darum das ich niemandem Geld in den Arsch blase ,der sich nicht mal bemüht aus dem Sumpf rauszukommen :)" user="625844151">
-=======
-                <tweet dc_location="25" depth="13" has_dc="True" id="319404004989882368" num_dcs="2" text="@HorstAgainstAll Und ist für dich die Wertigkeit eines Menschen mit seinem finanziellen Status gekoppelt?" user="83620313">
-                 <tweet dc_location="28" depth="14" has_dc="True" id="319405019705274368" num_dcs="2" text="@Micx5 nope! :D Es geht nur darum das ich niemandem Geld in den Arsch blase ,der sich nicht mal bemüht aus dem Sumpf rauszukommen :)" user="625844151">
->>>>>>> aef1ca08f0182b9a917d96399103f54c3e8eeb3f
+                <tweet depth="13" has_dc="True" id="319404004989882368" num_dcs="2" text="@HorstAgainstAll DC/DC/Und iDC/st DC/für dich die Wertigkeit eines Menschen mit seinem finanziellen Status gekoppelt?" user="83620313">
+                 <tweet depth="14" has_dc="True" id="319405019705274368" num_dcs="2" text="@Micx5 nope! :D Es geht nur DC/DC/darum das ich niemandem Geld in den Arsch blase ,der sich nicDC/ht DC/mal bemüht aus dem Sumpf rauszukommen :)" user="625844151">
                  </tweet>
                 </tweet>
                </tweet>
@@ -181,7 +114,7 @@
              </tweet>
             </tweet>
            </tweet>
-           <tweet dc_location_1="32" depth="8" has_dc="True" id="319400894305271809" num_dcs="1" text="@Micx5 man nicht diskutieren :D Zudem weiß ich gerade was Rechte angeht überraschend viel :)" user="625844151">
+           <tweet depth="8" has_dc="True" id="319400894305271809" num_dcs="1" text="@Micx5 man nicht diskutieren :D DC/DC/Zudem weiß ich gerade was Rechte angeht überraschend viel :)" user="625844151">
            </tweet>
           </tweet>
          </tweet>
@@ -189,143 +122,120 @@
        </tweet>
       </tweet>
      </tweet>
-     <tweet depth="2" has_dc="False" id="319394953732190208" num_dcs="0" text="@Micx5 im Grundgesetzt steht soooo viel was nicht eingehalten wird :)" user="625844151">
+     <tweet depth="2" has_dc="False" id="319394953732190208" num_dcs="0" text="@Micx5 man nicht diskutieren :D DC/DC/Zudem weiß ich gerade was Rechte angeht überraschend viel :)@Micx5 man nicht diskutieren :D DC/Zudem weiß ich gerade was Rechte angeht überraschend viel :)@Micx5 im Grundgesetzt steht soooo viel was nicht eingehalten wird :)" user="625844151">
      </tweet>
     </tweet>
    </tweet>
   </thread>
   <thread max_depth="5" size="55">
-   <tweet dc_location_1="41" depth="0" has_dc="True" id="319394719106994176" num_dcs="1" text="Wie aht der Affe eigentlich aufgenommen, dass sie ihm an der Grenze Justin Bieber weggenommen haben?" user="23187593">
-    <tweet depth="1" has_dc="False" id="319395042148102145" num_dcs="0" text="@dieternuhr mit erleichterung !" user="205862118">
+   <tweet depth="0" has_dc="True" id="319394719106994176" num_dcs="1" text="Wie aht der Affe eigentlich aufgenommen, DC/DC/dass sie ihm an der Grenze Justin Bieber weggenommen haben?" user="23187593">
+    <tweet depth="1" has_dc="False" id="319395042148102145" num_dcs="0" text="Wie aht der Affe eigentlich aufgenommen, DC/DC/dass sie ihm an der Grenze Justin Bieber weggenommen haben?Wie aht der Affe eigentlich aufgenommen, DC/dass sie ihm an der Grenze Justin Bieber weggenommen haben?@dieternuhr mit erleichterung !" user="205862118">
     </tweet>
-    <tweet dc_location_1="38" depth="1" has_dc="True" id="319395260348379136" num_dcs="1" text="@dieternuhr nun wird sich Justin wohl für die Europatournee nen neuen Manager suchen müssen..." user="729165913">
+    <tweet depth="1" has_dc="True" id="319395260348379136" num_dcs="1" text="@dieternuhr nun wird sich Justin wohl DC/DC/für die Europatournee nen neuen Manager suchen müssen..." user="729165913">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319395318175236097" num_dcs="0" text="@dieternuhr er hat ein Fass aufgemacht? ;))" user="308430237">
+    <tweet depth="1" has_dc="False" id="319395318175236097" num_dcs="0" text="@dieternuhr nun wird sich Justin wohl DC/DC/für die Europatournee nen neuen Manager suchen müssen...@dieternuhr nun wird sich Justin wohl DC/für die Europatournee nen neuen Manager suchen müssen...@dieternuhr er hat ein Fass aufgemacht? ;))" user="308430237">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319395531027800065" num_dcs="0" text="@dieternuhr ein bisschen spät oder?!" user="21130152">
+    <tweet depth="1" has_dc="False" id="319395531027800065" num_dcs="0" text="@dieternuhr nun wird sich Justin wohl DC/DC/für die Europatournee nen neuen Manager suchen müssen...@dieternuhr nun wird sich Justin wohl DC/für die Europatournee nen neuen Manager suchen müssen...@dieternuhr er hat ein Fass aufgemacht? ;))@dieternuhr nun wird sich Justin wohl DC/für die Europatournee nen neuen Manager suchen müssen...@dieternuhr er hat ein Fass aufgemacht? ;))@dieternuhr ein bisschen spät oder?!" user="21130152">
     </tweet>
-    <tweet dc_location_1="40" depth="1" has_dc="True" id="319395586510032896" num_dcs="1" text="@dieternuhr Mhh..also hat man dem Affen doch eigentlich Justin Bieber weg genommen?" user="408447384">
+    <tweet depth="1" has_dc="True" id="319395586510032896" num_dcs="1" text="@dieternuhr Mhh..also hat man dem Affen DC/DC/doch eigentlich Justin Bieber weg genommen?" user="408447384">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319395683188764672" num_dcs="0" text="@dieternuhr Gut, dem Affen geht es deutlich besser." user="56075977">
+    <tweet depth="1" has_dc="False" id="319395683188764672" num_dcs="0" text="@dieternuhr Mhh..also hat man dem Affen DC/DC/doch eigentlich Justin Bieber weg genommen?@dieternuhr Mhh..also hat man dem Affen DC/doch eigentlich Justin Bieber weg genommen?@dieternuhr Gut, dem Affen geht es deutlich besser." user="56075977">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319395810179690496" num_dcs="0" text="@dieternuhr ganz entspannt, er wird sich einen neuen Bieber kaufen, diesmal kastriert&amp;geimpft" user="560403416">
+    <tweet depth="1" has_dc="False" id="319395810179690496" num_dcs="0" text="@dieternuhr Mhh..also hat man dem Affen DC/DC/doch eigentlich Justin Bieber weg genommen?@dieternuhr Mhh..also hat man dem Affen DC/doch eigentlich Justin Bieber weg genommen?@dieternuhr Gut, dem Affen geht es deutlich besser.@dieternuhr Mhh..also hat man dem Affen DC/doch eigentlich Justin Bieber weg genommen?@dieternuhr Gut, dem Affen geht es deutlich besser.@dieternuhr ganz entspannt, er wird sich einen neuen Bieber kaufen, diesmal kastriert&amp;geimpft" user="560403416">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319395979348557824" num_dcs="0" text="@dieternuhr Ich habe mit ihm gesprochen. Er war sehr froh !" user="1265238763">
+    <tweet depth="1" has_dc="False" id="319395979348557824" num_dcs="0" text="@dieternuhr Mhh..also hat man dem Affen DC/DC/doch eigentlich Justin Bieber weg genommen?@dieternuhr Mhh..also hat man dem Affen DC/doch eigentlich Justin Bieber weg genommen?@dieternuhr Gut, dem Affen geht es deutlich besser.@dieternuhr Mhh..also hat man dem Affen DC/doch eigentlich Justin Bieber weg genommen?@dieternuhr Gut, dem Affen geht es deutlich besser.@dieternuhr ganz entspannt, er wird sich einen neuen Bieber kaufen, diesmal kastriert&amp;geimpft@dieternuhr Mhh..also hat man dem Affen DC/doch eigentlich Justin Bieber weg genommen?@dieternuhr Gut, dem Affen geht es deutlich besser.@dieternuhr ganz entspannt, er wird sich einen neuen Bieber kaufen, diesmal kastriert&amp;geimpft@dieternuhr Ich habe mit ihm gesprochen. Er war sehr froh !" user="1265238763">
     </tweet>
-    <tweet dc_location_1="65" depth="1" has_dc="True" id="319395999632216066" num_dcs="1" text="@dieternuhr  jetzt kann das Äffchen seine Nüsschen alleine essen und muss den Bieber nicht mehr füttern" user="1309779062">
+    <tweet depth="1" has_dc="True" id="319395999632216066" num_dcs="1" text="@dieternuhr  jetzt kann das Äffchen seine Nüsschen alleine essen DC/DC/und muss den Bieber nicht mehr füttern" user="1309779062">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319396197234266112" num_dcs="0" text="@dieternuhr nachlesen in SZ. Lohnt sich" user="68388283">
+    <tweet depth="1" has_dc="False" id="319396197234266112" num_dcs="0" text="@dieternuhr  jetzt kann das Äffchen seine Nüsschen alleine essen DC/DC/und muss den Bieber nicht mehr füttern@dieternuhr  jetzt kann das Äffchen seine Nüsschen alleine essen DC/und muss den Bieber nicht mehr füttern@dieternuhr nachlesen in SZ. Lohnt sich" user="68388283">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319396895283896320" num_dcs="0" text="@dieternuhr er hat ein Plüschtier bekommen. upgrade erfolgreich ausgeführt." user="608390359">
+    <tweet depth="1" has_dc="False" id="319396895283896320" num_dcs="0" text="@dieternuhr  jetzt kann das Äffchen seine Nüsschen alleine essen DC/DC/und muss den Bieber nicht mehr füttern@dieternuhr  jetzt kann das Äffchen seine Nüsschen alleine essen DC/und muss den Bieber nicht mehr füttern@dieternuhr nachlesen in SZ. Lohnt sich@dieternuhr  jetzt kann das Äffchen seine Nüsschen alleine essen DC/und muss den Bieber nicht mehr füttern@dieternuhr nachlesen in SZ. Lohnt sich@dieternuhr er hat ein Plüschtier bekommen. upgrade erfolgreich ausgeführt." user="608390359">
     </tweet>
-    <tweet dc_location_1="123" dc_location_2="126" depth="1" has_dc="True" id="319396932189569024" num_dcs="2" text="@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das ja auch hin. 😉" user="48119272">
+    <tweet depth="1" has_dc="True" id="319396932189569024" num_dcs="1" text="@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/DC/ja auch hin. 😉" user="48119272">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319397498340921345" num_dcs="0" text="@dieternuhr Er hat ein Affentheater gemacht..." user="1300957807">
+    <tweet depth="1" has_dc="False" id="319397498340921345" num_dcs="0" text="@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/DC/ja auch hin. 😉@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht..." user="1300957807">
     </tweet>
-    <tweet dc_location_1="39" depth="1" has_dc="True" id="319400915020963840" num_dcs="1" text="@dieternuhr haha genau das hab ich mir auch gedacht :D" user="157094593">
+    <tweet depth="1" has_dc="False" id="319400915020963840" num_dcs="0" text="@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/DC/ja auch hin. 😉@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht...@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht...@dieternuhr haha genau das hab ich mir auch gedacht :D" user="157094593">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319400959476391939" num_dcs="0" text="@dieternuhr Alter der arme Justin" user="1126022161">
+    <tweet depth="1" has_dc="False" id="319400959476391939" num_dcs="0" text="@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/DC/ja auch hin. 😉@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht...@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht...@dieternuhr haha genau das hab ich mir auch gedacht :D@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht...@dieternuhr haha genau das hab ich mir auch gedacht :D@dieternuhr Alter der arme Justin" user="1126022161">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319401524885348352" num_dcs="0" text="@dieternuhr Wer ist Justin Bieber:-) Muß man den kennen???" user="1034448540">
+    <tweet depth="1" has_dc="False" id="319401524885348352" num_dcs="0" text="@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/DC/ja auch hin. 😉@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht...@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht...@dieternuhr haha genau das hab ich mir auch gedacht :D@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht...@dieternuhr haha genau das hab ich mir auch gedacht :D@dieternuhr Alter der arme Justin@dieternuhr Schlecht, er spielt die ganze Zeit mit einem Bild von ihm. Er denkt Justin sei seine Mutter. Optisch kommt das DC/ja auch hin. 😉@dieternuhr Er hat ein Affentheater gemacht...@dieternuhr haha genau das hab ich mir auch gedacht :D@dieternuhr Alter der arme Justin@dieternuhr Wer ist Justin Bieber:-) Muß man den kennen???" user="1034448540">
     </tweet>
-    <tweet dc_location_1="45" depth="1" has_dc="True" id="319401604640043008" num_dcs="1" text="@dieternuhr Lieber Dieter - das schreibst du doch nicht selbst - oder?" user="518435342">
+    <tweet depth="1" has_dc="True" id="319401604640043008" num_dcs="1" text="@dieternuhr Lieber Dieter - das schreibst du DC/DC/doch nicht selbst - oder?" user="518435342">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319402505312296962" num_dcs="0" text="@dieternuhr Der Bieber wird im Hotel Artgerecht gehalten ;-)" user="283384963">
+    <tweet depth="1" has_dc="False" id="319402505312296962" num_dcs="0" text="@dieternuhr Lieber Dieter - das schreibst du DC/DC/doch nicht selbst - oder?@dieternuhr Lieber Dieter - das schreibst du DC/doch nicht selbst - oder?@dieternuhr Der Bieber wird im Hotel Artgerecht gehalten ;-)" user="283384963">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319402812284997632" num_dcs="0" text="@dieternuhr mit Erleichterung" user="1272553256">
+    <tweet depth="1" has_dc="False" id="319402812284997632" num_dcs="0" text="@dieternuhr Lieber Dieter - das schreibst du DC/DC/doch nicht selbst - oder?@dieternuhr Lieber Dieter - das schreibst du DC/doch nicht selbst - oder?@dieternuhr Der Bieber wird im Hotel Artgerecht gehalten ;-)@dieternuhr Lieber Dieter - das schreibst du DC/doch nicht selbst - oder?@dieternuhr Der Bieber wird im Hotel Artgerecht gehalten ;-)@dieternuhr mit Erleichterung" user="1272553256">
     </tweet>
-    <tweet dc_location_1="44" depth="1" has_dc="True" id="319402934104379392" num_dcs="1" text="@dieternuhr Mit erheblich mehr Enthusiasmus als ich obigen Satz." user="1223060270">
+    <tweet depth="1" has_dc="True" id="319402934104379392" num_dcs="1" text="@dieternuhr Mit erheblich mehr Enthusiasmus DC/DC/als ich obigen Satz." user="1223060270">
     </tweet>
-    <tweet dc_location_1="84" depth="1" has_dc="True" id="319403733576474624" num_dcs="1" text="@dieternuhr  er gibt keinen Kommentar dazu. Wahrscheinlich schmerzt ihn der Verlust noch zu sehr...." user="1318410331">
+    <tweet depth="1" has_dc="True" id="319403733576474624" num_dcs="1" text="@dieternuhr  er gibt keinen Kommentar dazu. Wahrscheinlich schmerzt ihn der Verlust DC/DC/noch zu sehr...." user="1318410331">
     </tweet>
-    <tweet dc_location_1="41" depth="1" has_dc="True" id="319404184808071168" num_dcs="1" text="@dieternuhr Er ist ein wenig verzweifelt und sucht nun jemand anderen, den er lausen kann." user="499000898">
+    <tweet depth="1" has_dc="True" id="319404184808071168" num_dcs="1" text="@dieternuhr Er ist ein wenig verzweifelt DC/DC/und sucht nun jemand anderen, den er lausen kann." user="499000898">
     </tweet>
-    <tweet dc_location_1="41" depth="1" has_dc="True" id="319406183687524353" num_dcs="1" text="@dieternuhr Er ist erleichtert, benötigt jedoch dringend jemand anderen, den er lausen kann." user="499000898">
+    <tweet depth="1" has_dc="True" id="319406183687524353" num_dcs="1" text="@dieternuhr Er ist erleichtert, benötigt DC/DC/jedoch dringend jemand anderen, den er lausen kann." user="499000898">
     </tweet>
-<<<<<<< HEAD
-    <tweet dc_location_1="66" dc_location_2="25" depth="1" has_dc="True" id="319406746491813888" num_dcs="2" text="Lol!! %quot%@dieternuhr: Wie aht der Affe eigentlich aufgenommen, dass sie ihm an der Grenze Justin Bieber weggenommen haben?%quot%" user="498359871">
+    <tweet depth="1" has_dc="True" id="319406746491813888" num_dcs="2" text="Lol!! %quot%@dieternuhr: DC/DC/Wie aht der Affe eigentlich aufgenommeDC/n, DC/dass sie ihm an der Grenze Justin Bieber weggenommen haben?%quot%" user="498359871">
     </tweet>
-    <tweet dc_location_1="81" dc_location_2="51" depth="1" has_dc="True" id="319408605667422208" num_dcs="2" text="@dieternuhr Naja, solche Äußerungen bezeichnet man als Neid auf andere Personen! Wie währe es mit Respect?!" user="134164413">
-     <tweet dc_location_1="90" depth="2" has_dc="True" id="319409306871140353" num_dcs="1" text="@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war ja nuhr eine Frage..." user="1249845547">
-=======
-    <tweet dc_location="25" depth="1" has_dc="True" id="319406746491813888" num_dcs="2" text="Lol!! %quot%@dieternuhr: Wie aht der Affe eigentlich aufgenommen, dass sie ihm an der Grenze Justin Bieber weggenommen haben?%quot%" user="498359871">
-    </tweet>
-    <tweet dc_location="51" depth="1" has_dc="True" id="319408605667422208" num_dcs="2" text="@dieternuhr Naja, solche Äußerungen bezeichnet man als Neid auf andere Personen! Wie währe es mit Respect?!" user="134164413">
-     <tweet dc_location="90" depth="2" has_dc="True" id="319409306871140353" num_dcs="1" text="@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war ja nuhr eine Frage..." user="1249845547">
->>>>>>> aef1ca08f0182b9a917d96399103f54c3e8eeb3f
+    <tweet depth="1" has_dc="True" id="319408605667422208" num_dcs="2" text="@dieternuhr Naja, solche Äußerungen bezeichnet man DC/DC/als Neid auf andere PersoneDC/n! DC/Wie währe es mit Respect?!" user="134164413">
+     <tweet depth="2" has_dc="True" id="319409306871140353" num_dcs="1" text="@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/DC/ja nuhr eine Frage..." user="1249845547">
      </tweet>
     </tweet>
-    <tweet depth="1" has_dc="False" id="319409554318315520" num_dcs="0" text="@dieternuhr Sicherlich nicht annährend so schlimm. Vielleicht war er sogar erleichtert? ;-)" user="1261872733">
+    <tweet depth="1" has_dc="False" id="319409554318315520" num_dcs="0" text="@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/DC/ja nuhr eine Frage...@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/ja nuhr eine Frage...@dieternuhr Sicherlich nicht annährend so schlimm. Vielleicht war er sogar erleichtert? ;-)" user="1261872733">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319412715368116224" num_dcs="0" text="@dieternuhr Doktor Shiva antwortet: tränenreiches geständnis im #zdf -  #lanz armstrong bei #oprah von marzahn: “Ich bin Hunzikers Cuisine%quot%" user="1069520250">
+    <tweet depth="1" has_dc="False" id="319412715368116224" num_dcs="0" text="@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/DC/ja nuhr eine Frage...@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/ja nuhr eine Frage...@dieternuhr Sicherlich nicht annährend so schlimm. Vielleicht war er sogar erleichtert? ;-)@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/ja nuhr eine Frage...@dieternuhr Sicherlich nicht annährend so schlimm. Vielleicht war er sogar erleichtert? ;-)@dieternuhr Doktor Shiva antwortet: tränenreiches geständnis im #zdf -  #lanz armstrong bei #oprah von marzahn: “Ich bin Hunzikers Cuisine%quot%" user="1069520250">
     </tweet>
-    <tweet dc_location_1="44" depth="1" has_dc="True" id="319413328625668098" num_dcs="1" text="@dieternuhr In den Augen der armen Kreatur, also des Affen, konnte man tief empfundene Dankbarkeit erkennen." user="152206856">
+    <tweet depth="1" has_dc="False" id="319413328625668098" num_dcs="0" text="@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/DC/ja nuhr eine Frage...@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/ja nuhr eine Frage...@dieternuhr Sicherlich nicht annährend so schlimm. Vielleicht war er sogar erleichtert? ;-)@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/ja nuhr eine Frage...@dieternuhr Sicherlich nicht annährend so schlimm. Vielleicht war er sogar erleichtert? ;-)@dieternuhr Doktor Shiva antwortet: tränenreiches geständnis im #zdf -  #lanz armstrong bei #oprah von marzahn: “Ich bin Hunzikers Cuisine%quot%@iBiebersSwaag ich finde, @dieternuhr bringt dem Tier den nötigen Respekt entgegen.es war DC/ja nuhr eine Frage...@dieternuhr Sicherlich nicht annährend so schlimm. Vielleicht war er sogar erleichtert? ;-)@dieternuhr Doktor Shiva antwortet: tränenreiches geständnis im #zdf -  #lanz armstrong bei #oprah von marzahn: “Ich bin Hunzikers Cuisine%quot%@dieternuhr In den Augen der armen Kreatur, also des Affen, konnte man tief empfundene Dankbarkeit erkennen." user="152206856">
     </tweet>
-    <tweet dc_location_1="80" dc_location_2="28" depth="1" has_dc="True" id="319414514103771136" num_dcs="2" text="@dieternuhr ich habe nichts dagegen wenn Sie Justin Bieber nicht leiden können. Aber aus Respekt sollte man solche Äußerungen unterlassen ." user="134164413">
-     <tweet depth="2" has_dc="False" id="319414977641455618" num_dcs="0" text="@iBiebersSwaag @dieternuhr Find ich nicht, Justin Bieber ist einfach kacke 😄" user="327257681">
-      <tweet dc_location_1="89" dc_location_2="92" dc_location_3="47" depth="3" has_dc="True" id="319415410783047680" num_dcs="3" text="@CdeBandBTR @dieternuhr das ist deine Meinung. Trotzdem verdient jeder Respekt. Du wirst ja auch respektvoll behandelt" user="134164413">
-       <tweet dc_location_1="58" dc_location_2="92" depth="4" has_dc="True" id="319415910064603136" num_dcs="2" text="@iBiebersSwaag @dieternuhr Nein, mein Musikgeschmack wird auch nicht respektvoll behandelt. Aber du hast Recht. Jeder hat das Recht..." user="327257681">
+    <tweet depth="1" has_dc="True" id="319414514103771136" num_dcs="2" text="@dieternuhr ich habe nichts DC/DC/dagegen wenn Sie Justin Bieber nicht leiden könneDC/n. DC/Aber aus Respekt sollte man solche Äußerungen unterlassen ." user="134164413">
+     <tweet depth="2" has_dc="False" id="319414977641455618" num_dcs="0" text="@dieternuhr ich habe nichts DC/DC/dagegen wenn Sie Justin Bieber nicht leiden könneDC/n. DC/Aber aus Respekt sollte man solche Äußerungen unterlassen .@dieternuhr ich habe nichts DC/dagegen wenn Sie Justin Bieber nicht leiden können. DC/Aber aus Respekt sollte man solche Äußerungen unterlassen .@iBiebersSwaag @dieternuhr Find ich nicht, Justin Bieber ist einfach kacke 😄" user="327257681">
+      <tweet depth="3" has_dc="True" id="319415410783047680" num_dcs="2" text="@CdeBandBTR @dieternuhr das ist deine Meinung. DC/DC/Trotzdem verdient jeder Respekt. Du wirDC/st DC/ja auch respektvoll behandelt" user="134164413">
+       <tweet depth="4" has_dc="True" id="319415910064603136" num_dcs="1" text="@iBiebersSwaag @dieternuhr Nein, mein Musikgeschmack wird auch nicht respektvoll behandelt. DC/DC/Aber du hast Recht. Jeder hat das Recht..." user="327257681">
        </tweet>
-       <tweet dc_location_1="32" depth="4" has_dc="True" id="319415990679121921" num_dcs="1" text="@iBiebersSwaag @dieternuhr ..., dass seine Einstellung akzeptiert wird. Der erste Tweet tut mir Leid!" user="327257681">
+       <tweet depth="4" has_dc="True" id="319415990679121921" num_dcs="1" text="@iBiebersSwaag @dieternuhr ..., DC/DC/dass seine Einstellung akzeptiert wird. Der erste Tweet tut mir Leid!" user="327257681">
        </tweet>
       </tweet>
      </tweet>
-<<<<<<< HEAD
-     <tweet dc_location_1="99" dc_location_2="94" depth="2" has_dc="True" id="319419546505199617" num_dcs="2" text="@iBiebersSwaag wenn man keinen misst baut kann man nicht durch den Kakao gezogen werden. Wenn doch dann lasst uns doch lachen" user="420964822">
+     <tweet depth="2" has_dc="True" id="319419546505199617" num_dcs="2" text="@iBiebersSwaag wenn man keinen misst baut kann man nicht durch den Kakao gezogen werden. Wenn DC/DC/doDC/ch DC/dann lasst uns doch lachen" user="420964822">
      </tweet>
-     <tweet dc_location_1="90" dc_location_2="64" dc_location_3="76" dc_location_4="93" depth="2" has_dc="True" id="319420931695058944" num_dcs="4" text="@iBiebersSwaag @dieternuhr Haben Leute mit sog. SWAG eigentlich auch Humor? Oder kann man da nur über andere Lachen.." user="1288746678">
+     <tweet depth="2" has_dc="True" id="319420931695058944" num_dcs="2" text="@iBiebersSwaag @dieternuhr Haben Leute mit sog. SWAG eigentlich auch Humor? DC/DC/Oder kann mDC/an DC/da nur über andere Lachen.." user="1288746678">
      </tweet>
-     <tweet dc_location_1="55" dc_location_2="103" depth="2" has_dc="True" id="319435758907846656" num_dcs="2" text="@iBiebersSwaag @dieternuhr Respekt gegenüber dem Affen oder Bieber? Verstehe dein Argument hier nicht, aber gut, dein Name sagt alles..." user="1111793118">
-=======
-     <tweet dc_location="94" depth="2" has_dc="True" id="319419546505199617" num_dcs="2" text="@iBiebersSwaag wenn man keinen misst baut kann man nicht durch den Kakao gezogen werden. Wenn doch dann lasst uns doch lachen" user="420964822">
-     </tweet>
-     <tweet dc_location="76" depth="2" has_dc="True" id="319420931695058944" num_dcs="2" text="@iBiebersSwaag @dieternuhr Haben Leute mit sog. SWAG eigentlich auch Humor? Oder kann man da nur über andere Lachen.." user="1288746678">
-     </tweet>
-     <tweet dc_location="55" depth="2" has_dc="True" id="319435758907846656" num_dcs="2" text="@iBiebersSwaag @dieternuhr Respekt gegenüber dem Affen oder Bieber? Verstehe dein Argument hier nicht, aber gut, dein Name sagt alles..." user="1111793118">
->>>>>>> aef1ca08f0182b9a917d96399103f54c3e8eeb3f
+     <tweet depth="2" has_dc="True" id="319435758907846656" num_dcs="2" text="@iBiebersSwaag @dieternuhr Respekt gegenüber dem Affen DC/DC/oder Bieber? Verstehe dein Argument hier nichDC/t, DC/aber gut, dein Name sagt alles..." user="1111793118">
      </tweet>
     </tweet>
-    <tweet dc_location_1="47" depth="1" has_dc="True" id="319416125454704640" num_dcs="1" text="@dieternuhr Genauso wi Selena Gomez! Er dachte endlich bin ich den Ar... los :)" user="1187404651">
+    <tweet depth="1" has_dc="True" id="319416125454704640" num_dcs="1" text="@dieternuhr Genauso wi Selena Gomez! Er dachte DC/DC/endlich bin ich den Ar... los :)" user="1187404651">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319420229904105472" num_dcs="0" text="@dieternuhr vermutlich mit großer Erleichterung" user="299216459">
+    <tweet depth="1" has_dc="False" id="319420229904105472" num_dcs="0" text="@dieternuhr Genauso wi Selena Gomez! Er dachte DC/DC/endlich bin ich den Ar... los :)@dieternuhr Genauso wi Selena Gomez! Er dachte DC/endlich bin ich den Ar... los :)@dieternuhr vermutlich mit großer Erleichterung" user="299216459">
     </tweet>
-    <tweet dc_location_1="70" dc_location_2="54" dc_location_3="40" dc_location_4="49" depth="1" has_dc="True" id="319428799685095424" num_dcs="4" text="@dieternuhr Der arme Affe hat angeblich zunächst kaum noch gefressen, inzwischen hat er sich wohl an Abwesenheit von Artgenossen gewöhnt." user="580026542">
+    <tweet depth="1" has_dc="True" id="319428799685095424" num_dcs="4" text="@dieternuhr Der arme Affe hat angeblich DC/DC/zunächDC/st DCDC//kaum DC/noch geDC/fressen, DC/inzwischen hat er sich wohl an Abwesenheit von Artgenossen gewöhnt." user="580026542">
     </tweet>
-    <tweet dc_location_1="32" depth="1" has_dc="True" id="319431174864916480" num_dcs="1" text="@dieternuhr der kann sein Glück kaum fassen. Ist sozusagen auf dem siebten Ast!" user="1005122066">
+    <tweet depth="1" has_dc="True" id="319431174864916480" num_dcs="1" text="@dieternuhr der kann sein Glück DC/DC/kaum fassen. Ist sozusagen auf dem siebten Ast!" user="1005122066">
     </tweet>
-    <tweet dc_location_1="91" dc_location_2="37" depth="1" has_dc="True" id="319432813600460800" num_dcs="2" text="@dieternuhr Der Affe kann sein Glück kaum fassen. Ist sozusagen auf dem siebten Ast! Biber und Affen gehören einfach nicht zusammen!" user="1005122066">
+    <tweet depth="1" has_dc="True" id="319432813600460800" num_dcs="2" text="@dieternuhr Der Affe kann sein Glück DC/DC/kaum fassen. Ist sozusagen auf dem siebten Ast! BibDC/er DC/und Affen gehören einfach nicht zusammen!" user="1005122066">
     </tweet>
-    <tweet dc_location_1="56" depth="1" has_dc="True" id="319436070431375360" num_dcs="1" text="@dieternuhr p.s. Dieter, ich mag deinen Humor, bleib so wie du bist!!!" user="1111793118">
+    <tweet depth="1" has_dc="True" id="319436070431375360" num_dcs="1" text="@dieternuhr p.s. Dieter, ich mag deinen Humor, bleib so DC/DC/wie du bist!!!" user="1111793118">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319439170609246208" num_dcs="0" text="@dieternuhr der war erleichtert!!!" user="348393890">
+    <tweet depth="1" has_dc="False" id="319439170609246208" num_dcs="0" text="@dieternuhr p.s. Dieter, ich mag deinen Humor, bleib so DC/DC/wie du bist!!!@dieternuhr p.s. Dieter, ich mag deinen Humor, bleib so DC/wie du bist!!!@dieternuhr der war erleichtert!!!" user="348393890">
     </tweet>
-    <tweet dc_location_1="64" depth="1" has_dc="True" id="319441242104688641" num_dcs="1" text="@dieternuhr er ist in einen unbefristeten Hungerstreik getreten und hat den UN-Sicherheitsrat angerufen. Nicht?" user="749809411">
+    <tweet depth="1" has_dc="True" id="319441242104688641" num_dcs="1" text="@dieternuhr er ist in einen unbefristeten Hungerstreik getreten DC/DC/und hat den UN-Sicherheitsrat angerufen. Nicht?" user="749809411">
     </tweet>
-<<<<<<< HEAD
-    <tweet dc_location_1="42" depth="1" has_dc="True" id="319442998926655489" num_dcs="1" text="@dieternuhr der Affe war nach langer Zeit für ein paar Tage sehr glücklich" user="629310064">
-=======
-    <tweet dc_location="33" depth="1" has_dc="True" id="319444897713238016" num_dcs="2" text="@dieternuhr er hat sich gedacht: endlich is der Affe weg. Wurde ja auch Zeit!" user="1320681319">
->>>>>>> aef1ca08f0182b9a917d96399103f54c3e8eeb3f
+    <tweet depth="1" has_dc="True" id="319442998926655489" num_dcs="1" text="@dieternuhr der Affe war nach langer Zeit DC/DC/für ein paar Tage sehr glücklich" user="629310064">
     </tweet>
-    <tweet dc_location_1="12" depth="1" has_dc="True" id="319443375063453696" num_dcs="1" text="@dieternuhr oder war das ein anderer Affe, d jüngst aus dem Weltall mit falschen Warzen zurück gekommen ist?" user="749809411">
+    <tweet depth="1" has_dc="True" id="319443375063453696" num_dcs="1" text="@dieternuhr DC/DC/oder war das ein anderer Affe, d jüngst aus dem Weltall mit falschen Warzen zurück gekommen ist?" user="749809411">
     </tweet>
-<<<<<<< HEAD
-    <tweet dc_location_1="33" dc_location_2="64" dc_location_3="67" depth="1" has_dc="True" id="319444897713238016" num_dcs="3" text="@dieternuhr er hat sich gedacht: endlich is der Affe weg. Wurde ja auch Zeit!" user="1320681319">
+    <tweet depth="1" has_dc="True" id="319444897713238016" num_dcs="2" text="@dieternuhr er hat sich gedacht: DC/DC/endlich is der Affe weg. WurDC/de DC/ja auch Zeit!" user="1320681319">
     </tweet>
-    <tweet dc_location_1="23" depth="1" has_dc="True" id="319454474613714944" num_dcs="1" text="@dieternuhr Zum ersten Mal in seinem Leben hat ihn jeder beneidet." user="884378988">
+    <tweet depth="1" has_dc="True" id="319454474613714944" num_dcs="1" text="@dieternuhr Zum ersten DC/DC/Mal in seinem Leben hat ihn jeder beneidet." user="884378988">
     </tweet>
-    <tweet dc_location_1="20" dc_location_2="56" depth="1" has_dc="True" id="319454831171469312" num_dcs="2" text="@dieternuhr genauso wie David #Hasselhoff reagiert hat, als sie ihm die Mauer genommen haben: I've been looking for freedom" user="1278892555">
-=======
-    <tweet dc_location="56" depth="1" has_dc="True" id="319454831171469312" num_dcs="2" text="@dieternuhr genauso wie David #Hasselhoff reagiert hat, als sie ihm die Mauer genommen haben: I've been looking for freedom" user="1278892555">
->>>>>>> aef1ca08f0182b9a917d96399103f54c3e8eeb3f
+    <tweet depth="1" has_dc="True" id="319454831171469312" num_dcs="2" text="@dieternuhr genauso DC/DC/wie David #Hasselhoff reagiert haDC/t, DC/als sie ihm die Mauer genommen haben: I've been looking for freedom" user="1278892555">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319501958677397504" num_dcs="0" text="@dieternuhr  ist dem egal, hauptsache der muss die musik nicht mehr ertragen" user="250310577">
+    <tweet depth="1" has_dc="False" id="319501958677397504" num_dcs="0" text="@dieternuhr genauso DC/DC/wie David #Hasselhoff reagiert haDC/t, DC/als sie ihm die Mauer genommen haben: I've been looking for freedom@dieternuhr genauso DC/wie David #Hasselhoff reagiert hat, DC/als sie ihm die Mauer genommen haben: I've been looking for freedom@dieternuhr  ist dem egal, hauptsache der muss die musik nicht mehr ertragen" user="250310577">
     </tweet>
-    <tweet dc_location_1="85" depth="1" has_dc="True" id="319505699329683457" num_dcs="1" text="@dieternuhr Gar nicht, der war nicht echt! Den Bieber haben sie übersehen!Quarantäne für TeenNager!!!" user="1284019388">
+    <tweet depth="1" has_dc="True" id="319505699329683457" num_dcs="1" text="@dieternuhr Gar nicht, der war nicht echt! Den Bieber haben sie übersehen!Quarantäne DC/DC/für TeenNager!!!" user="1284019388">
     </tweet>
-    <tweet depth="1" has_dc="False" id="319510148899012608" num_dcs="0" text="@dieternuhr ..man sollte das dem Tierschutzverein melden,das arme Tier!!!" user="1325127710">
+    <tweet depth="1" has_dc="False" id="319510148899012608" num_dcs="0" text="@dieternuhr Gar nicht, der war nicht echt! Den Bieber haben sie übersehen!Quarantäne DC/DC/für TeenNager!!!@dieternuhr Gar nicht, der war nicht echt! Den Bieber haben sie übersehen!Quarantäne DC/für TeenNager!!!@dieternuhr ..man sollte das dem Tierschutzverein melden,das arme Tier!!!" user="1325127710">
     </tweet>
-    <tweet dc_location_1="33" depth="1" has_dc="True" id="319525936087318529" num_dcs="1" text="@dieternuhr War nicht so schlimm für den Affen, man hat ihm die Banane gelassen." user="1273320685">
+    <tweet depth="1" has_dc="True" id="319525936087318529" num_dcs="1" text="@dieternuhr War nicht so schlimm DC/DC/für den Affen, man hat ihm die Banane gelassen." user="1273320685">
     </tweet>
    </tweet>
   </thread>

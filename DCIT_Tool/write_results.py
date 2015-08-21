@@ -32,13 +32,23 @@ def write_results(tweets, input_path, output_path):
 		# add some additional attributes (just an example)
 		results[0]["has_dc"] = t.has_dc()	
 		results[0]["num_dcs"] = len(t.dcs)
+
+		# add tags to the text itself marking where (potential) DCs were found
+		n = 0
+		text = results[0]["text"]
+		tag = "DC/"
+		oldindex = 0
 		
-		n = 1
-		for d in t.dcs:
-			
-			results[0]["dc_location_"+str(n)] = d[2]
+		for d in sorted(t.dcs, key=lambda x:x[2]):
+			if n == 0:	# first
+				newtext = text[:d[2]] + tag
+			else: # all others
+				newtext = newtext + text[oldindex:d[2]] + tag
 			n += 1
-			
-			
+			oldindex = d[2]
+		# end of string
+		newtext = newtext + text[oldindex:]
 		
+		results[0]["text"] = newtext
+
 	write() # write the last one
