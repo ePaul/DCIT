@@ -199,7 +199,7 @@ def disambiguate(tweets, dcons):
 								if tagged_words[k] in [ i.lower() for i in schneider_ones[j][2] ]:
 									### COMMENT OUT AFTER TESTING ###
 									#print "removing DC type 1 ", x[0].part_one[0]
-									###								
+
 									ones_to_delete.append(x)
 									break							
 								elif tagged_words[k][1] in schneider_ones[j][1]:

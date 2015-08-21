@@ -1,32 +1,32 @@
 \documentclass[11pt]{article}
-\usepackage{fullpage}
+%\usepackage{fullpage}
 
 \def\mono#1{\texttt{#1}}  % "mono" command for monospace font
 
 \title{\textbf{DCIT: Discourse Connectives in Twitter}}
-\author{C. Clayton Violand  \mono{charles.violand@uni-potsdam.de}
-\\Jessica Grasso \mono{jgrasso@uni-potsdam.de}}
+\author{Jessica Grasso \mono{jgrasso@uni-potsdam.de}
+\\C. Clayton Violand  \mono{charles.violand@uni-potsdam.de}}
 \date{21 August 2015}
 \begin{document}
 
 \maketitle
 
-\abstract{Do we need an abstract for something so short?  I say no.  \\  Discourse connectives are bla bla. DCIT is a tool written in Python that analyzes the usage of discourse connectives amongst German Twitter data.  Bla bla}
+\abstract{DCIT is a tool written in Python that analyzes the usage of discourse connectives in German Twitter data. It utilizes Twitter text data, parallel POS-tagged text, and the DiMLex discourse connective framework. It allows for the analysis of the use of discourse connectives amongst Twitter speech, and provides the groundwork for further analysis of this type of dialogue as compared to more standard forms of conversation.}
 
 \section{Background and Related Work}
 
 Discourse markers or discourse connectives are words that show the presence of a discourse relation in text.  These words form a closed class, must meet certain fixed criteria, and share some characteristics of content words.  These relations are vital to the coherence of a text, and can be used to analyze content and structure \cite{dimlex}. \\
 
-Something about Twitter here?\\
+Due to the nature of the Twitter platform, one might expect that the use of these discourse connectives differs when tweeting. In order to test this idea, discourse connective data must first be collected from the tweets. To accomplish this, classic data-comparison techniques are brought in, such as POS-tagging.\\
 
 Part-of-speech tagging for Twitter data faces many challenges due to the non-standard language common on that platform, including acronyms, missing or shortened words, emoticons, and URLs, in addition to items such as proper names. \cite{GermanTweetTagging}.  We cannot comment on which, if any, techniques were used to overcome these challenges, as the output files were provided to us, but this is a limitation to keep in mind.\\
 
-This project directly uses DiMLex, a lexicon of German discourse markers developed by the Discourse Lab at the University of Potsdam \cite{dimlex}.  From this lexicon we extracted our list of German discourse connectives and additional information about each.\\
+This project uses DiMLex, a lexicon of German discourse markers developed by the Discourse Lab at the University of Potsdam \cite{dimlex}.  From this lexicon we extracted our list of German discourse connectives and additional information about each.\\
 
-We also used results found in the bachelor thesis of Angela Schneider, titled \emph{Disambiguierung von Diskurskonnektoren im Deutschen} and also completed at the University of Potsdam \cite{schneider1}, and a paper published by Schneider and Manfred Stede containing a summery of the same work \cite{schneider2}.  These results of this work were directly used as a  first step to disambiguate the potentially ambiguous discourse connectives in this project.
+We also used results found in the bachelor thesis of Angela Schneider (University of Potsdam), titled \emph{Disambiguierung von Diskurskonnektoren im Deutschen} \cite{schneider1}, as well as a paper published by Schneider and Manfred Stede containing a summery of the same work \cite{schneider2}.  The results of these works were used as a first step in disambiguating the potentially ambiguous discourse connectives in this project.
 
 \section{System Description}
-DCIT is a tool written in Python that analyzes the usage of discourse connectives in German Twitter data.  Given a list of German discourse markers and one or more files containing German-language tweets, the tool counts possible discourse connectives, performs some initial disambiguation on the ambiguous connectives, and re-counts, outputting annotated versions of the tweets.
+DCIT is a tool written in Python that analyzes the usage of discourse connectives in German Twitter data.  Given a list of German discourse markers and one or more files containing German-language tweets, the tool counts possible discourse connectives, performs disambiguation on the ambiguous connectives, and re-counts, outputting annotated versions of the tweets.
 
 \subsection{Input}
 \begin{itemize} 
@@ -45,14 +45,14 @@ DCIT is a tool written in Python that analyzes the usage of discourse connective
 \begin{itemize} 
 
 \item  \mono{has\textunderscore dc} - with value \mono{True} or \mono{False} corresponding to whether the tweet contains at least one (potential) discourse connective
-\item  \mono{num\textunderscore dcs} - the number of (potential) discourse connectives contained in that tweet, and,
+\item  \mono{num\textunderscore dcs} - the number of (potential) discourse connectives contained in that tweet
 \item  \mono{dc\textunderscore location\textunderscore x} - for each (potential) discourse connective present, the string index at which it begins in the text.
 
 \end{itemize} % end tags
 
 \end{itemize} % end output
 
-\section{Details}
+\section{System Method}
 
 First, the DiMLex lexicon is read in and stored as an object (\mono{get\textunderscore dcons.py}).  Each connective has several important features used in this project:
 \begin{itemize}
@@ -63,51 +63,45 @@ First, the DiMLex lexicon is read in and stored as an object (\mono{get\textunde
 \end{itemize}
  The lexicon also contains several additional features that we did not utilize. \\
  
-Then, the tweets are read in (\mono{get\textunderscore tweets.py}).  Since even one day of tweets is far to much to fit in memory (at least on the machines at our disposal), each tweet is sent through the following pipeline individually, and at no point should more than one file (corresponding to one day) be open simultaneously.  Each tweet is represented as an object, which at this point contains only features extracted from the file.  These include:
+Then, the tweets are read in (\mono{get\textunderscore tweets.py}).  Since even one day of tweets is far too much to fit into memory (at least on the machines at our disposal), each tweet is sent through the following pipeline individually, and at no point should more than one file (corresponding to one day) be open simultaneously.  Each tweet is represented as an object, which at this point contains only features extracted from the file.  These include:
 \begin{itemize}
 \renewcommand\labelitemi{--}
 \item \mono{id} - unique tweet ID number
 \item \mono{\textunderscore original} - original, unmodified tweet text
 \item \mono{words} - tokenized tweet text
-\item \mono{raw} - tweet text made lowercase and later further modified as needed
+\item \mono{raw} - tweet text made lowercase and later further modified as needed (e.g. discourse connective deletion occurs to prevent certain special types from being found twice).
 \end{itemize} 
 
 The next step is to determine and save more details about each tweet (\mono{get\textunderscore matches.py}).  This includes searching for all possible discourse connectives, and counting and storing some basic information about how many of each has been found.  This information, since it is collected over a large number of tweets, is stored in another object (\mono{get\textunderscore info.py}) which can be referenced and output at a later time.  In addition to these counts, a list of tuples containing all found (potential) discourse connectives, their ambiguity status, and their location in the string is populated in each tweet object for later use.\\
 
-Once this basic information has been gathered, the task is to disambiguate the ambiguous discourse connectives, that is, to determine which are truly discourse connectives and which are likely to be performing other functions in the text (\mono{disambiguate.py}).  For this task we used Schneider's results, resulting in three categories.  Category 0 includes the words from Table 1 of Schneider \& Stede (2012) \cite{schneider2}, and entirely eliminates words that occur only very infrequently as discourse connectives from the list of possible connectives.  Category 1 includes the words from Table 2.2 of Schneider \cite{schneider1} for which the ambiguous status can be resolved using the part of speech of the connective in question.  Category 2 includes the words from Table 3.1 of Schneider \cite{schneider1}  for which further context with part-of-speech tagging can be used. \\
+Once this basic information has been gathered, the task is to disambiguate the ambiguous discourse connectives, that is, to determine which are truly discourse connectives and which are likely to be performing other functions in the text (\mono{disambiguate.py}).  For this task we used Schneider's results, resulting in three categories.  Category 0 includes the words from Table 1 of Schneider \& Stede (2012) \cite{schneider2}, and entirely eliminates words that occur only very infrequently as discourse connectives from the list of possible connectives.  Category 1 includes the words from Table 2.2 of Schneider \cite{schneider1} for which the ambiguous status can be resolved using the part of speech of the connective in question.  Category 2 includes the words from Table 3.1 of Schneider \cite{schneider1} for which further context--in addition to the part-of-speech--is needed in order to disambiguate. \\
 
-After this step, the basic counts from above are repeated (\mono{post\textunderscore disambiguation\textunderscore stats.py}), using a much simplified but otherwise similar method as before.  Compared with the initial stats, there should now be both fewer potential discourse connectives (as some will have been removed during disambiguation) as well as fewer ambiguous matches.\\
+After this step, the basic statistical analysis mentioned above is repeated (\mono{post\textunderscore disambiguation\textunderscore stats.py}) using a much simplified but otherwise similar method as before.  Compared with the initial stats, there should now be both fewer potential discourse connectives (as some will have been removed during disambiguation) as well as fewer ambiguous matches.\\
 \\
 Finally, these results are written to file (\mono{write\textunderscore results.py}).  Currently, the initial files are edited, in that the tags described above are added.  These resulting files can then be used in further analysis.
 
 \section{Results}
 
-These are preliminary results for a subset of the data, namely the 3rd of April. \\
+These are preliminary results for a subset of the data, namely one day of tweets from the month of April (roughly 1/12th of our full data set). \\
+
+TODOTODOTODOTODOTODOTODO
 
 Pre-disambiguation\\
 
-
-
 Post-disambiguation\\
 
-\section{Known Problems and Incomplete Work}
+\section{Known Problems and Future Work}
 \begin{itemize}
-\item \textbf{Optimization} - the tool is quite slow, and could likely be improved through optimization or potentially the incorporation of existing tool or technologies.
-\item \textbf{Testing} - due to time and memory constraints, we were unable to perform very thorough testing.  Given the variety of connectives and diversity of Twitter data, this is a vital step.
+\item \textbf{Optimization} - the tool is quite slow, and could likely be improved through optimization or potentially the incorporation of existing tools or technologies. Using the search and findall functions from the BeautifulSoup package is apparantly expensive.
+\item \textbf{Testing} - Due to memory and data constraints, we were unable to perform very thorough testing.  Given the variety of connectives and diversity of Twitter data, this should be improved step.
 \item \textbf{Additional disambiguation} - Schneider's work includes results for only a small fraction of the discourse markers included in DiMLex.  While this includes many of the common discourse connectives, other ambiguous connectives remain.  Additional research or other methods could be used to improve disambiguation.
-\item \textbf{Conversations} - the project currently focuses on single tweets, not pairs or conversations among Twitter users.  Since tweets are very short texts, and many discourse connectives allow arguments over larger spans, this should be further expanded.
+\item \textbf{Conversations} - The project currently focuses on single tweets, not pairs or conversations among Twitter users.  Since tweets are very short texts, and many discourse connectives allow arguments over larger spans, this should be further expanded.
 
 \end{itemize}
 
-\section{Conclusion and Future Work}
+\subsection*{Acknowledgements}
 
-In addition to the improvements listed above, future work could include...
-
-bla bla something about the stats?
-
-\subsection*{Acknowledgement}
-
-Thanks to Paul Ebermann for some suggestions on optimization and general programming advice.
+Thanks to Paul Ebermann for some suggestions on optimization and Wladamir Sidorenko for providing us with parallel POS-annotated tweet files.
 
 \begin{thebibliography}{} 
 
@@ -121,7 +115,7 @@ Thanks to Paul Ebermann for some suggestions on optimization and general program
 
 \bibitem{GermanTweetTagging} Uladzimir Sidarenka, Tatjana Scheffler, \& Manfred Stede.  (2013).  \emph{Rule based normalization of German Twitter messages}. In: \emph{Proceedings of the International Conference of the German Society for Computational Linguistics and Language Technology}.
 
-\bibitem{WladimirSidorenko} Wladimir Sidorenko.  (20 August 2015).  University of Potsdam staff home page.  \mono{<http://www.ling.uni-potsdam.de/staff/sidorenko>}
+\bibitem{WladimirSidorenko} Wladimir Sidorenko.  (20 August 2015).  University of Potsdam staff home page.  \mono{http://www.ling.uni-potsdam.de/staff/sidorenko}
 
 \end{thebibliography}
 
