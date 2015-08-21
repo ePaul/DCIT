@@ -17,9 +17,11 @@ $ python run.py a.xml b.xml
 ## To run on all files in ../tweets-xml/
 $ python run.py glob
 <br>
-### Note
+#### Note
 <b> From within ~/DCIT_Tool, the following is assumed: </b><br>
-    * Dimlex.html is in ../connectives-xml/dimlex.xml.
-    * Tweet files are in ../tweets-xml/.
-    * POS-tagged files are in ../tweets-pos-tagged/, having the same name as the tweet file w/ extension -tagged.txt.
-    * Results are written to files with extension _new.xml and saved to ../results/, which is created if it does not exist.
+```
+-Dimlex.html is in ../connectives-xml/dimlex.xml.
+-Tweet files are in ../tweets-xml/.
+-POS-tagged files are in ../tweets-pos-tagged/, having the same name as the tweet file w/ extension -tagged.txt.
+-Results are written to files with extension _new.xml and saved to ../results/, which is created if it does not exist.
+```
