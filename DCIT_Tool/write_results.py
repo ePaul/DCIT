@@ -38,5 +38,7 @@ def write_results(tweets, input_path, output_path):
 			
 			results[0]["dc_location_"+str(n)] = d[2]
 			n += 1
+			
+			
 		
 	write() # write the last one
