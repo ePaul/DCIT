@@ -18,7 +18,7 @@ $ python run.py a.xml b.xml
 $ python run.py glob
 <br>
 ### Note
-##### From ~/DCIT_Tool, DCIT assumes the following:
+<b> From within ~/DCIT_Tool, the following is assumed: </b><br>
     * Dimlex.html is in ../connectives-xml/dimlex.xml.
     * Tweet files are in ../tweets-xml/.
     * POS-tagged files are in ../tweets-pos-tagged/, having the same name as the tweet file w/ extension -tagged.txt.
