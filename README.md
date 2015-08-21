@@ -11,7 +11,7 @@ Universität Potsdam
 MSc Program in Cognitive Systems
 charles.violand@uni-potsdam.de
 
-It assumes dimlex.html is located at ../connectives-xml/dimlex.xml , tweet files are located at ../tweets-xml/ , and POS-tagged files have the same name with -tagged.txt extension and are located at ../tweets-pos-tagged/ .  Results are written to files with _new.xml extension and saved to ../results/ , which is created if it does not exist.
+From DCIT_Tool, it assumes dimlex.html is located at ../connectives-xml/dimlex.xml , tweet files are located at ../tweets-xml/ , and POS-tagged files have the same name with -tagged.txt extension and are located at ../tweets-pos-tagged/ .  Results are written to files with _new.xml extension and saved to ../results/ , which is created if it does not exist.
 
 To run on (a) specific file(s):
 
