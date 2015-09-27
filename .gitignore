@@ -1,3 +1,5 @@
 .DS_Store
 *.pyc
 
+connectives-xml/dimlex.xml
+
